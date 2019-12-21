@@ -1,0 +1,131 @@
+.loginButton {
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  padding: 5px 15px 6px 15px;
+  font-weight: 400;
+  font-style: inherit;
+  cursor: pointer;
+}
+
+.loginButton:hover {
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 1);
+}
+
+.overlay {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  overflow: hidden;
+}
+
+.modal {
+  max-width: 400px;
+  width: 100%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 480px;
+  max-height: 100%;
+  background: var(--background-primary);
+}
+
+.form {
+  padding: 30px;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  padding-top: 20px;
+  font-weight: 500;
+  font-size: 28px;
+  color: #fff;
+}
+
+.lead {
+  padding: 5px;
+  font-weight: 300;
+  font-size: 20px;
+  color: rgb(255, 255, 255, 0.5);
+}
+
+.inputs {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+h5 {
+  color: var(--text-muted);
+  margin: 0;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 400;
+  padding-bottom: 5px;
+  padding-top: 15px;
+}
+
+.input {
+  display: flex;
+  height: 40px;
+  width: 100%;
+}
+
+input {
+  display: flex;
+  flex: 1 1 auto;
+  background: var(--deprecated-text-input-bg);
+  border: 1px solid var(--deprecated-text-input-border);
+  color: var(--text-normal);
+  padding: 5px;
+  border-radius: 4px;
+}
+
+input:hover {
+  border: 1px solid var(--deprecated-text-input-border-hover);
+}
+
+.link {
+  color: #7289da;
+  cursor: pointer;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.loginBtn {
+  margin-top: 20px;
+  height: 40px;
+  width: 100%;
+  display: flex;
+  flex: 1 1 auto;
+  background: #7289da;
+  color: var(--text-normal);
+  border-radius: 4px;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  border: none;
+}
+
+.loginBtn:hover {
+  background: #677bc4;
+}
+
+.registBtn {
+  display: flex;
+  flex-direction: row;
+}

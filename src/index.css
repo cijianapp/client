@@ -1,13 +1,28 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: Whitney, Helvetica Neue, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+html:lang(zh-CN) ::placeholder,
+html:lang(zh-CN) body,
+html:lang(zh-CN) button,
+html:lang(zh-CN) input,
+html:lang(zh-CN) select,
+html:lang(zh-CN) textarea {
+  font-family: Whitney, "Microsoft YaHei New", 微软雅黑, "Microsoft Yahei",
+    "Microsoft JhengHei", 宋体, SimSun, "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.app-mount {
+  height: 100%;
 }
