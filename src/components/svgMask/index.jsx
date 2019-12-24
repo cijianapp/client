@@ -70,8 +70,8 @@ function SvgMask() {
           y1="0"
           y2="0"
         >
-          <stop offset="0%" stop-color="white"></stop>
-          <stop offset="100%" stop-color="black"></stop>
+          <stop offset="0%" stopColor="white"></stop>
+          <stop offset="100%" stopColor="black"></stop>
         </linearGradient>
         <rect
           fill="url(#svg-mask-vertical-fade-gradient)"

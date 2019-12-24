@@ -1,0 +1,23 @@
+.guilds {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  width: 72px;
+  display: flex;
+  background-color: var(--background-tertiary);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding-right: 17px;
+}
+
+.base {
+  position: absolute;
+  left: 72px;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  display: flex;
+  overflow: hidden;
+  background: black;
+}
