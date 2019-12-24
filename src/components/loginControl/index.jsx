@@ -15,7 +15,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   loginSubmit: loginParams => {
     axios
-      .post(baseURL + "auth/login", loginParams)
+      .post(baseURL + "auth/login", loginParams, { withCredentials: true })
       .then(function(response) {
         if (response.data.code === 200) {
           localStorage.setItem("token", response.data.token);
