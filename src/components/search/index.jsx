@@ -3,12 +3,10 @@ import styles from "./styles.module.css";
 
 import GuildCard from "../guildCard";
 import LoginControl from "../loginControl";
-import SvgMask from "../svgMask";
 
-function FirstPage() {
+function Search() {
   return (
     <div className={styles.container}>
-      <SvgMask></SvgMask>
       <header className={styles.header}>
         <div className={styles.headerContainer}>
           <LoginControl></LoginControl>
@@ -64,4 +62,4 @@ function FirstPage() {
   );
 }
 
-export default FirstPage;
+export default Search;

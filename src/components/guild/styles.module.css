@@ -1,0 +1,73 @@
+.itemWrapper {
+  width: 48px;
+  height: 48px;
+  margin: 5px;
+}
+
+.circleIconButton {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--background-secondary);
+  cursor: pointer;
+}
+
+.circleIconButtonSelected {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #7289da;
+  cursor: pointer;
+}
+
+.circleIconButton:hover {
+  background: #7289da;
+}
+
+.itemText {
+  fill: var(--logo-primary);
+}
+
+.overlay {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  overflow: hidden;
+}
+
+.modalAdd {
+  width: 540px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 420px;
+  max-height: 100%;
+  background: #fff;
+  border-radius: 5px;
+}
+
+.icon {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+}
+
+.guildName {
+  display: flex;
+  width: 42px;
+  height: 42px;
+  color: var(--text-normal);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1;
+  align-items: center;
+  justify-content: center;
+}

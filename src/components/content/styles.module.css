@@ -1,0 +1,15 @@
+.content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: row;
+}
+
+.content::before {
+  content: "";
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  height: 1px;
+  box-shadow: var(--elevation-low);
+  z-index: 2;
+}

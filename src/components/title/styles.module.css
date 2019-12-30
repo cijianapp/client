@@ -1,0 +1,9 @@
+.title {
+  display: flex;
+  height: 48px;
+  width: 100%;
+  flex: 0 0 auto;
+  align-items: center;
+  color: var(--header-secondary);
+  z-index: 100;
+}

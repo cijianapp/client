@@ -1,0 +1,11 @@
+.baseContainer {
+  display: flex;
+  flex: 1 1 auto;
+}
+
+.main {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  background: var(--background-secondary);
+}

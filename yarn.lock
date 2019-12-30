@@ -4283,6 +4283,16 @@ file-uri-to-path@1.0.0:
   resolved "https://registry.yarnpkg.com/file-uri-to-path/-/file-uri-to-path-1.0.0.tgz#553a7b8446ff6f684359c445f1e37a05dacc33dd"
   integrity sha512-0Zt+s3L7Vf1biwWZ29aARiVYLx7iMGnEUl9x33fbB/j3jR81u/O2LbqK+Bm1CDSNDKVtJ/YjwY7TUd5SkeLQLw==
 
+filepond-plugin-image-preview@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/filepond-plugin-image-preview/-/filepond-plugin-image-preview-4.5.0.tgz#44bccdf1245c64437217db0e41ef1655e56a3c55"
+  integrity sha512-17SM6r0FozvoqbZMCWKrkyN87oDLh/xH1fp22DFFx3+phSM+dxLQXPMc8KP3j5u0yRoSzm3oZRGW8rQr3oA1Jw==
+
+filepond@^4.9.2:
+  version "4.9.2"
+  resolved "https://registry.yarnpkg.com/filepond/-/filepond-4.9.2.tgz#306fec5312e72fb4055943d7f05f8a75442d8766"
+  integrity sha512-YJGwIPFnkHxtG88LLpSuZSCySaxRDOKqSKywQ7KgPCRoUzHD8e5uC8Ii78+mjfBaU5QDOND/FFQLXLoLE99oJw==
+
 filesize@3.6.1:
   version "3.6.1"
   resolved "https://registry.yarnpkg.com/filesize/-/filesize-3.6.1.tgz#090bb3ee01b6f801a8a8be99d31710b3422bb317"
@@ -8376,6 +8386,11 @@ react-error-overlay@6.1.0-next.62+3d6d0a1f:
   version "6.1.0-next.62"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.1.0-next.62.tgz#d4cacfaab93c35c881fe745eb2fe5bc7ae69dc0e"
   integrity sha512-CiFuN+1tBKvdx6MR34f0ySO0KpXrUyeKiSjM2XjQuJcpc3ISKF9utWuaZzEqGbTgfzAy3qFj2iOyT9m46Yh5EA==
+
+react-filepond@^7.0.1:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/react-filepond/-/react-filepond-7.0.1.tgz#caf96526287140884a31a1476b8328d9d6ecdee2"
+  integrity sha512-PitNM44JP0K5hXnkSYV3HRlkObsWbhqaJRWizMrdHpS3pPz9/iyiOGmRpc+4T4ST3vblmiUTLRYq/+1bDcSqQw==
 
 react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.9.0:
   version "16.12.0"

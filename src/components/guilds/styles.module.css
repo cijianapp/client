@@ -1,0 +1,9 @@
+.guildsList {
+  position: absolute;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: center;
+  width: 72px;
+  margin-top: 5px;
+}
