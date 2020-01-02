@@ -48,7 +48,9 @@ function Add(props) {
         setIconStyle({ backgroundImage: "url(" + reader.result + ")" });
       };
       reader.readAsDataURL(file);
-    } catch {}
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   function guildSubmit(e) {
