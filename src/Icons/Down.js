@@ -2,20 +2,8 @@ import React from "react";
 
 function SvgDown(props) {
   return (
-    <svg
-      aria-hidden="true"
-      data-prefix="far"
-      data-icon="arrow-alt-down"
-      viewBox="0 0 448 512"
-      className="down_svg__svg-inline--fa down_svg__fa-arrow-alt-down down_svg__fa-w-14 down_svg__fa-3x"
-      width="1em"
-      height="1em"
-      {...props}
-    >
-      <path
-        fill="currentColor"
-        d="M400 208h-73.8V80c0-26.5-21.5-48-48-48H169.8c-26.5 0-48 21.5-48 48v128H48.1c-42.6 0-64.2 51.7-33.9 81.9l175.9 176c18.7 18.7 49.1 18.7 67.9 0l176-176c30-30.1 8.7-81.9-34-81.9zM224 432L48 256h121.8V80h108.3v176H400L224 432z"
-      />
+    <svg viewBox="0 0 20 20" width="1em" height="1em" {...props}>
+      <path d="M10.048 15.833l5.36-5.825c-.002-.006 0-.003-.003-.008h-3.321l-.002-.002V5H7.915v4.996c0 .002-.002.003-.003.004h-3.33l5.466 5.833z" />
     </svg>
   );
 }

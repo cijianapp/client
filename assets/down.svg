@@ -1,4 +1,9 @@
-<svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="arrow-alt-down" role="img" 
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-arrow-alt-down fa-w-14 fa-3x">
-    <path fill="currentColor" d="M400 208h-73.8V80c0-26.5-21.5-48-48-48H169.8c-26.5 0-48 21.5-48 48v128H48.1c-42.6 0-64.2 51.7-33.9 81.9l175.9 176c18.7 18.7 49.1 18.7 67.9 0l176-176c30-30.1 8.7-81.9-34-81.9zM224 432L48 256h121.8V80h108.3v176H400L224 432z" class=""></path>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 20 20" style="enable-background:new 0 0 20 20;" xml:space="preserve">
+<path d="M10.048084,15.833334h0.00004l5.360361-5.825782c-0.002268-0.005168-0.001046-0.002383-0.003314-0.007551H12.08381
+	c-0.000668-0.000668-0.001041-0.001042-0.001709-0.001709V5H7.915434v4.99648c-0.001369,0.001369-0.002151,0.002151-0.00352,0.00352
+	H4.582084L10.048084,15.833334z"/>
 </svg>

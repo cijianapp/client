@@ -1,4 +1,5 @@
 export { default as Add24Px } from './Add24Px'
+export { default as Comment } from './Comment'
 export { default as Create24Px } from './Create24Px'
 export { default as Down } from './Down'
 export { default as Explore24Px } from './Explore24Px'

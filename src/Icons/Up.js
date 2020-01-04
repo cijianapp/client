@@ -2,20 +2,8 @@ import React from "react";
 
 function SvgUp(props) {
   return (
-    <svg
-      aria-hidden="true"
-      data-prefix="far"
-      data-icon="arrow-alt-up"
-      viewBox="0 0 448 512"
-      className="up_svg__svg-inline--fa up_svg__fa-arrow-alt-up up_svg__fa-w-14 up_svg__fa-3x"
-      width="1em"
-      height="1em"
-      {...props}
-    >
-      <path
-        fill="currentColor"
-        d="M48.048 304h73.798v128c0 26.51 21.49 48 48 48h108.308c26.51 0 48-21.49 48-48V304h73.789c42.638 0 64.151-51.731 33.941-81.941l-175.943-176c-18.745-18.745-49.137-18.746-67.882 0l-175.952 176C-16.042 252.208 5.325 304 48.048 304zM224 80l176 176H278.154v176H169.846V256H48L224 80z"
-      />
+    <svg viewBox="0 0 20 20" width="1em" height="1em" {...props}>
+      <path d="M9.952 4.167l-5.36 5.825c.002.006 0 .003.003.008h3.321l.002.002V15h4.167v-4.996c0-.002.002-.003.003-.004h3.33L9.952 4.167z" />
     </svg>
   );
 }

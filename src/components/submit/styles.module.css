@@ -1,3 +1,25 @@
+.content {
+  padding: 0px 8px 8px;
+}
+
+.mainButton {
+  background-color: var(--text-muted);
+  color: var(--background-tertiary);
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: #7289da;
+  border: none;
+  color: #fff;
+  padding: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.mainButton:hover {
+  background-color: #677bc4;
+}
+
 .overlay {
   position: fixed;
   background: rgba(0, 0, 0, 0.5);
@@ -9,16 +31,20 @@
 }
 
 .modal {
-  max-width: 840px;
+  max-width: 660px;
   width: 100%;
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  min-height: 520px;
+  transform: translate(-50%, -55%);
   max-height: 1080px;
   background: #fff;
-  border-radius: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.bar {
+  max-height: 1000px;
 }
 
 .container {
@@ -26,9 +52,9 @@
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
-  overflow-y: scroll;
-  margin-bottom: 90px;
+  overflow-x: hidden;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .input {
@@ -46,14 +72,17 @@
 
 .postMain {
   width: 100%;
-  max-height: 840px;
+}
+
+.slate {
+  min-height: 300px;
 }
 
 .footer {
-  position: absolute;
+  position: fixed;
   left: 0px;
   right: 0px;
-  bottom: 0px;
+  bottom: -76px;
   height: 40px;
   background-color: #eee;
   border-bottom-left-radius: 5px;
@@ -77,4 +106,9 @@
 
 .button:hover {
   background-color: #677bc4;
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
 }

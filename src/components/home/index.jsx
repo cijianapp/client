@@ -51,6 +51,8 @@ function Home(props) {
             <Search></Search>
           </Route>
 
+          <Route exact path="/home"></Route>
+
           <Route path="/:guildID">
             <Base></Base>
           </Route>

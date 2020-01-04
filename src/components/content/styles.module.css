@@ -1,10 +1,8 @@
-.content {
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: row;
+.bar {
+  height: calc(100% - 50px);
 }
 
-.content::before {
+.bar::before {
   content: "";
   position: absolute;
   left: 0px;
@@ -12,4 +10,44 @@
   height: 1px;
   box-shadow: var(--elevation-low);
   z-index: 2;
+}
+
+.content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.container {
+  padding: 16px;
+  display: flex;
+  max-width: 1440px;
+  flex: 1 1 auto;
+}
+
+.masonryGrid {
+  display: -webkit-box; /* Not needed if autoprefixing */
+  display: -ms-flexbox; /* Not needed if autoprefixing */
+  display: flex;
+  flex: 1 1 auto;
+}
+.masonryColumn {
+  /* padding-left: 30px; */
+  background-clip: padding-box;
+}
+
+.info {
+  margin: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--background-tertiary);
+}
+
+.h5 {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--channels-default);
+  margin-top: 0;
+  padding: 8px;
 }
