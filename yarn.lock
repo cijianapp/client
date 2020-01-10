@@ -2784,6 +2784,11 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
+classnames@^2.2.5:
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
+  integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
+
 clean-css@4.2.x:
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/clean-css/-/clean-css-4.2.1.tgz#2d411ef76b8569b6d0c84068dabe85b0aa5e5c17"
@@ -4410,6 +4415,21 @@ file-uri-to-path@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/file-uri-to-path/-/file-uri-to-path-1.0.0.tgz#553a7b8446ff6f684359c445f1e37a05dacc33dd"
   integrity sha512-0Zt+s3L7Vf1biwWZ29aARiVYLx7iMGnEUl9x33fbB/j3jR81u/O2LbqK+Bm1CDSNDKVtJ/YjwY7TUd5SkeLQLw==
+
+filepond-plugin-file-validate-size@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/filepond-plugin-file-validate-size/-/filepond-plugin-file-validate-size-2.2.0.tgz#89e393e4c757c38467b8b2f7049760682d036716"
+  integrity sha512-Czlj4JLrxWRXBm50QO4rzvEVZVGfB4Gst0denBAGTKTZtuj566KB7vwDQy/daZoYtXOQdoVvfJgrJGifZ5n9KA==
+
+filepond-plugin-file-validate-type@^1.2.4:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/filepond-plugin-file-validate-type/-/filepond-plugin-file-validate-type-1.2.4.tgz#ce7f5f469dbc7ce0da12fdef7b0f24e4c263c410"
+  integrity sha512-K1qD8mfahJoz2zRlWWvYoHuy4k/8tHggsoGbm/blpTp63OyahOdJBzMN3VK7USYn5OZ58uOFdMTMyi8ibFpW/Q==
+
+filepond@^4.9.3:
+  version "4.9.3"
+  resolved "https://registry.yarnpkg.com/filepond/-/filepond-4.9.3.tgz#f5fb0c70043bd2185e493cf9a726c6675629f654"
+  integrity sha512-sHv8b/GdiCxo6R+0poXULtHu/T8VH1zmIN/mrI+4Dg/ECFnhr/23YnxlphKFU8WFwz09ix48MRw8Stdjnju/BQ==
 
 filesize@3.6.1:
   version "3.6.1"
@@ -8382,7 +8402,7 @@ prompts@^2.0.1:
     kleur "^3.0.3"
     sisteransi "^1.0.3"
 
-prop-types@^15.5.10, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.10, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -8593,6 +8613,11 @@ react-error-overlay@^6.0.4:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.4.tgz#0d165d6d27488e660bc08e57bdabaad741366f7a"
   integrity sha512-ueZzLmHltszTshDMwyfELDq8zOA803wQ1ZuzCccXa1m57k1PxSHfflPD5W9YIiTXLs0JTLzoj6o1LuM5N6zzNA==
 
+react-filepond@^7.0.1:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/react-filepond/-/react-filepond-7.0.1.tgz#caf96526287140884a31a1476b8328d9d6ecdee2"
+  integrity sha512-PitNM44JP0K5hXnkSYV3HRlkObsWbhqaJRWizMrdHpS3pPz9/iyiOGmRpc+4T4ST3vblmiUTLRYq/+1bDcSqQw==
+
 react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.9.0:
   version "16.12.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.12.0.tgz#2cc0fe0fba742d97fd527c42a13bec4eeb06241c"
@@ -8718,6 +8743,14 @@ react-scripts@^3.3.0:
     workbox-webpack-plugin "4.3.1"
   optionalDependencies:
     fsevents "2.1.2"
+
+react-tooltip@^3.11.2:
+  version "3.11.2"
+  resolved "https://registry.yarnpkg.com/react-tooltip/-/react-tooltip-3.11.2.tgz#78972910657d6184defdcdc9a0182c1e44e01ce6"
+  integrity sha512-7EJ7Cv7lgctw02j0hyp+PpJklIP3gyDbm4CvVQvq7U6zgZtuI+bFFnRzsQB1oTiHPkkhE2NU04EIkgBDiVNzxw==
+  dependencies:
+    classnames "^2.2.5"
+    prop-types "^15.6.0"
 
 react@^16.12.0:
   version "16.12.0"

@@ -1,7 +1,9 @@
 .itemWrapper {
-  width: 48px;
+  width: 72px;
   height: 48px;
   margin: 5px;
+  display: flex;
+  flex-direction: row;
 }
 
 .circleIconButton {
@@ -70,4 +72,30 @@
   line-height: 1;
   align-items: center;
   justify-content: center;
+}
+
+.toolTips {
+  background-color: #000 !important;
+}
+
+.toolTips::after {
+  border-right-color: #000 !important;
+}
+
+.pillContainer {
+  width: 8px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  margin-right: 4px;
+  position: relative;
+}
+
+.pill {
+  position: absolute;
+  left: -4px;
+  width: 8px;
+  height: 0px;
+  background-color: var(--header-primary);
+  border-radius: 4px;
 }

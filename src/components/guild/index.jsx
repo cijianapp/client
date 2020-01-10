@@ -3,6 +3,7 @@ import styles from "./styles.module.css";
 import ReactModal from "react-modal";
 import { connect } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
+import ReactTooltip from "react-tooltip";
 
 import { Home24Px, Add24Px, Search24Px } from "../../Icons";
 import { ADD_CLOSED } from "../../redux/actions";
@@ -25,16 +26,24 @@ function Guild(props) {
   const [showAddModal, setShowAddModal] = useState(false);
   const [mask, setMask] = useState("url(#svg-mask-guilds-default)");
   const [iconStyle, setIconStyle] = useState(styles.circleIconButton);
+  const [pillHeight, setPillHeight] = useState("0px");
 
   function maskSelected() {
-    setMask("url(#svg-mask-guilds-selected)");
+    if (props.location.pathname.includes(props.guild._id)) {
+    } else {
+      setMask("url(#svg-mask-guilds-selected)");
+      setPillHeight("20px");
+    }
   }
 
   function maskUnSelected() {
     if (props.location.pathname.includes(props.guild._id)) {
-    } else setMask("url(#svg-mask-guilds-default)");
-  }
+    } else {
+      setPillHeight("0px");
 
+      setMask("url(#svg-mask-guilds-default)");
+    }
+  }
   ReactModal.setAppElement("#root");
 
   useEffect(() => {
@@ -42,10 +51,12 @@ function Guild(props) {
       setShowAddModal(false);
     }
     if (props.location.pathname.includes(props.guild._id)) {
-      maskSelected();
+      setMask("url(#svg-mask-guilds-selected)");
+      setPillHeight("40px");
       setIconStyle(styles.circleIconButtonSelected);
     } else {
       setMask("url(#svg-mask-guilds-default)");
+      setPillHeight("0px");
       setIconStyle(styles.circleIconButton);
     }
   }, [props.addClose, props.location.pathname, props.guild._id]);
@@ -70,6 +81,10 @@ function Guild(props) {
           maskUnSelected();
         }}
       >
+        <div className={styles.pillContainer}>
+          <span className={styles.pill}></span>
+        </div>
+
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 48 48"
@@ -103,6 +118,10 @@ function Guild(props) {
           maskUnSelected();
         }}
       >
+        <div className={styles.pillContainer}>
+          <span className={styles.pill}></span>
+        </div>
+
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 48 48"
@@ -145,6 +164,9 @@ function Guild(props) {
           maskUnSelected();
         }}
       >
+        <div className={styles.pillContainer}>
+          <span className={styles.pill}></span>
+        </div>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 48 48"
@@ -177,13 +199,19 @@ function Guild(props) {
         maskUnSelected();
       }}
     >
+      <div className={styles.pillContainer}>
+        <span className={styles.pill} style={{ height: pillHeight }}></span>
+      </div>
+
+      <ReactTooltip place="right" effect="solid" className={styles.toolTips} />
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 48 48"
         width="48px"
         height="48px"
+        data-tip={props.guild.name}
       >
-        <Link to={props.guild._id}>
+        <Link to={"/" + props.guild._id}>
           <foreignObject mask={mask} width="48px" height="48px">
             <div className={iconStyle}>
               {props.guild.isavatar ? (
@@ -193,7 +221,10 @@ function Guild(props) {
                   alt="头像"
                 ></img>
               ) : (
-                <div className={styles.guildName}> {props.guild.name}</div>
+                <div className={styles.guildName}>
+                  {" "}
+                  {props.guild.name.substr(0, 3)}
+                </div>
               )}
             </div>
           </foreignObject>

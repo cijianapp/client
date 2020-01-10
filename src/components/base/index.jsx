@@ -1,10 +1,11 @@
 import React from "react";
 import styles from "./styles.module.css";
-import { withRouter } from "react-router-dom";
+import { withRouter, Switch, Route } from "react-router-dom";
 
 import SideBar from "../sideBar";
 import Title from "../title";
 import Content from "../content";
+import PostDetail from "../postDetail";
 
 function Base(props) {
   return (
@@ -12,7 +13,15 @@ function Base(props) {
       <SideBar></SideBar>
       <div className={styles.main}>
         <Title></Title>
-        <Content guild={props.match.params.guildID}></Content>
+        <Switch>
+          <Route exact path="/:guildID">
+            <Content guild={props.match.params.guildID}></Content>
+          </Route>
+
+          <Route exact path="/:guildID/post/:postID">
+            <PostDetail></PostDetail>
+          </Route>
+        </Switch>
       </div>
     </div>
   );

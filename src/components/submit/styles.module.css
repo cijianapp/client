@@ -41,6 +41,7 @@
   background: #fff;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+  z-index: 1;
 }
 
 .bar {
@@ -48,13 +49,11 @@
 }
 
 .container {
-  padding: 28px 40px 0;
+  padding: 0 40px;
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
   overflow-x: hidden;
-  margin-top: 20px;
-  margin-bottom: 20px;
 }
 
 .input {
@@ -68,6 +67,63 @@
   color: #2f3136;
   width: 100%;
   background-color: rgb(240, 240, 240, 0.2);
+}
+
+.header {
+  padding: 28px 40px 0;
+}
+
+.toolbar {
+  position: sticky;
+  top: 0;
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.iconbar {
+  display: flex;
+  flex-direction: row;
+}
+
+.filePond {
+  padding: 0 0 8px;
+}
+
+.notFilePond {
+  display: none;
+}
+
+.iconContainer {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: var(--text-muted);
+  cursor: pointer;
+}
+
+.iconContainer:hover {
+  background: rgb(220, 220, 220);
+}
+
+.iconInput {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  cursor: pointer;
 }
 
 .postMain {

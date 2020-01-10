@@ -129,7 +129,7 @@ function LoginControl(props) {
 
     let registerFlag = true;
 
-    if (!tel.match(new RegExp("[1]\\d{1}$"))) {
+    if (!tel.match(new RegExp("[1]\\d{2}$"))) {
       setTelAlert1(styles.alertContent);
       setTelAlertColor([styles.bold, styles.alertColor].join(" "));
       registerFlag = false;

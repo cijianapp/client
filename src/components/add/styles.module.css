@@ -6,9 +6,16 @@
 }
 
 .title {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
   color: #7289da;
+  text-align: center;
+}
+
+.title1 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #43b581;
   text-align: center;
 }
 
@@ -127,6 +134,12 @@
   display: flex;
   flex: 1 1 auto;
   margin: 0;
+}
+
+.inviteContainer {
+  width: 460px;
+  display: flex;
+  flex-direction: column;
 }
 
 .inputs {
@@ -281,6 +294,22 @@
   background-color: #677bc4;
 }
 
+.button1 {
+  height: 40px;
+  margin-left: 10px;
+  background-color: #43b581;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  padding: 0 30px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.button1:hover {
+  background-color: #3ca374;
+}
+
 .notShow {
   display: none;
 }
@@ -291,4 +320,31 @@
 
 .alertContent {
   font-weight: 400;
+}
+
+.guildName {
+  display: flex;
+  width: 138px;
+  height: 138px;
+  color: var(--text-normal);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.removeButton {
+  margin-left: 85px;
+  border: none;
+  font-size: 14px;
+  margin-top: 10px;
+  font-weight: 700;
+  color: #87909c;
+  background: none;
+  cursor: pointer;
+}
+
+.removeButton:hover {
+  background: rgb(240, 240, 240, 1);
 }
