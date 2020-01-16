@@ -5,6 +5,9 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 import Menu24Px from "../../Icons/Menu24Px";
+import Setting from "../../Icons/Setting";
+import Avatar from "../avatar";
+import Channels from "../channels";
 
 const mapStateToProps = state => ({
   info: state.user.info
@@ -59,6 +62,19 @@ function SideBar(props) {
           ssssssssss
         </button>
       </ReactTooltip>
+
+      <Channels></Channels>
+
+      <div className={styles.user}>
+        <div className={styles.userInfo}>
+          <Avatar></Avatar>
+          <div className={styles.username}>大漠孤烟</div>
+        </div>
+
+        <div className={styles.iconContainer}>
+          <Setting className={styles.icon}></Setting>
+        </div>
+      </div>
     </div>
   );
 }

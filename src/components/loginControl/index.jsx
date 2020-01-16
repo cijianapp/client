@@ -8,6 +8,8 @@ import axios from "axios";
 import { baseURL } from "../../utils/http";
 import { Redirect } from "react-router-dom";
 
+import Client from "../../client";
+
 const mapStateToProps = state => ({
   login: state.auth.login
 });
@@ -22,6 +24,8 @@ const mapDispatchToProps = dispatch => ({
             type: SET_TOKEN,
             value: response.data.token
           });
+
+          Client.sendMessage("login", { token: response.data.token });
 
           dispatch({
             type: LOGIN

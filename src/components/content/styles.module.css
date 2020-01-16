@@ -1,15 +1,6 @@
 .bar {
-  height: calc(100% - 48px);
-}
-
-.bar::before {
-  content: "";
-  position: absolute;
-  left: 0px;
-  right: 0px;
-  height: 1px;
-  box-shadow: var(--elevation-low);
-  z-index: 2;
+  height: 100%;
+  width: 100%;
 }
 
 .content {
@@ -20,7 +11,7 @@
 }
 
 .container {
-  padding: 16px;
+  padding: 0 16px;
   display: flex;
   max-width: 1440px;
   flex: 1 1 auto;
@@ -32,6 +23,7 @@
   display: flex;
   flex: 1 1 auto;
 }
+
 .masonryColumn {
   /* padding-left: 30px; */
   background-clip: padding-box;

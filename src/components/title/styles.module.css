@@ -1,9 +1,38 @@
 .title {
   display: flex;
   height: 48px;
-  width: 100%;
   flex: 0 0 auto;
   align-items: center;
   color: var(--header-secondary);
-  z-index: 100;
+  z-index: 10;
+  padding: 0 10px;
+  box-shadow: var(--elevation-low);
+}
+
+.name {
+  display: flex;
+  flex: 1 1 auto;
+}
+
+.iconContainer {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  fill: var(--interactive-normal);
+  color: var(--interactive-normal);
+  cursor: pointer;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+.iconContainer:hover {
+  fill: var(--interactive-hover);
+  color: var(--interactive-hover);
+  background-color: var(--background-modifier-selected);
 }

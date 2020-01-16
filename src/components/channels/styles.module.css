@@ -1,0 +1,38 @@
+.channels {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+}
+
+.category {
+  padding-top: 16px;
+  display: flex;
+  flex-direction: row;
+  color: var(--channels-default);
+  fill: var(--channels-default);
+  cursor: pointer;
+  margin-right: 16px;
+}
+
+.categoryNameIcon {
+  height: 24px;
+  width: 24px;
+}
+
+.categoryName {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+  display: flex;
+  flex: 1 1 auto;
+}
+
+.categoryName:hover {
+  color: var(--interactive-hover);
+  fill: var(--interactive-hover);
+}
+
+.icon {
+  height: 24px;
+  width: 24px;
+}

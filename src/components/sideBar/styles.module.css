@@ -1,7 +1,7 @@
 .sideBar {
   display: flex;
   width: 240px;
-  background: var(--background-primary);
+  background: var(--background-secondary);
   flex: 0 0 auto;
   flex-direction: column;
 }
@@ -36,10 +36,17 @@
   align-items: center;
   justify-content: center;
   border-radius: 4px;
+  cursor: pointer;
 }
+
+.iconContainer:hover {
+  background-color: var(--background-modifier-selected);
+  fill: var(--interactive-hover);
+}
+
 .icon {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
 }
 
 .guildMenu {
@@ -53,4 +60,33 @@
 
 .guildMenu::after {
   display: none;
+}
+
+.user {
+  height: 52px;
+  display: flex;
+  padding: 0 10px;
+  align-items: center;
+  fill: var(--interactive-normal);
+  background: var(--deprecated-panel-background);
+}
+
+.userInfo {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+}
+
+.username {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  color: var(--text-normal);
+  margin-left: 10px;
+}
+
+.timeInfo {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
 }

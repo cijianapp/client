@@ -7,5 +7,25 @@
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
+  background: var(--background-primary);
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  flex: 1 1 auto;
+  position: relative;
+  justify-content: stretch;
+  overflow: hidden;
+}
+
+.content {
+  display: flex;
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+.members {
+  width: 240px;
   background: var(--background-secondary);
 }

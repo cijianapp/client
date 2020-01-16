@@ -60,7 +60,7 @@ function Content(props) {
   };
 
   return (
-    <SimpleBarReact className={styles.bar}>
+    <SimpleBarReact className={styles.bar} forceVisible="y" autoHide={false}>
       <div className={styles.content}>
         <div className={styles.container}>
           <Masonry

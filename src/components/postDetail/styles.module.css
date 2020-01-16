@@ -1,5 +1,6 @@
 .bar {
-  height: calc(100% - 48px);
+  height: 100%;
+  width: 100%;
 }
 
 .bar::before {
