@@ -203,15 +203,21 @@ function Guild(props) {
         <span className={styles.pill} style={{ height: pillHeight }}></span>
       </div>
 
-      <ReactTooltip place="right" effect="solid" className={styles.toolTips} />
+      <ReactTooltip
+        place="right"
+        id="guild"
+        effect="solid"
+        className={styles.toolTips}
+      />
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 48 48"
         width="48px"
         height="48px"
         data-tip={props.guild.name}
+        data-for="guild"
       >
-        <Link to={"/" + props.guild._id}>
+        <Link to={"/" + props.guild._id + "/" + props.guild.channel[0]._id}>
           <foreignObject mask={mask} width="48px" height="48px">
             <div className={iconStyle}>
               {props.guild.isavatar ? (

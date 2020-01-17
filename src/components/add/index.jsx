@@ -102,6 +102,7 @@ function Add(props) {
       .then(function(response) {
         if (response.data.code === 200) {
           setRedirect(response.data.guild);
+
           props.refresh();
           props.addModalClose();
         }

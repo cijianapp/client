@@ -11,7 +11,7 @@ const mapStateToProps = state => ({
 function Guilds(props) {
   const guildList = [];
 
-  if (props.info.guild !== undefined) {
+  if (Array.isArray(props.info.guild)) {
     props.info.guild.forEach(guild => {
       guildList.push(<Guild guild={guild} key={guild._id}></Guild>);
     });

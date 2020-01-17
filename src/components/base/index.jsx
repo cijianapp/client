@@ -33,8 +33,8 @@ function Base(props) {
         <div className={styles.container}>
           <div className={styles.content}>
             <Switch>
-              <Route exact path="/:guildID">
-                <Content guild={props.match.params.guildID}></Content>
+              <Route exact path="/:guildID/:channelID">
+                <Content></Content>
               </Route>
 
               <Route exact path="/:guildID/post/:postID">
