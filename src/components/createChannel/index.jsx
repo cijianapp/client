@@ -11,8 +11,16 @@ import Comment from "../../Icons/Comment";
 import Close24Px from "../../Icons/Close24Px";
 import { baseURL } from "../../utils/http";
 
+import { USER_INFO } from "../../redux/actions";
+
 const mapStateToProps = state => ({
   headerConfig: state.user.headerConfig
+});
+
+const mapDispatchToProps = dispatch => ({
+  refresh: () => {
+    dispatch({ type: USER_INFO, value: {} });
+  }
 });
 
 function CreateChannel(props) {
@@ -40,6 +48,7 @@ function CreateChannel(props) {
       .then(function(response) {
         if (response.data.code === 200) {
           setShowModal(false);
+          props.refresh();
         }
       })
       .catch(function(errors) {
@@ -104,4 +113,6 @@ function CreateChannel(props) {
   );
 }
 
-export default withRouter(connect(mapStateToProps)(CreateChannel));
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(CreateChannel)
+);

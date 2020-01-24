@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./styles.module.css";
+import { ossURL } from "../../utils/http";
 
 function Avatar(props) {
   return (
@@ -17,7 +18,7 @@ function Avatar(props) {
         <div className={styles.icon}>
           <img
             className={styles.icon}
-            src="https://cdn.discordapp.com/avatars/149231033244450817/ebb31218862c6b39a2e0968bda15281c.png?size=512"
+            src={ossURL + props.url}
             alt="头像"
           ></img>
         </div>

@@ -53,7 +53,7 @@ function Home(props) {
 
           <Route exact path="/home"></Route>
 
-          <Route path="/:guildID">
+          <Route path="/:guildID/:channelID">
             <Base></Base>
           </Route>
         </Switch>

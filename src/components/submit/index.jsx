@@ -1,10 +1,14 @@
 import React, { useState, useMemo, useRef } from "react";
+import commonStyles from "../../utils/styles.module.css";
 import styles from "./styles.module.css";
-import ReactModal from "react-modal";
+import { Prompt, withRouter } from "react-router-dom";
+
+import SimpleBarReact from "simplebar-react";
+import "simplebar/src/simplebar.css";
+
 import imageExtensions from "image-extensions";
 import axios from "axios";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
 import { css } from "emotion";
 
 import { createEditor, Transforms } from "slate";
@@ -17,9 +21,6 @@ import {
 } from "slate-react";
 import isUrl from "is-url";
 import { withHistory } from "slate-history";
-
-import SimpleBarReact from "simplebar-react";
-import "simplebar/src/simplebar.css";
 
 // Import React FilePond
 import { FilePond, registerPlugin } from "react-filepond";
@@ -39,17 +40,28 @@ registerPlugin(FilePondPluginFileValidateSize, FilePondPluginFileValidateType);
 
 const mapStateToProps = state => ({
   token: state.user.token,
-  headerConfig: state.user.headerConfig
+  headerConfig: state.user.headerConfig,
+  info: state.user.info
 });
 
 function Submit(props) {
-  const [showModal, setShowModal] = useState(false);
-  const [showFilePond, setShowFilePond] = useState(styles.notFilePond);
+  let Guild = {};
+  let Channel = {};
 
-  ReactModal.setAppElement("#root");
-  function closeModal() {
-    setShowModal(false);
+  if (Array.isArray(props.info.guild)) {
+    props.info.guild.forEach(guild => {
+      if (guild._id === props.match.params.guildID) {
+        Guild = guild;
+        guild.channel.forEach(channel => {
+          if (channel._id === props.match.params.channelID) {
+            Channel = channel;
+          }
+        });
+      }
+    });
   }
+
+  const [showFilePond, setShowFilePond] = useState(styles.notFilePond);
 
   const [value, setValue] = useState(initialValue);
   const editor = useMemo(
@@ -64,6 +76,7 @@ function Submit(props) {
     const postParams = {
       title: title,
       guild: props.match.params.guildID,
+      channel: props.match.params.channelID,
       content: value
     };
 
@@ -71,7 +84,7 @@ function Submit(props) {
       .post(baseURL + "api/post", postParams, props.headerConfig)
       .then(function(response) {
         if (response.data.code === 200) {
-          setShowModal(false);
+          props.history.goBack();
         }
       })
       .catch(function(errors) {
@@ -108,33 +121,24 @@ function Submit(props) {
   }
 
   return (
-    <div className={styles.content}>
-      <button
-        className={styles.mainButton}
-        onClick={e => {
-          setShowModal(true);
-        }}
-      >
-        发 布 新 贴
-      </button>
-
-      <ReactModal
-        isOpen={showModal}
-        onRequestClose={closeModal}
-        className={styles.modal}
-        overlayClassName={styles.overlay}
-      >
-        <SimpleBarReact className={styles.bar}>
+    <SimpleBarReact className={styles.bar}>
+      <div className={styles.content}>
+        <div className={styles.container}>
           <div className={styles.header}>
-            <input
-              placeholder="请输入标题"
-              className={styles.input}
-              value={title}
-              onChange={e => {
-                setTitle(e.target.value);
-              }}
-            ></input>
+            <div className={commonStyles.text1}>发表新帖</div>
+            <div className={commonStyles.text2}>
+              {Guild.name + "#" + Channel.name}
+            </div>
           </div>
+
+          <input
+            placeholder="请输入标题"
+            className={commonStyles.input1}
+            value={title}
+            onChange={e => {
+              setTitle(e.target.value);
+            }}
+          ></input>
 
           <div className={styles.toolbar}>
             <div className={styles.iconbar}>
@@ -188,37 +192,35 @@ function Submit(props) {
             </div>
           </div>
 
-          <article className={styles.container}>
-            <div className={styles.postMain}>
-              <Slate
-                editor={editor}
-                value={value}
-                onChange={value => setValue(value)}
-              >
-                <Editable
-                  className={styles.slate}
-                  renderElement={props => <Element {...props} />}
-                  placeholder="说点感兴趣的事吧..."
-                />
-              </Slate>
-            </div>
-          </article>
+          <Slate
+            editor={editor}
+            value={value}
+            onChange={value => setValue(value)}
+          >
+            <Editable
+              className={commonStyles.input2}
+              renderElement={props => <Element {...props} />}
+              placeholder="说点感兴趣的事吧..."
+            />
+          </Slate>
           <div className={styles.footer}>
             <button
-              className={styles.button}
+              className={commonStyles.button1}
               onClick={e => {
-                setShowModal(false);
+                props.history.goBack();
               }}
             >
               返回
             </button>
-            <button className={styles.button} onClick={post}>
+            <button className={commonStyles.button1} onClick={post}>
               发布
             </button>
           </div>
-        </SimpleBarReact>
-      </ReactModal>
-    </div>
+        </div>
+      </div>
+
+      <Prompt when={true} message="确定将退出此页面吗?您的编辑尚未保存哦。" />
+    </SimpleBarReact>
   );
 }
 

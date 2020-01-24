@@ -83,6 +83,7 @@
   line-height: 18px;
   color: var(--text-normal);
   margin-left: 10px;
+  cursor: default;
 }
 
 .timeInfo {

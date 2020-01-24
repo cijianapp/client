@@ -12,8 +12,8 @@ import "simplebar/src/simplebar.css";
 import { createEditor } from "slate";
 import { Slate, Editable, withReact } from "slate-react";
 
-import SvgUp from "../../Icons/Up";
-import SvgDown from "../../Icons/Down";
+import Vote from "../vote";
+
 import SvgComment from "../../Icons/Comment";
 
 const mapStateToProps = state => ({
@@ -102,14 +102,14 @@ function PostDetail(props) {
               <img
                 className={styles.icon}
                 alt=""
-                src={ossURL + post.guildavatar}
+                src={ossURL + post.useravatar}
               ></img>
             </div>
             <div className={styles.userInfo}>
-              <div className={styles.username}>{post.ownername}</div>
+              <div className={styles.username}>{post.username}</div>
               <div className={styles.timeInfo}>
                 3 小时前
-                <span className={styles.guildInfo}>{post.guildname}</span>
+                <span className={styles.guildInfo}>{post.channelname}</span>
               </div>
             </div>
           </div>
@@ -127,9 +127,7 @@ function PostDetail(props) {
               <SvgComment className={styles.vote}></SvgComment>
               <div className={styles.voteNumber}>0</div>
             </div>
-            <SvgUp className={styles.vote}></SvgUp>
-            <div className={styles.voteNumber}>{post.vote}</div>
-            <SvgDown className={styles.vote}></SvgDown>{" "}
+            <Vote post={post}></Vote>
           </div>
         </div>
       </div>

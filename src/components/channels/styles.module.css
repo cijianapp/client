@@ -36,3 +36,52 @@
   height: 24px;
   width: 24px;
 }
+
+.link {
+  text-decoration: none;
+}
+
+.channel {
+  box-sizing: border-box;
+  height: 32px;
+  padding: 0 8px;
+  margin: 1px 8px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow: hidden;
+  color: var(--channels-default);
+  cursor: pointer;
+}
+
+.channel:hover {
+  background-color: var(--background-modifier-selected);
+  color: var(--interactive-active);
+}
+
+.channelSelected {
+  box-sizing: border-box;
+  height: 32px;
+  padding: 0 8px;
+  margin: 1px 8px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow: hidden;
+  color: var(--channels-default);
+  cursor: pointer;
+  background-color: var(--background-modifier-selected);
+  color: var(--interactive-active);
+}
+
+.channelName {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  flex: 1 1 auto;
+}

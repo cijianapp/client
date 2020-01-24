@@ -32,7 +32,6 @@ function Add(props) {
   const [redirect, setRedirect] = useState("");
   const [nameAlert, setNameAlert] = useState(styles.notShow);
   const [nameAlertColor, setNameAlertColor] = useState(styles.label);
-  const [iconValue, setIconValue] = useState("");
 
   const fileInput = useRef();
 
@@ -82,8 +81,8 @@ function Add(props) {
       .post(baseURL + "api/guild", guildParams, props.headerConfig)
       .then(function(response) {
         if (response.data.code === 200) {
-          setRedirect(response.data.guild);
           props.refresh();
+          setRedirect("/" + response.data.guild + "/" + response.data.channel);
           props.addModalClose();
         }
       })
@@ -113,7 +112,7 @@ function Add(props) {
   }
 
   if (redirect !== "") {
-    return <Redirect push to={redirect}></Redirect>;
+    return <Redirect to={redirect}></Redirect>;
   }
 
   if (destination === "add") {
@@ -258,9 +257,7 @@ function Add(props) {
                   type="file"
                   accept=".jpg,.jpeg,.png,.gif"
                   ref={fileInput}
-                  value={iconValue}
                   onChange={e => {
-                    setIconValue(e.target.value);
                     handleFile();
                   }}
                 ></input>
@@ -276,7 +273,6 @@ function Add(props) {
                   onClick={e => {
                     setIcon("");
                     setIconStyle({});
-                    setIconValue("");
                   }}
                 >
                   移除图标

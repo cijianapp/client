@@ -1,82 +1,33 @@
-.content {
-  padding: 0px 8px 8px;
-}
-
-.mainButton {
-  background-color: var(--text-muted);
-  color: var(--background-tertiary);
-  border-radius: 5px;
-  font-size: 16px;
-  font-weight: 500;
-  background-color: #7289da;
-  border: none;
-  color: #fff;
-  padding: 5px;
-  cursor: pointer;
-  width: 100%;
-}
-
-.mainButton:hover {
-  background-color: #677bc4;
-}
-
-.overlay {
-  position: fixed;
-  background: rgba(0, 0, 0, 0.5);
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  overflow: hidden;
-}
-
-.modal {
-  max-width: 660px;
-  width: 100%;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -55%);
-  max-height: 1080px;
-  background: #fff;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  z-index: 1;
-}
-
 .bar {
-  max-height: 1000px;
+  height: 100%;
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: center;
 }
 
 .container {
-  padding: 0 40px;
+  padding: 32px 48px;
   display: flex;
+  max-width: 720px;
   flex: 1 1 auto;
   flex-direction: column;
-  overflow-x: hidden;
-}
-
-.input {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  background: transparent;
-  height: 40px;
-  padding-top: 5px;
-  font-size: 28px;
-  border: none;
-  color: #2f3136;
-  width: 100%;
-  background-color: rgb(240, 240, 240, 0.2);
 }
 
 .header {
-  padding: 28px 40px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .toolbar {
   position: sticky;
   top: 0;
-  padding: 0 40px;
+  padding: 10px 0;
   display: flex;
   flex-direction: column;
 }
@@ -135,33 +86,9 @@
 }
 
 .footer {
-  position: fixed;
-  left: 0px;
-  right: 0px;
-  bottom: -76px;
-  height: 40px;
-  background-color: #eee;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  padding: 18px 30px;
+  padding: 18px 0;
   display: flex;
   justify-content: flex-end;
-}
-
-.button {
-  height: 40px;
-  margin-left: 10px;
-  background-color: #7289da;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  padding: 0 30px;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.button:hover {
-  background-color: #677bc4;
 }
 
 .imageContainer {

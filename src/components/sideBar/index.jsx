@@ -5,9 +5,9 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 import Menu24Px from "../../Icons/Menu24Px";
-import Setting from "../../Icons/Setting";
 import Avatar from "../avatar";
 import Channels from "../channels";
+import UserSetting from "../userSetting";
 
 const mapStateToProps = state => ({
   info: state.user.info
@@ -16,8 +16,8 @@ const mapStateToProps = state => ({
 function SideBar(props) {
   let guild = {};
 
-  if (props.info.guilds !== undefined) {
-    props.info.guilds.forEach(element => {
+  if (props.info.guild !== undefined) {
+    props.info.guild.forEach(element => {
       if (element._id === props.match.params.guildID) {
         guild = element;
       }
@@ -67,13 +67,11 @@ function SideBar(props) {
 
       <div className={styles.user}>
         <div className={styles.userInfo}>
-          <Avatar></Avatar>
-          <div className={styles.username}>大漠孤烟</div>
+          <Avatar url={props.info.avatar}></Avatar>
+          <div className={styles.username}>{props.info.username}</div>
         </div>
 
-        <div className={styles.iconContainer}>
-          <Setting className={styles.icon}></Setting>
-        </div>
+        <UserSetting></UserSetting>
       </div>
     </div>
   );

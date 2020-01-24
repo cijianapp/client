@@ -5,8 +5,9 @@
 .container {
   margin: 8px;
   border-radius: 4px;
-  overflow: hidden;
   background: var(--background-tertiary);
+  display: flex;
+  flex-direction: column;
 }
 
 .image {
@@ -27,6 +28,7 @@
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
+  word-wrap: break-word;
 }
 
 .content {
@@ -38,6 +40,7 @@
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
+  word-wrap: break-word;
 }
 
 .wrapper {
@@ -86,13 +89,6 @@
   background-color: #72767d;
 }
 
-.vote {
-  width: 24px;
-  height: 24px;
-  fill: var(--text-muted);
-  color: var(--text-muted);
-}
-
 .icons {
   display: flex;
   flex: 1 1 auto;
@@ -106,14 +102,21 @@
   flex-direction: row;
 }
 
-.voteNumber {
-  color: var(--text-muted);
-  font-size: 14px;
-  line-height: 24px;
-}
-
 .comment {
   display: flex;
   flex-direction: row;
   margin-right: 10px;
+}
+
+.vote {
+  width: 24px;
+  height: 24px;
+  color: var(--text-muted);
+  fill: var(--text-muted);
+}
+
+.voteNumber {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 24px;
 }

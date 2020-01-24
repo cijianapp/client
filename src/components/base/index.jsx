@@ -7,7 +7,7 @@ import SideBar from "../sideBar";
 import Title from "../title";
 import Content from "../content";
 import PostDetail from "../postDetail";
-
+import Submit from "../submit";
 import Client from "../../client";
 
 const mapStateToProps = state => ({
@@ -37,7 +37,11 @@ function Base(props) {
                 <Content></Content>
               </Route>
 
-              <Route exact path="/:guildID/post/:postID">
+              <Route exact path="/:guildID/:channelID/post">
+                <Submit></Submit>
+              </Route>
+
+              <Route exact path="/:guildID/:channelID/:postID">
                 <PostDetail></PostDetail>
               </Route>
             </Switch>

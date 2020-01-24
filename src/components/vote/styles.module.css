@@ -1,0 +1,53 @@
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.iconContainer {
+  width: 24px;
+  height: 24px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.upvote {
+  width: 24px;
+  height: 24px;
+  color: var(--text-muted);
+}
+
+.upvote:hover {
+  background: var(--background-modifier-selected);
+  fill: #00bbf0;
+}
+
+.colorDefault {
+  fill: var(--text-muted);
+  color: var(--text-muted);
+}
+
+.colorUp {
+  fill: #00bbf0;
+  color: #00bbf0;
+}
+
+.downvote {
+  width: 24px;
+  height: 24px;
+  color: var(--text-muted);
+}
+
+.downvote:hover {
+  background: var(--background-modifier-selected);
+  fill: #ff5722;
+}
+
+.colorDown {
+  fill: #ff5722;
+  color: #ff5722;
+}
+
+.voteNumber {
+  font-size: 14px;
+  line-height: 24px;
+}

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import styles from "./styles.module.css";
+import commonStyles from "../../utils/styles.module.css";
 import axios from "axios";
 import { connect } from "react-redux";
-import { withRouter } from "react-router";
+import { withRouter, Link } from "react-router-dom";
 
-import Submit from "../submit";
 import { baseURL } from "../../utils/http";
 import Post from "../post";
 
@@ -19,26 +19,33 @@ const mapStateToProps = state => ({
 
 function Content(props) {
   const [posts, setPosts] = useState([]);
-  const [guildID, setGuildID] = useState("home");
+  const [channelID, setChannelID] = useState("");
 
   const postsConfig = {
     ...props.headerConfig,
-    params: { guild: props.match.params.guildID }
+    params: {
+      guild: props.match.params.guildID,
+      channel: props.match.params.channelID
+    }
   };
 
-  if (props.match.params.guildID !== guildID) {
+  if (props.match.params.channelID !== channelID) {
     axios
       .get(baseURL + "api/posts", postsConfig)
       .then(response => {
         let postElements = [
           <div key="info" className={styles.info}>
             <h5 className={styles.h5}>社区详情</h5>
-            <Submit></Submit>
+            <Link
+              to={props.match.params.channelID + "/post"}
+              className={commonStyles.link1}
+            >
+              <div className={commonStyles.button1}>发 布 新 帖</div>
+            </Link>
           </div>
         ];
 
-        if (response.data === null) {
-        } else {
+        if (response.data !== null) {
           response.data.forEach(element => {
             postElements.push(<Post key={element._id} post={element}></Post>);
           });
@@ -50,7 +57,7 @@ function Content(props) {
         console.log(err);
       });
 
-    setGuildID(props.match.params.guildID);
+    setChannelID(props.match.params.channelID);
   }
 
   const breakpointColumnsObj = {

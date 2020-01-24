@@ -1,4 +1,10 @@
-import { SET_TOKEN, ADD_CLOSE, ADD_CLOSED, USER_INFO } from "../actions";
+import {
+  SET_TOKEN,
+  ADD_CLOSE,
+  ADD_CLOSED,
+  USER_INFO,
+  VOTE_POST
+} from "../actions";
 
 const defaultState = {
   token: null,
@@ -23,6 +29,19 @@ export default (state = defaultState, action) => {
 
     case ADD_CLOSED:
       return { ...state, addClose: false };
+
+    case VOTE_POST:
+      let isVoted = false;
+      state.info.vote.forEach(element => {
+        if (element.post === action.post) {
+          element.vote = action.value;
+          isVoted = true;
+        }
+      });
+      if (!isVoted) {
+        state.info.vote.push({ post: action.post, vote: action.value });
+      }
+      return { ...state };
 
     default:
       return state;

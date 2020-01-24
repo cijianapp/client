@@ -1,6 +1,7 @@
 .bar {
   height: 100%;
   width: 100%;
+  overflow-x: hidden;
 }
 
 .content {
@@ -15,13 +16,13 @@
   display: flex;
   max-width: 1440px;
   flex: 1 1 auto;
+  overflow: hidden;
 }
 
 .masonryGrid {
-  display: -webkit-box; /* Not needed if autoprefixing */
-  display: -ms-flexbox; /* Not needed if autoprefixing */
   display: flex;
   flex: 1 1 auto;
+  overflow: hidden;
 }
 
 .masonryColumn {

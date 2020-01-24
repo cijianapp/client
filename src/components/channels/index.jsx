@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./styles.module.css";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 
 import KeyboardArrowDown24Px from "../../Icons/KeyboardArrowDown24Px";
 import CreateChannel from "../createChannel";
@@ -17,7 +17,21 @@ function Channels(props) {
     props.info.guild.forEach(guild => {
       if (guild._id === props.match.params.guildID) {
         guild.channel.forEach(channel => {
-          channelList.push(<div>{channel.name}</div>);
+          let channelStyle = styles.channel;
+          if (channel._id === props.match.params.channelID) {
+            channelStyle = styles.channelSelected;
+          }
+          channelList.push(
+            <Link
+              to={"/" + guild._id + "/" + channel._id}
+              key={channel._id}
+              className={styles.link}
+            >
+              <div className={channelStyle}>
+                <div className={styles.channelName}>{channel.name}</div>
+              </div>
+            </Link>
+          );
         });
       }
     });
