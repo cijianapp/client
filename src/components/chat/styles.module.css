@@ -1,0 +1,59 @@
+.container {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.barContainer {
+  display: flex;
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.form {
+  border-top: 1px solid var(--background-modifier-accent);
+  flex-shrink: 0;
+  margin-left: 20px;
+  margin-right: 20px;
+  overflow: hidden;
+}
+
+.channelText {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  position: relative;
+  width: 100%;
+  transition: opacity 20s ease;
+  overflow: hidden;
+}
+
+.textArea {
+  background-color: transparent;
+  resize: none;
+  border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.375rem;
+  width: 100%;
+  height: 44px;
+  min-height: 44px;
+  color: var(--text-normal);
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.endRef {
+  height: 30px;
+}

@@ -36,10 +36,7 @@ function Content(props) {
         let postElements = [
           <div key="info" className={styles.info}>
             <h5 className={styles.h5}>社区详情</h5>
-            <Link
-              to={props.match.params.channelID + "/post"}
-              className={commonStyles.link1}
-            >
+            <Link to={"submit"} className={commonStyles.link1}>
               <div className={commonStyles.button1}>发 布 新 帖</div>
             </Link>
           </div>

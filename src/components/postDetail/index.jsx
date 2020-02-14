@@ -14,7 +14,7 @@ import { Slate, Editable, withReact } from "slate-react";
 
 import Vote from "../vote";
 
-import SvgComment from "../../Icons/Comment";
+import SvgComment from "../../icons/Comment";
 
 const mapStateToProps = state => ({
   headerConfig: state.user.headerConfig

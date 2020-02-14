@@ -22,7 +22,7 @@ function Guilds(props) {
       <Guild guild={{ _id: "home" }}></Guild>
       {guildList}
       <Guild guild={{ _id: "add" }}></Guild>
-      <Guild guild={{ _id: "search" }}></Guild>
+      <Guild guild={{ _id: "explore" }}></Guild>
     </div>
   );
 }

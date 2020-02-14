@@ -3,7 +3,7 @@ import styles from "./styles.module.css";
 import { withRouter } from "react-router";
 import { connect } from "react-redux";
 
-import UserFriendsSolid from "../../Icons/UserFriendsSolid";
+import UserFriendsSolid from "../../icons/UserFriendsSolid";
 
 const mapStateToProps = state => ({
   info: state.user.info

@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import SideBar from "../sideBar";
 import Title from "../title";
 import Content from "../content";
+import Chat from "../chat"
 import PostDetail from "../postDetail";
 import Submit from "../submit";
 import Client from "../../client";
@@ -33,12 +34,16 @@ function Base(props) {
         <div className={styles.container}>
           <div className={styles.content}>
             <Switch>
-              <Route exact path="/:guildID/:channelID">
+              <Route exact path="/:guildID/:channelID/post">
                 <Content></Content>
               </Route>
 
-              <Route exact path="/:guildID/:channelID/post">
+              <Route exact path="/:guildID/:channelID/submit">
                 <Submit></Submit>
+              </Route>
+
+              <Route exact path="/:guildID/:channelID/chat">
+                <Chat></Chat>
               </Route>
 
               <Route exact path="/:guildID/:channelID/:postID">

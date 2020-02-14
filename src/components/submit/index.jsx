@@ -32,8 +32,8 @@ import FilePondPluginFileValidateSize from "filepond-plugin-file-validate-size";
 import FilePondPluginFileValidateType from "filepond-plugin-file-validate-type";
 
 import { baseURL, ossURL } from "../../utils/http";
-import Image24Px from "../../Icons/Image24Px";
-import Movie24Px from "../../Icons/Movie24Px";
+import Image24Px from "../../icons/Image24Px";
+import Movie24Px from "../../icons/Movie24Px";
 
 // Register the plugin
 registerPlugin(FilePondPluginFileValidateSize, FilePondPluginFileValidateType);

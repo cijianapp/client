@@ -3,8 +3,8 @@ import styles from "./styles.module.css";
 import axios from "axios";
 import { connect } from "react-redux";
 
-import SvgUp from "../../Icons/Up";
-import SvgDown from "../../Icons/Down";
+import SvgUp from "../../icons/Up";
+import SvgDown from "../../icons/Down";
 import { baseURL } from "../../utils/http";
 import { VOTE_POST } from "../../redux/actions";
 
@@ -25,11 +25,16 @@ function Vote(props) {
   let downStyle = [styles.downvote, styles.colorDefault].join(" ");
   let numberStyle = [styles.voteNumber, styles.colorDefault].join(" ");
 
-  props.info.vote.forEach(element => {
-    if (element.post === props.post._id) {
-      vote = element.vote;
-    }
-  });
+
+
+  if (Array.isArray( props.info.vote)){
+    props.info.vote.forEach(element => {
+      if (element.post === props.post._id) {
+        vote = element.vote;
+      }
+    });
+  }
+ 
 
   const [voteNumber, setVoteNumber] = useState(props.post.vote);
 

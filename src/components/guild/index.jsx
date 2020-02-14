@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
 import ReactTooltip from "react-tooltip";
 
-import { Home24Px, Add24Px, Search24Px } from "../../Icons";
+import { Home24Px, Add24Px, Search24Px } from "../../icons";
 import { ADD_CLOSED } from "../../redux/actions";
 import { ossURL } from "../../utils/http";
 
@@ -153,7 +153,7 @@ function Guild(props) {
     );
   }
 
-  if (props.guild._id === "search") {
+  if (props.guild._id === "explore") {
     return (
       <div
         className={styles.itemWrapper}
@@ -173,7 +173,7 @@ function Guild(props) {
           width="48px"
           height="48px"
         >
-          <Link to="/search">
+          <Link to="/explore">
             <foreignObject mask={mask} width="48px" height="48px">
               <div className={iconStyle}>
                 <Search24Px
@@ -217,7 +217,11 @@ function Guild(props) {
         data-tip={props.guild.name}
         data-for="guild"
       >
-        <Link to={"/" + props.guild._id + "/" + props.guild.channel[0]._id}>
+        <Link
+          to={
+            "/" + props.guild._id + "/" + props.guild.channel[0]._id + "/post"
+          }
+        >
           <foreignObject mask={mask} width="48px" height="48px">
             <div className={iconStyle}>
               {props.guild.isavatar ? (

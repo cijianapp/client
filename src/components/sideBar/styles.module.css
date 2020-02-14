@@ -50,10 +50,11 @@
 }
 
 .guildMenu {
-  width: 210px;
-  padding: 10px;
+  width: 230px;
+  padding: 4px 2px;
   margin-top: 5px !important;
   background: #000 !important;
+  opacity: 1 !important;
   display: flex;
   flex-direction: column;
 }
@@ -90,4 +91,39 @@
   font-size: 12px;
   font-weight: 500;
   color: var(--text-muted);
+}
+
+.item {
+  padding: 4px 8px;
+  cursor: pointer;
+  min-height: 28px;
+  margin: 2px 4px;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 500;
+  color: var(--interactive-normal);
+  border-radius: 2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.itemLabel {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+.item:hover {
+  background-color: var(--background-modifier-hover);
+  color: var(--interactive-hover);
 }

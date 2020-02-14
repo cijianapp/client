@@ -6,9 +6,9 @@ import axios from "axios";
 import { withRouter } from "react-router";
 import { connect } from "react-redux";
 
-import Add24Px from "../../Icons/Add24Px";
-import Comment from "../../Icons/Comment";
-import Close24Px from "../../Icons/Close24Px";
+import Add24Px from "../../icons/Add24Px";
+import Comment from "../../icons/Comment";
+import Close24Px from "../../icons/Close24Px";
 import { baseURL } from "../../utils/http";
 
 import { USER_INFO } from "../../redux/actions";
@@ -40,7 +40,7 @@ function CreateChannel(props) {
     const channelParams = {
       name: channleName,
       guildid: props.match.params.guildID,
-      type: "post"
+      type: props.type
     };
 
     axios
@@ -75,7 +75,7 @@ function CreateChannel(props) {
             <div className={styles.category}>
               <div className={styles.categoryName}>
                 <Comment className={styles.categoryNameIcon}></Comment>
-                版面频道
+                {props.type==="post"?'版面频道':"聊天频道"}
               </div>
             </div>
           </div>

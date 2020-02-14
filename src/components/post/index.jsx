@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./styles.module.css";
 import { Link } from "react-router-dom";
 
-import SvgComment from "../../Icons/Comment";
+import SvgComment from "../../icons/Comment";
 import { ossURL } from "../../utils/http";
 
 import Vote from "../vote";

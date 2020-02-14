@@ -4,7 +4,7 @@ import ReactTooltip from "react-tooltip";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
-import Menu24Px from "../../Icons/Menu24Px";
+import Menu24Px from "../../icons/Menu24Px";
 import Avatar from "../avatar";
 import Channels from "../channels";
 import UserSetting from "../userSetting";
@@ -47,20 +47,22 @@ function SideBar(props) {
         className={styles.guildMenu}
         clickable={true}
       >
-        <button
+        <div
+          className={styles.item}
           onClick={e => {
             alert(11111111);
           }}
         >
-          ssssssssss
-        </button>
-        <button
+          <div className={styles.itemLabel}>社区设置</div>
+        </div>
+        <div
+          className={styles.item}
           onClick={e => {
             alert(2222222222);
           }}
         >
-          ssssssssss
-        </button>
+          <div className={styles.itemLabel}>邀请其他人</div>
+        </div>
       </ReactTooltip>
 
       <Channels></Channels>

@@ -7,8 +7,8 @@ import axios from "axios";
 import { withRouter } from "react-router";
 import { connect } from "react-redux";
 
-import Setting from "../../Icons/Setting";
-import Close24Px from "../../Icons/Close24Px";
+import Setting from "../../icons/Setting";
+import Close24Px from "../../icons/Close24Px";
 import { baseURL } from "../../utils/http";
 
 import { ossURL } from "../../utils/http";

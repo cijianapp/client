@@ -9,7 +9,7 @@ import { USER_INFO } from "../../redux/actions";
 
 import SvgMask from "../svgMask";
 import Guilds from "../guilds";
-import Search from "../search";
+import Explore from "../explore";
 import Base from "../base";
 
 const mapStateToProps = state => ({
@@ -47,8 +47,8 @@ function Home(props) {
       </div>
       <div className={styles.base}>
         <Switch>
-          <Route exact path="/search">
-            <Search></Search>
+          <Route exact path="/explore">
+            <Explore></Explore>
           </Route>
 
           <Route exact path="/home"></Route>

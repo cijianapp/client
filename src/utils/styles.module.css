@@ -70,3 +70,15 @@
   background-color: var(--deprecated-text-input-bg);
   border: 1px solid var(--deprecated-text-input-border);
 }
+
+.input3 {
+  padding: 10px;
+  font-size: 16px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 3px;
+  color: var(--text-normal);
+  background-color: var(--deprecated-text-input-bg);
+  border: 1px solid var(--deprecated-text-input-border);
+}
