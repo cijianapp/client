@@ -1,20 +1,22 @@
 import React from "react";
 import styles from "./styles.module.css";
 
-function GuildCard() {
+import { ossURL } from "../../utils/http";
+
+function GuildCard(props) {
   return (
     <div className={styles.card}>
       <div className={styles.imageContainer}>
-        <svg height="144px" width="256px">
+        <svg height="192px" width="256px">
           <foreignObject
-            height="144px"
+            height="192px"
             width="256px"
             mask="url(#svg-mask-vertical-fade)"
           >
             <img
               alt=""
               className={styles.image}
-              src="https://cdn.discordapp.com/discovery-splashes/253581140072464384/6071cba122c2ae8eeda1fbed6a4b1977.jpg?size=256"
+              src={ossURL + props.guild.cover}
             ></img>
           </foreignObject>
         </svg>
@@ -24,10 +26,17 @@ function GuildCard() {
             <img
               alt=""
               className={styles.image}
-              src="https://cdn.discordapp.com/icons/253581140072464384/a_30f70cdd89e44529e2152aa33732af00.png?size=64"
+              src={ossURL + props.guild.avatar}
             ></img>
           </div>
-          <div className={styles.info}>彩虹6</div>
+          <div className={styles.info}>{props.guild.name}</div>
+        </div>
+      </div>
+
+      <div className={styles.guildInfo}>
+        <div className={styles.description}>{props.guild.description}</div>
+        <div className={styles.memberCount}>
+          {props.guild.membercount} 位成员
         </div>
       </div>
     </div>

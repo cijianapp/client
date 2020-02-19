@@ -70,7 +70,7 @@ function SvgMask() {
           y1="0"
           y2="0"
         >
-          <stop offset="0%" stopColor="white"></stop>
+          <stop offset="70%" stopColor="white"></stop>
           <stop offset="100%" stopColor="black"></stop>
         </linearGradient>
         <rect

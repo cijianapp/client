@@ -18,36 +18,7 @@ function FirstPage() {
         <div className={styles.mainContainer}>
           <h2>在此间找到你的社区</h2>
           <div className={styles.gridList}>
-            <GuildCard></GuildCard>
-            <GuildCard></GuildCard>
-            <GuildCard></GuildCard>
-            <GuildCard></GuildCard>
-            <GuildCard></GuildCard>
-            <GuildCard></GuildCard>
-            <GuildCard></GuildCard>
-            <GuildCard></GuildCard>
-            <GuildCard></GuildCard>
-            <GuildCard></GuildCard>
-            <GuildCard></GuildCard>
-            <GuildCard></GuildCard>
-            <GuildCard></GuildCard>
-            <GuildCard></GuildCard>
-            <GuildCard></GuildCard>
-            <GuildCard></GuildCard>
-            <GuildCard></GuildCard>
-            <GuildCard></GuildCard>
-            <GuildCard></GuildCard>
-            <GuildCard></GuildCard>
-            <GuildCard></GuildCard>
-            <GuildCard></GuildCard>
-            <GuildCard></GuildCard>
-            <GuildCard></GuildCard>
-            <GuildCard></GuildCard>
-            <GuildCard></GuildCard>
-            <GuildCard></GuildCard>
-            <GuildCard></GuildCard>
-            <GuildCard></GuildCard>
-            <GuildCard></GuildCard>
+            <GuildCard guild={{}}></GuildCard>
           </div>
         </div>
       </main>

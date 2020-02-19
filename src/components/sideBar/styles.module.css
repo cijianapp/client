@@ -57,6 +57,7 @@
   opacity: 1 !important;
   display: flex;
   flex-direction: column;
+  z-index: 1 !important;
 }
 
 .guildMenu::after {

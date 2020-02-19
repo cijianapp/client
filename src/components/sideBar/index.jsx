@@ -8,6 +8,7 @@ import Menu24Px from "../../icons/Menu24Px";
 import Avatar from "../avatar";
 import Channels from "../channels";
 import UserSetting from "../userSetting";
+import GuildSetting from "../guildSetting";
 
 const mapStateToProps = state => ({
   info: state.user.info
@@ -44,23 +45,21 @@ function SideBar(props) {
         effect="solid"
         id="guildName"
         globalEventOff="click"
+        eventOff="dbclick"
         className={styles.guildMenu}
         clickable={true}
       >
-        <div
-          className={styles.item}
-          onClick={e => {
-            alert(11111111);
-          }}
-        >
-          <div className={styles.itemLabel}>社区设置</div>
-        </div>
+        <GuildSetting></GuildSetting>
         <div
           className={styles.item}
           onClick={e => {
             alert(2222222222);
           }}
         >
+          <div className={styles.itemLabel}>邀请其他人</div>
+        </div>
+
+        <div className={styles.item}>
           <div className={styles.itemLabel}>邀请其他人</div>
         </div>
       </ReactTooltip>

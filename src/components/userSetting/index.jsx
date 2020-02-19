@@ -57,18 +57,18 @@ function UserSetting(props) {
     }
   }
 
-  function createChannel() {
+  function updateUser() {
     const postConfig = {
       ...props.headerConfig
     };
 
-    const updateuserParams = {
+    const updateUserParams = {
       username: username,
       icon: icon
     };
 
     axios
-      .post(baseURL + "api/updateuser", updateuserParams, postConfig)
+      .post(baseURL + "api/updateuser", updateUserParams, postConfig)
       .then(function(response) {
         if (response.data.code === 200) {
           setShowModal(false);
@@ -163,7 +163,7 @@ function UserSetting(props) {
                   <input className={styles.input1}></input>
                 </div>
                 <div className={styles.buttonContainer}>
-                  <button className={styles.button1} onClick={createChannel}>
+                  <button className={styles.button1} onClick={updateUser}>
                     更新信息
                   </button>
                 </div>
