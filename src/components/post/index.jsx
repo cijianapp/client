@@ -18,25 +18,26 @@ function Post(props) {
 
   let postType = "normal";
 
-  props.post.content.forEach(node => {
-    if (node.type === "paragraph") {
-      if (text === "") {
-        text = node.children[0].text;
+  if (Array.isArray(props.post.content))
+    props.post.content.forEach(node => {
+      if (node.type === "paragraph") {
+        if (text === "") {
+          text = node.children[0].text;
+        }
       }
-    }
-    if (node.type === "image") {
-      if (imgURL === "") {
-        imgURL = node.url;
+      if (node.type === "image") {
+        if (imgURL === "") {
+          imgURL = node.url;
+        }
       }
-    }
 
-    if (node.type === "video") {
-      if (videoURL === "") {
-        videoURL = node.url;
-        postType = "video";
+      if (node.type === "video") {
+        if (videoURL === "") {
+          videoURL = node.url;
+          postType = "video";
+        }
       }
-    }
-  });
+    });
 
   let media = <img className={styles.image} alt="" src={imgURL}></img>;
 
