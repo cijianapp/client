@@ -47,6 +47,7 @@ const mapStateToProps = state => ({
 function Submit(props) {
   let Guild = {};
   let Channel = {};
+  const [submitted, setSubmitted] = useState(false);
 
   if (Array.isArray(props.info.guild)) {
     props.info.guild.forEach(guild => {
@@ -62,7 +63,6 @@ function Submit(props) {
   }
 
   const [showFilePond, setShowFilePond] = useState(styles.notFilePond);
-
   const [value, setValue] = useState(initialValue);
   const editor = useMemo(
     () => withImages(withHistory(withReact(createEditor()))),
@@ -84,6 +84,7 @@ function Submit(props) {
       .post(baseURL + "api/post", postParams, props.headerConfig)
       .then(function(response) {
         if (response.data.code === 200) {
+          setSubmitted(true);
           props.history.goBack();
         }
       })
@@ -219,7 +220,10 @@ function Submit(props) {
         </div>
       </div>
 
-      <Prompt when={true} message="确定将退出此页面吗?您的编辑尚未保存哦。" />
+      <Prompt
+        when={submitted === false}
+        message="确定将退出此页面吗?您的编辑尚未保存哦。"
+      />
     </SimpleBarReact>
   );
 }
