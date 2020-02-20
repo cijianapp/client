@@ -11,18 +11,23 @@ import UserSetting from "../userSetting";
 import GuildSetting from "../guildSetting";
 
 const mapStateToProps = state => ({
-  info: state.user.info
+  info: state.user.info,
+  explore_guild: state.user.explore_guild
 });
 
 function SideBar(props) {
   let guild = {};
 
-  if (props.info.guild !== undefined) {
+  if (Array.isArray(props.info.guild)) {
     props.info.guild.forEach(element => {
       if (element._id === props.match.params.guildID) {
         guild = element;
       }
     });
+
+    if (props.explore_guild._id === props.match.params.guildID) {
+      guild = props.explore_guild;
+    }
   }
 
   return (

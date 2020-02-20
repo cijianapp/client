@@ -3,13 +3,15 @@ import {
   ADD_CLOSE,
   ADD_CLOSED,
   USER_INFO,
-  VOTE_POST
+  VOTE_POST,
+  EXPLORE_GUILD
 } from "../actions";
 
 const defaultState = {
   token: null,
   addClose: false,
-  info: {}
+  info: {},
+  explore_guild: {}
 };
 
 export default (state = defaultState, action) => {
@@ -24,6 +26,9 @@ export default (state = defaultState, action) => {
     case USER_INFO:
       return { ...state, info: action.value };
 
+    case EXPLORE_GUILD:
+      return { ...state, explore_guild: action.value };
+
     case ADD_CLOSE:
       return { ...state, addClose: true };
 
@@ -32,12 +37,17 @@ export default (state = defaultState, action) => {
 
     case VOTE_POST:
       let isVoted = false;
-      state.info.vote.forEach(element => {
-        if (element.post === action.post) {
-          element.vote = action.value;
-          isVoted = true;
-        }
-      });
+      if (Array.isArray(state.info.vote)) {
+        state.info.vote.forEach(element => {
+          if (element.post === action.post) {
+            element.vote = action.value;
+            isVoted = true;
+          }
+        });
+      } else {
+        state.info.vote = [];
+      }
+
       if (!isVoted) {
         state.info.vote.push({ post: action.post, vote: action.value });
       }

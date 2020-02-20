@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./styles.module.css";
 
-import GuildCard from "../guildCard";
 import LoginControl from "../loginControl";
 import SvgMask from "../svgMask";
+import Explore from "../explore";
 
 function FirstPage() {
   return (
@@ -17,9 +17,7 @@ function FirstPage() {
       <main className={styles.main}>
         <div className={styles.mainContainer}>
           <h2>在此间找到你的社区</h2>
-          <div className={styles.gridList}>
-            <GuildCard guild={{}}></GuildCard>
-          </div>
+          <Explore></Explore>
         </div>
       </main>
       <footer className={styles.footer}>

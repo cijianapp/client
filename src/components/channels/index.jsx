@@ -7,52 +7,59 @@ import KeyboardArrowDown24Px from "../../icons/KeyboardArrowDown24Px";
 import CreateChannel from "../createChannel";
 
 const mapStateToProps = state => ({
-  info: state.user.info
+  info: state.user.info,
+  explore_guild: state.user.explore_guild
 });
 
 function Channels(props) {
   const postList = [];
   const chatList = [];
 
+  let guild = {};
+
   if (Array.isArray(props.info.guild)) {
-    props.info.guild.forEach(guild => {
-      if (guild._id === props.match.params.guildID) {
-        guild.channel.forEach(channel => {
-          let channelStyle = styles.channel;
-          if (channel._id === props.match.params.channelID) {
-            channelStyle = styles.channelSelected;
-          }
+    props.info.guild.forEach(element => {
+      if (element._id === props.match.params.guildID) {
+        guild = element;
+      }
+    });
 
-          if(channel.type==="post"){
-            postList.push(
-              <Link
-                to={"/" + guild._id + "/" + channel._id+ "/post"}
-                key={channel._id}
-                className={styles.link}
-              >
-                <div className={channelStyle}>
-                  <div className={styles.channelName}>{channel.name}</div>
-                </div>
-              </Link>
-            );
-          }
+    if (props.explore_guild._id === props.match.params.guildID) {
+      guild = props.explore_guild;
+    }
 
-          if(channel.type==="chat"){
-            chatList.push(
-              <Link
-                to={"/" + guild._id + "/" + channel._id+ "/chat"}
-                key={channel._id}
-                className={styles.link}
-              >
-                <div className={channelStyle}>
-                  <div className={styles.channelName}>{channel.name}</div>
-                </div>
-              </Link>
-            );
-          }
+    guild.channel.forEach(channel => {
+      let channelStyle = styles.channel;
+      if (channel._id === props.match.params.channelID) {
+        channelStyle = styles.channelSelected;
+      }
 
+      if (channel.type === "post") {
+        postList.push(
+          <Link
+            to={"/" + guild._id + "/" + channel._id + "/post"}
+            key={channel._id}
+            className={styles.link}
+          >
+            <div className={channelStyle}>
+              <div className={styles.channelName}>{channel.name}</div>
+            </div>
+          </Link>
+        );
+      }
 
-        });
+      if (channel.type === "chat") {
+        chatList.push(
+          <Link
+            to={"/" + guild._id + "/" + channel._id + "/chat"}
+            key={channel._id}
+            className={styles.link}
+          >
+            <div className={channelStyle}>
+              <div className={styles.channelName}>{channel.name}</div>
+            </div>
+          </Link>
+        );
       }
     });
   }
@@ -82,7 +89,6 @@ function Channels(props) {
       </div>
 
       {chatList}
-
     </div>
   );
 }

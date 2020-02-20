@@ -14,7 +14,8 @@ import { ossURL } from "../../utils/http";
 
 const mapStateToProps = state => ({
   headerConfig: state.user.headerConfig,
-  info: state.user.info
+  info: state.user.info,
+  explore_guild: state.user.explore_guild
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -32,6 +33,10 @@ function GuildSetting(props) {
         guild = element;
       }
     });
+
+    if (props.explore_guild._id === props.match.params.guildID) {
+      guild = props.explore_guild;
+    }
   }
 
   const [showModal, setShowModal] = useState(false);

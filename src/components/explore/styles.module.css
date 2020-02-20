@@ -2,35 +2,17 @@
   background: var(--background-secondary);
   display: flex;
   flex: 1 1 auto;
-  min-height: 100vh;
   flex-direction: column;
   color: #fff;
-}
-
-.header {
-  height: 72px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.headerContainer {
-  max-width: 1344px;
-  display: flex;
-  flex: 1 1 auto;
-  justify-content: flex-end;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .main {
-  margin-top: 50px;
   display: flex;
   flex: 1 1 auto;
   justify-content: center;
-}
-
-h2 {
-  font-weight: 600;
-  font-size: 32px;
 }
 
 .mainContainer {

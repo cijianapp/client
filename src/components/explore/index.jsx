@@ -20,7 +20,7 @@ function Explore(props) {
 
   useEffect(() => {
     axios
-      .get(baseURL + "api/explore", props.headerConfig)
+      .get(baseURL + "guest/explore", props.headerConfig)
       .then(response => {
         let guildCardList = [];
         response.data.forEach(element => {
