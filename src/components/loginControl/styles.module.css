@@ -1,6 +1,6 @@
 .loginButton {
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  color: rgba(255, 255, 255, 0.8);
+  border: 2px solid var(--border-primary);
+  color: var(--text-normal);
   border-radius: 20px;
   padding: 5px 15px 6px 15px;
   font-weight: 400;
@@ -9,13 +9,13 @@
 }
 
 .loginButton:hover {
-  border: 2px solid rgba(255, 255, 255, 0.8);
-  color: rgba(255, 255, 255, 1);
+  border: 2px solid var(--border-secondary);
+  color: var(--text-strong);
 }
 
 .overlay {
   position: fixed;
-  background: rgba(0, 0, 0, 0.5);
+  background: var(--modal-background);
   top: 0px;
   bottom: 0px;
   left: 0px;
@@ -59,14 +59,14 @@
   padding-top: 20px;
   font-weight: 500;
   font-size: 28px;
-  color: #fff;
+  color: var(--header-primary);
 }
 
 .lead {
   padding-top: 5px;
   font-weight: 300;
   font-size: 20px;
-  color: rgb(255, 255, 255, 0.5);
+  color: var(--header-secondary);
 }
 
 .inputs {
@@ -106,7 +106,7 @@ h5 {
 }
 
 .alertColor {
-  color: #f04747;
+  color: var(--alert-primary);
 }
 
 .span {
@@ -129,15 +129,15 @@ h5 {
 .input {
   display: flex;
   flex: 1 1 auto;
-  background: var(--deprecated-text-input-bg);
-  border: 1px solid var(--deprecated-text-input-border);
+  background: var(--text-input-bg);
+  border: 1px solid var(--text-input-border);
   color: var(--text-normal);
   padding: 5px;
   border-radius: 4px;
 }
 
 .input:hover {
-  border: 1px solid var(--deprecated-text-input-border-hover);
+  border: 1px solid var(--text-input-border-hover);
 }
 
 .verifyCode {
@@ -151,16 +151,16 @@ h5 {
   color: var(--text-normal);
   padding-left: 20px;
   padding-right: 20px;
-  background: #7289da;
+  background: var(--button-primary);
   cursor: pointer;
 }
 
 .verifyCode:hover {
-  background: #677bc4;
+  background: var(--button-primary-hover);
 }
 
 .link {
-  color: #7289da;
+  color: var(--link);
   cursor: pointer;
 }
 
@@ -174,17 +174,18 @@ h5 {
   width: 100%;
   display: flex;
   flex: 1 1 auto;
-  background: #7289da;
+  background: var(--button-primary);
   color: var(--text-normal);
   border-radius: 4px;
   align-items: center;
   justify-content: center;
   font-size: 18px;
   border: none;
+  cursor: pointer;
 }
 
 .loginBtn:hover {
-  background: #677bc4;
+  background: var(--button-primary-hover);
 }
 
 .registBtn {

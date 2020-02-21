@@ -16,7 +16,6 @@ function FirstPage() {
       </header>
       <main className={styles.main}>
         <div className={styles.mainContainer}>
-          <h2>在此间找到你的社区</h2>
           <Explore></Explore>
         </div>
       </main>

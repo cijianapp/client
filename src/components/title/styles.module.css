@@ -3,7 +3,7 @@
   height: 48px;
   flex: 0 0 auto;
   align-items: center;
-  color: var(--header-secondary);
+  color: var(--header-primary);
   z-index: 10;
   padding: 0 10px;
   box-shadow: var(--elevation-low);

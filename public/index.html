@@ -2,7 +2,7 @@
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="icon" href="%PUBLIC_URL%/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
@@ -28,47 +28,76 @@
       .theme-dark {
         --header-primary: #fff;
         --header-secondary: #b9bbbe;
+        --background-primary: #36393f;
+        --background-secondary: #2f3136;
+        --background-tertiary: #202225;
+        --background-quaternary: #18191c;
+        --panel-background: #292b2f;
+        --card-background: #202225;
+        --border-primary: rgba(255, 255, 255, 0.8);
+        --border-secondary: rgba(255, 255, 255, 0.5);
+        --text-strong: #fff;
         --text-normal: #dcddde;
         --text-muted: #72767d;
-        --text-link: #00b0f4;
+        --modal-background: rgba(0, 0, 0, 0.5);
+        --alert-primary: #f04747;
+        --text-input-bg: rgba(0, 0, 0, 0.1);
+        --text-input-border: rgba(0, 0, 0, 0.3);
+        --text-input-border-hover: #040405;
+        --button-primary: #7289da;
+        --button-primary-hover: #677bc4;
+        --link: #7289da;
+        --shadow-primary: rgba(32, 34, 37, 0.6);
+        --shadow-secondary: rgba(0, 0, 0, 0.2);
+        --logo-primary: #fff;
         --channels-default: #8e9297;
         --interactive-normal: #b9bbbe;
         --interactive-hover: #dcddde;
         --interactive-active: #fff;
-        --interactive-muted: #4f545c;
-        --background-primary: #36393f;
-        --background-secondary: #2f3136;
-        --background-tertiary: #202225;
-        --background-accent: #4f545c;
-        --background-floating: #18191c;
-        --background-mobile-header: #2f3136;
-        --background-modifier-hover: rgba(79, 84, 92, 0.16);
-        --background-modifier-active: rgba(79, 84, 92, 0.24);
         --background-modifier-selected: rgba(79, 84, 92, 0.32);
-        --background-modifier-accent: hsla(0, 0%, 100%, 0.06);
+        --background-modifier-hover: rgba(79, 84, 92, 0.32);
         --elevation-low: 0 1px 0 rgba(4, 4, 5, 0.2),
           0 1.5px 0 rgba(6, 6, 7, 0.05), 0 2px 0 rgba(4, 4, 5, 0.05);
-        --elevation-high: 0 8px 16px rgba(0, 0, 0, 0.24);
-        --logo-primary: #fff;
-        --guild-header-text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
-        --channeltextarea-background: #40444b;
-        --activity-card-background: #202225;
-        --deprecated-panel-background: #292b2f;
-        --deprecated-card-bg: rgba(32, 34, 37, 0.6);
-        --deprecated-card-editable-bg: rgba(32, 34, 37, 0.3);
-        --deprecated-store-bg: #36393f;
-        --deprecated-quickswitcher-input-background: #72767d;
-        --deprecated-quickswitcher-input-placeholder: hsla(0, 0%, 100%, 0.3);
-        --deprecated-text-input-bg: rgba(0, 0, 0, 0.1);
-        --deprecated-text-input-border: rgba(0, 0, 0, 0.3);
-        --deprecated-text-input-border-hover: #040405;
-        --deprecated-text-input-border-disabled: #202225;
-        --deprecated-text-input-prefix: #dcddde;
+      }
+
+      .theme-light {
+        --header-primary: #060607;
+        --header-secondary: #4f5660;
+        --background-primary: #fafafa;
+        --background-secondary: #f2f3f5;
+        --background-tertiary: #e3e5e8;
+        --background-quaternary: #fff;
+        --panel-background: #ebedef;
+        --card-background: #fff;
+        --border-primary: rgba(0, 0, 0, 0.5);
+        --border-secondary: rgba(0, 0, 0, 0.8);
+        --text-strong: #000;
+        --text-normal: #23262a;
+        --text-muted: #2e3338;
+        --modal-background: rgba(0, 0, 0, 0.5);
+        --alert-primary: #f04747;
+        --text-input-bg: rgba(0, 0, 0, 0.1);
+        --text-input-border: rgba(0, 0, 0, 0.3);
+        --text-input-border-hover: #040405;
+        --button-primary: #7289da;
+        --button-primary-hover: #677bc4;
+        --link: #7289da;
+        --shadow-primary: rgba(0, 0, 0, 0.1);
+        --shadow-secondary: rgba(185, 187, 190, 0.3);
+        --logo-primary: #000;
+        --channels-default: #6a7480;
+        --interactive-normal: #4f5660;
+        --interactive-hover: #2e3338;
+        --interactive-active: #060607;
+        --background-modifier-selected: rgba(116, 127, 141, 0.24);
+        --background-modifier-hover: rgba(116, 127, 141, 0.24);
+        --elevation-low: 0 1px 0 rgba(4, 4, 5, 0.2),
+          0 1.5px 0 rgba(6, 6, 7, 0.05), 0 2px 0 rgba(4, 4, 5, 0.05);
       }
     </style>
     <title>React App</title>
   </head>
-  <body class="theme-dark">
+  <body class="theme-light">
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--

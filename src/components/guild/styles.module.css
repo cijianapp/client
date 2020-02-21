@@ -22,12 +22,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #7289da;
+  background: var(--button-primary);
   cursor: pointer;
 }
 
 .circleIconButton:hover {
-  background: #7289da;
+  background: var(--button-primary);
 }
 
 .itemText {
@@ -36,7 +36,7 @@
 
 .overlay {
   position: fixed;
-  background: rgba(0, 0, 0, 0.8);
+  background: var(--modal-background);
   top: 0px;
   bottom: 0px;
   left: 0px;

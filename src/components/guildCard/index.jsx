@@ -52,7 +52,7 @@ function GuildCard(props) {
                 src={ossURL + props.guild.avatar}
               ></img>
             </div>
-            <div className={styles.info}>{props.guild.name}</div>
+            <div className={styles.name}>{props.guild.name}</div>
           </div>
         </div>
 

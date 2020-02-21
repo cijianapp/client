@@ -1,6 +1,6 @@
 .button1 {
-  color: #fff;
-  background-color: #7289da;
+  color: var(--text-strong);
+  background-color: var(--button-primary);
   height: 32px;
   min-width: 96px;
   min-height: 32px;
@@ -20,7 +20,7 @@
 }
 
 .button1:hover {
-  background-color: #677bc4;
+  background-color: var(--button-primary-hover);
 }
 
 .link1 {
@@ -54,8 +54,8 @@
   width: 100%;
   border-radius: 3px;
   color: var(--text-normal);
-  background-color: var(--deprecated-text-input-bg);
-  border: 1px solid var(--deprecated-text-input-border);
+  background-color: var(--text-input-bg);
+  border: 1px solid var(--text-input-border);
 }
 
 .input2 {
@@ -67,8 +67,8 @@
   width: 100%;
   border-radius: 3px;
   color: var(--text-normal);
-  background-color: var(--deprecated-text-input-bg);
-  border: 1px solid var(--deprecated-text-input-border);
+  background-color: var(--text-input-bg);
+  border: 1px solid var(--text-input-border);
 }
 
 .input3 {
@@ -79,6 +79,6 @@
   width: 100%;
   border-radius: 3px;
   color: var(--text-normal);
-  background-color: var(--deprecated-text-input-bg);
-  border: 1px solid var(--deprecated-text-input-border);
+  background-color: var(--text-input-bg);
+  border: 1px solid var(--text-input-border);
 }

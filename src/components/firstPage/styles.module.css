@@ -1,10 +1,9 @@
 .container {
-  background: var(--background-secondary);
+  background: var(--background-primary);
   display: flex;
   flex: 1 1 auto;
   min-height: 100vh;
   flex-direction: column;
-  color: #fff;
 }
 
 .header {
@@ -30,28 +29,21 @@
 h2 {
   font-weight: 600;
   font-size: 32px;
+  color: var(--header-primary);
 }
 
 .mainContainer {
   display: flex;
   flex: 1 1 auto;
-  max-width: 1344px;
+  max-width: 1380px;
   flex-direction: column;
-}
-
-.gridList {
-  display: grid;
-  grid-gap: 16px;
-  grid-template-columns: repeat(auto-fill, 256px);
-  grid-auto-rows: min-content;
-  justify-content: center;
 }
 
 .footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgb(255, 255, 255, 0.5);
+  color: var(--text-normal);
 }
 
 .footerContainet {
@@ -59,7 +51,7 @@ h2 {
   display: flex;
   flex: 1 1 auto;
   justify-content: space-between;
-  border-top: 1px solid rgb(255, 255, 255, 0.5);
+  border-top: 1px solid var(--border-primary);
   padding: 20px;
   margin-top: 40px;
 }
