@@ -22,7 +22,7 @@ const mapDispatchToProps = dispatch => ({
 function GuildCard(props) {
   return (
     <Link
-      className={commonStyles.link1}
+      className={commonStyles.link_hidden}
       to={"/" + props.guild._id + "/" + props.guild.channel[0]._id + "/post"}
       onClick={e => {
         props.setExplore(props.guild);
@@ -37,7 +37,7 @@ function GuildCard(props) {
               mask="url(#svg-mask-vertical-fade)"
             >
               <img
-                alt=""
+                alt="cover"
                 className={styles.image}
                 src={ossURL + props.guild.cover}
               ></img>
@@ -47,7 +47,7 @@ function GuildCard(props) {
           <div className={styles.icon}>
             <div className={styles.iconImage}>
               <img
-                alt=""
+                alt="avatar"
                 className={styles.image}
                 src={ossURL + props.guild.avatar}
               ></img>

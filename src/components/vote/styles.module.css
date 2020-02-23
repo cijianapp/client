@@ -13,7 +13,7 @@
 .upvote {
   width: 24px;
   height: 24px;
-  color: var(--text-muted);
+  color: var(--interactive-normal);
 }
 
 .upvote:hover {
@@ -22,8 +22,8 @@
 }
 
 .colorDefault {
-  fill: var(--text-muted);
-  color: var(--text-muted);
+  fill: var(--interactive-normal);
+  color: var(--interactive-normal);
 }
 
 .colorUp {
@@ -34,7 +34,7 @@
 .downvote {
   width: 24px;
   height: 24px;
-  color: var(--text-muted);
+  color: var(--interactive-normal);
 }
 
 .downvote:hover {

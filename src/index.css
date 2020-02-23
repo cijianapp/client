@@ -26,3 +26,23 @@ code {
 .app-mount {
   height: 100%;
 }
+
+h1 {
+  color: var(--header-primary);
+}
+
+h2 {
+  color: var(--header-primary);
+}
+
+h3 {
+  margin-block-start: 12px;
+  margin-block-end: 6px;
+  color: var(--header-primary);
+}
+
+h4 {
+  margin-block-start: 12px;
+  margin-block-end: 6px;
+  color: var(--text-muted);
+}

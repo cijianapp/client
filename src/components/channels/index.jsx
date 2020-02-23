@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./styles.module.css";
+import commonstyles from "../../utils/styles.module.css";
 import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
 
@@ -39,7 +40,7 @@ function Channels(props) {
           <Link
             to={"/" + guild._id + "/" + channel._id + "/post"}
             key={channel._id}
-            className={styles.link}
+            className={commonstyles.link_hidden}
           >
             <div className={channelStyle}>
               <div className={styles.channelName}>{channel.name}</div>
@@ -53,7 +54,7 @@ function Channels(props) {
           <Link
             to={"/" + guild._id + "/" + channel._id + "/chat"}
             key={channel._id}
-            className={styles.link}
+            className={commonstyles.link_hidden}
           >
             <div className={channelStyle}>
               <div className={styles.channelName}>{channel.name}</div>

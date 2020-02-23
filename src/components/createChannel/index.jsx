@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./styles.module.css";
+import commonStyles from "../../utils/styles.module.css";
 import ReactModal from "react-modal";
 import ReactTooltip from "react-tooltip";
 import axios from "axios";
@@ -7,7 +8,6 @@ import { withRouter } from "react-router";
 import { connect } from "react-redux";
 
 import Add24Px from "../../icons/Add24Px";
-import Comment from "../../icons/Comment";
 import Close24Px from "../../icons/Close24Px";
 import { baseURL } from "../../utils/http";
 
@@ -67,45 +67,43 @@ function CreateChannel(props) {
       <ReactModal
         isOpen={showModal}
         onRequestClose={closeModal}
-        className={styles.modal}
-        overlayClassName={styles.overlay}
+        className={commonStyles.setting_modal}
+        overlayClassName={commonStyles.setting_overlay}
       >
-        <div className={styles.sidebar}>
-          <div className={styles.sidebarNav}>
-            <div className={styles.category}>
-              <div className={styles.categoryName}>
-                <Comment className={styles.categoryNameIcon}></Comment>
-                {props.type==="post"?'版面频道':"聊天频道"}
-              </div>
-            </div>
+        <div className={commonStyles.setting_sidebar}>
+          <div className={commonStyles.setting_sidebarNav}>
+            <h4> {props.type === "post" ? "版面频道" : "聊天频道"}</h4>
           </div>
         </div>
 
-        <div className={styles.content}>
-          <div className={styles.contentMain}>
-            <div className={styles.text1}>概况</div>
-            <div className={styles.text2}>频道名称</div>
+        <div className={commonStyles.setting_content}>
+          <div className={commonStyles.setting_contentMain}>
+            <h3>概况</h3>
+            <h4>频道名称</h4>
             <input
-              className={styles.input1}
+              className={commonStyles.input_normal}
               value={channleName}
               onChange={e => setChannelName(e.target.value)}
             ></input>
 
             <div className={styles.buttonContainer}>
-              <button className={styles.button1} onClick={createChannel}>
+              <button
+                className={commonStyles.button_common_M}
+                onClick={createChannel}
+              >
                 创建频道
               </button>
             </div>
           </div>
 
-          <div className={styles.contentClose}>
+          <div className={commonStyles.setting_contentClose}>
             <div
-              className={styles.closeIcon}
+              className={commonStyles.setting_closeIcon}
               onClick={e => setShowModal(false)}
             >
-              <Close24Px className={styles.icon}></Close24Px>
+              <Close24Px className={commonStyles.setting_icon}></Close24Px>
             </div>
-            <div className={styles.text2}>关闭</div>
+            <div>关闭</div>
           </div>
         </div>
       </ReactModal>

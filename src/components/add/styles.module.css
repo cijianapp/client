@@ -1,42 +1,30 @@
 .slideBody {
-  padding: 28px 40px 0;
   display: flex;
-  align-items: center;
   flex-direction: column;
+  padding: 28px 40px 0;
+  align-items: center;
 }
 
-.title {
-  font-size: 20px;
-  font-weight: 700;
+.title_create {
   color: #7289da;
-  text-align: center;
-}
-
-.title1 {
-  font-size: 20px;
-  font-weight: 700;
-  color: #43b581;
-  text-align: center;
 }
 
 .actions {
   display: flex;
   flex: 1 1 auto;
   flex-direction: row;
-  margin-top: 30px;
 }
 
 .action {
-  width: 200px;
-  border-radius: 3px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  margin: 5px;
   display: flex;
   flex-direction: column;
+  width: 200px;
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   align-items: center;
-
   text-align: center;
   cursor: pointer;
 }
@@ -50,131 +38,69 @@
 }
 
 .actionHeader {
+  margin-top: 20px;
   font-size: 18px;
   font-weight: 500;
-  margin-top: 20px;
 }
 
 .actionBody {
+  padding: 10px 20px;
   color: #99aab5;
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
-  padding: 10px 20px;
 }
 
 .actionIconCreate {
   height: 78px;
   width: 112px;
+  margin: 20px;
   background-size: 112px 78px;
   background-image: url(../../assets/create.png);
-  margin-top: 20px;
 }
 
 .actionIconJoin {
   height: 78px;
   width: 172px;
+  margin: 20px;
   background-size: 172px 78px;
   background-image: url(../../assets/join.png);
-  margin-top: 20px;
 }
 
-.actionButtonCreate {
-  color: #fff;
-  background-color: #7289da;
-  width: 100%;
-  border-radius: 3px;
-  font-size: 16px;
-  font-weight: 500;
-  padding: 10px;
-  border: none;
-  margin-top: 20px;
-  cursor: pointer;
-}
-
-.actionButtonCreate:hover {
-  background-color: #677bc4;
-}
-
-.actionButtonJoin {
-  color: #fff;
-  background: #3ca374;
-  width: 100%;
-  border-radius: 3px;
-  font-size: 16px;
-  font-weight: 500;
-  padding: 10px;
-  border: none;
-  margin-top: 20px;
-  cursor: pointer;
-}
-
-.actionButtonJoin:hover {
-  background: #369368;
-}
-
-.addBody {
-  padding: 28px 40px 0;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-.p {
+.lead {
+  color: #99aab5;
   font-size: 18px;
   font-weight: 500;
   line-height: 1.3;
-  color: #99aab5;
   text-align: center;
-  margin-top: 10px;
-  margin-bottom: 0px;
 }
 
 .createMain {
   display: flex;
   flex: 1 1 auto;
-  margin: 0;
 }
 
-.inviteContainer {
-  width: 460px;
-  display: flex;
-  flex-direction: column;
-}
-
-.inputs {
+.inputContainer {
   width: 240px;
   margin: 0 10px;
 }
 
-.label {
-  color: var(--text-muted);
-  margin: 0;
-  font-size: 12px;
-  line-height: 18px;
-  padding-bottom: 5px;
-  padding-top: 15px;
-  font-weight: 600;
-}
-
 .input {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  background: transparent;
   height: 28px;
-  padding-top: 5px;
-  font-size: 14px;
-  border: none;
-  border-bottom: 2px solid #f0f0f0;
-  color: #2f3136;
   width: 100%;
-  background-color: rgb(240, 240, 240, 0.2);
+  padding-top: 5px;
+  margin-bottom: 10px;
+  background-color: rgb(240, 240, 240, 0.5);
+  color: #2f3136;
+  border: none;
+  border-bottom: 2px solid #8d8d8d;
+  font-size: 14px;
 }
 
 .privacy {
-  margin-top: 10px;
   height: 38px;
   width: 100%;
+  margin-top: 10px;
   border-radius: 5px;
   border: 1px solid #7289da;
 }
@@ -182,9 +108,9 @@
 .privacyButton {
   height: 100%;
   width: 50%;
-  border: none;
   background-color: transparent;
   color: #7289da;
+  border: none;
   font-size: 14px;
   cursor: pointer;
 }
@@ -201,113 +127,25 @@
 
 .alertMessage {
   margin-top: 10px;
-  font-size: 12px;
   color: #87909c;
+  font-size: 12px;
   font-weight: 400;
 }
-
-.iconContainer {
-  width: 200px;
-  margin: 0 10px;
-}
-
-.icon {
-  position: relative;
-  margin-top: 30px;
-  margin-left: 40px;
-  width: 138px;
-  height: 138px;
-  border-radius: 50%;
-  background-color: #7289da;
-  border: 5px solid #ebebeb;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.iconInput {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  cursor: pointer;
-}
-
-.noIconHint {
-  display: none;
-}
-
-.iconHint {
-  position: absolute;
-  border-radius: 50%;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: transparent;
-  font-weight: 600;
-  line-height: 1;
-  color: #fff;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.size {
-  font-size: 12px;
-  margin-left: 55px;
-  margin-top: 10px;
-  font-weight: 700;
-  color: #87909c;
-}
-
 .footer {
   position: absolute;
   left: 0px;
   right: 0px;
   bottom: 0px;
-  height: 40px;
+  display: flex;
+  padding: 5px 30px;
   background-color: #eee;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  padding: 18px 30px;
-  display: flex;
   justify-content: flex-end;
 }
 
-.button {
-  height: 40px;
-  margin-left: 10px;
-  background-color: #7289da;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  padding: 0 30px;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.button:hover {
-  background-color: #677bc4;
-}
-
-.button1 {
-  height: 40px;
-  margin-left: 10px;
-  background-color: #43b581;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  padding: 0 30px;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.button1:hover {
-  background-color: #3ca374;
+.buttonContainer {
+  margin: 10px;
 }
 
 .notShow {
@@ -321,30 +159,12 @@
 .alertContent {
   font-weight: 400;
 }
+.title_join {
+  color: #43b581;
+}
 
-.guildName {
+.inviteContainer {
+  width: 460px;
   display: flex;
-  width: 138px;
-  height: 138px;
-  color: var(--text-normal);
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 1;
-  align-items: center;
-  justify-content: center;
-}
-
-.removeButton {
-  margin-left: 85px;
-  border: none;
-  font-size: 14px;
-  margin-top: 10px;
-  font-weight: 700;
-  color: #87909c;
-  background: none;
-  cursor: pointer;
-}
-
-.removeButton:hover {
-  background: rgb(240, 240, 240, 1);
+  flex-direction: column;
 }

@@ -46,7 +46,9 @@ function GuildSetting(props) {
   const [cover, setCover] = useState("");
   const [guildName, setGuildName] = useState("");
   const [guildDescription, setGuildDescription] = useState("");
-  const [avatarHintStyle, setAvatarHintStyle] = useState(styles.noAvatarHint);
+  const [avatarHintStyle, setAvatarHintStyle] = useState(
+    commonStyles.uploadIcon_noIconHint
+  );
   const [coverHintStyle, setCoverHintStyle] = useState(styles.noCoverHint);
 
   const avatarInput = useRef();
@@ -132,41 +134,40 @@ function GuildSetting(props) {
       <ReactModal
         isOpen={showModal}
         onRequestClose={closeModal}
-        className={styles.modal}
-        overlayClassName={styles.overlay}
+        className={commonStyles.setting_modal}
+        overlayClassName={commonStyles.setting_overlay}
       >
-        <div className={styles.sidebar}>
-          <div className={styles.sidebarNav}>
-            <div className={styles.category}>
-              <div className={styles.categoryName}>
-                社区：
-                {guild.name}
-              </div>
-            </div>
+        <div className={commonStyles.setting_sidebar}>
+          <div className={commonStyles.setting_sidebarNav}>
+            <h4>
+              {" "}
+              社区：
+              {guild.name}
+            </h4>
           </div>
         </div>
 
-        <div className={styles.content}>
-          <div className={styles.contentMain}>
-            <div className={commonStyles.text1}>概况</div>
+        <div className={commonStyles.setting_content}>
+          <div className={commonStyles.setting_contentMain}>
+            <h3>概况</h3>
 
-            <div className={styles.guildInfo}>
-              <div className={styles.avatarContainer}>
+            <div className={commonStyles.setting_guildInfo}>
+              <div className={commonStyles.uploadIcon_iconContainer}>
                 <div
-                  className={styles.avatar}
+                  className={commonStyles.uploadIcon_icon}
                   style={avatarStyle}
                   onMouseOver={e => {
-                    setAvatarHintStyle(styles.avatarHint);
+                    setAvatarHintStyle(commonStyles.uploadIcon_iconHint);
                   }}
                   onMouseOut={e => {
-                    setAvatarHintStyle(styles.noAvatarHint);
+                    setAvatarHintStyle(commonStyles.uploadIcon_noIconHint);
                   }}
                 >
                   <div className={avatarHintStyle}>
                     更改<br></br>头像
                   </div>
                   <input
-                    className={styles.iconInput}
+                    className={commonStyles.uploadIcon_iconInput}
                     type="file"
                     accept=".jpg,.jpeg,.png,.gif"
                     ref={avatarInput}
@@ -177,12 +178,12 @@ function GuildSetting(props) {
                 </div>
 
                 {avatar === "" ? (
-                  <div className={styles.size}>
+                  <div className={commonStyles.uploadIcon_size}>
                     <strong>最小尺寸：128x128</strong>
                   </div>
                 ) : (
                   <button
-                    className={styles.removeButton}
+                    className={commonStyles.uploadIcon_removeButton}
                     onClick={e => {
                       setAvatar("remove");
                       setAvatarStyle({});
@@ -192,20 +193,20 @@ function GuildSetting(props) {
                   </button>
                 )}
               </div>
-              <div className={styles.guildInfo1}>
+              <div className={styles.guildInfoText}>
                 <div className={styles.inputContainer}>
-                  <div className={commonStyles.text2}>社区名称</div>
+                  <h4>社区名称</h4>
                   <input
-                    className={commonStyles.input1}
+                    className={commonStyles.input_normal}
                     value={guildName}
                     onChange={e => setGuildName(e.target.value)}
                   ></input>
                 </div>
 
                 <div className={styles.inputContainer}>
-                  <div className={commonStyles.text2}>社区简介</div>
+                  <h4>社区简介</h4>
                   <textarea
-                    className={commonStyles.input3}
+                    className={commonStyles.input_textarea}
                     value={guildDescription}
                     onChange={e => setGuildDescription(e.target.value)}
                   ></textarea>
@@ -213,7 +214,7 @@ function GuildSetting(props) {
               </div>
             </div>
 
-            <div className={styles.guildInfo}>
+            <div className={commonStyles.setting_guildInfo}>
               <div className={styles.coverContainer}>
                 <div
                   className={styles.cover}
@@ -229,7 +230,7 @@ function GuildSetting(props) {
                     更改<br></br>封面
                   </div>
                   <input
-                    className={styles.iconInput}
+                    className={commonStyles.uploadIcon_iconInput}
                     type="file"
                     accept=".jpg,.jpeg,.png,.gif"
                     ref={coverInput}
@@ -240,12 +241,12 @@ function GuildSetting(props) {
                 </div>
 
                 {cover === "" ? (
-                  <div className={styles.size}>
+                  <div className={commonStyles.uploadIcon_size}>
                     <strong>最小尺寸：128x128</strong>
                   </div>
                 ) : (
                   <button
-                    className={styles.removeButton}
+                    className={commonStyles.uploadIcon_removeButton}
                     onClick={e => {
                       setCover("remove");
                       setCoverStyle({});
@@ -257,24 +258,27 @@ function GuildSetting(props) {
               </div>
               <div className={styles.guildInfo1}>
                 <div className={styles.inputContainer}>
-                  <div className={commonStyles.text2}>选择封面</div>
+                  <h4>选择封面</h4>
                 </div>
               </div>
             </div>
 
             <div className={styles.buttonContainer}>
-              <button className={commonStyles.button1} onClick={updateGuild}>
+              <button
+                className={commonStyles.button_common_M}
+                onClick={updateGuild}
+              >
                 更新信息
               </button>
             </div>
           </div>
 
-          <div className={styles.contentClose}>
+          <div className={commonStyles.setting_contentClose}>
             <div
-              className={styles.closeIcon}
+              className={commonStyles.setting_closeIcon}
               onClick={e => setShowModal(false)}
             >
-              <Close24Px className={styles.icon}></Close24Px>
+              <Close24Px className={commonStyles.setting_icon}></Close24Px>
             </div>
             <div className={commonStyles.text2}>关闭</div>
           </div>

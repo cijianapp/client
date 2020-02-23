@@ -19,8 +19,13 @@ function Explore(props) {
   const [guilds, setGuilds] = useState([]);
 
   useEffect(() => {
+    const source = axios.CancelToken.source();
+
     axios
-      .get(baseURL + "guest/explore", props.headerConfig)
+      .get(baseURL + "guest/explore", {
+        ...props.headerConfig,
+        cancelToken: source.token
+      })
       .then(response => {
         let guildCardList = [];
         response.data.forEach(element => {
@@ -34,6 +39,10 @@ function Explore(props) {
       .catch(err => {
         console.log(err);
       });
+
+    return () => {
+      source.cancel();
+    };
   }, [props.headerConfig]);
 
   return (

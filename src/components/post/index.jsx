@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./styles.module.css";
+import commonStyles from "../../utils/styles.module.css";
 import { Link } from "react-router-dom";
 
 import SvgComment from "../../icons/Comment";
@@ -39,10 +40,10 @@ function Post(props) {
       }
     });
 
-  let media = <img className={styles.image} alt="" src={imgURL}></img>;
+  let media = <img className={styles.media} alt="" src={imgURL}></img>;
 
   if (postType === "video") {
-    media = <video controls className={styles.image} src={videoURL}></video>;
+    media = <video controls className={styles.media} src={videoURL}></video>;
   }
 
   return (
@@ -50,20 +51,20 @@ function Post(props) {
       to={
         "/" + props.post.guild + "/" + props.post.channel + "/" + props.post._id
       }
-      className={styles.link}
+      className={commonStyles.link_hidden}
     >
       <div className={styles.container}>
         {media}
 
-        <div className={styles.text}>
-          <div className={styles.title}>{props.post.title}</div>
+        <div className={styles.textContainer}>
+          <h4 className={styles.title}>{props.post.title}</h4>
 
           <div className={styles.content}>{text}</div>
         </div>
 
-        <div className={styles.wrapper}>
+        <div className={styles.infoWrapper}>
           <div>
-            <img className={styles.icon} alt="" src={avatarURL}></img>
+            <img className={styles.avatar} alt="avatar" src={avatarURL}></img>
           </div>
           <div className={styles.userInfo}>
             <div className={styles.username}>{props.post.username}</div>

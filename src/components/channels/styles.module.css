@@ -5,26 +5,21 @@
 }
 
 .category {
-  padding-top: 16px;
   display: flex;
   flex-direction: row;
-  color: var(--channels-default);
-  fill: var(--channels-default);
-  cursor: pointer;
+  padding-top: 16px;
   margin-right: 16px;
-}
-
-.categoryNameIcon {
-  height: 24px;
-  width: 24px;
+  cursor: pointer;
 }
 
 .categoryName {
+  display: flex;
+  flex: 1 1 auto;
   font-size: 14px;
   font-weight: 600;
   line-height: 24px;
-  display: flex;
-  flex: 1 1 auto;
+  color: var(--interactive-normal);
+  fill: var(--interactive-normal);
 }
 
 .categoryName:hover {
@@ -32,26 +27,27 @@
   fill: var(--interactive-hover);
 }
 
+.categoryNameIcon {
+  height: 24px;
+  width: 24px;
+}
+
 .icon {
   height: 24px;
   width: 24px;
 }
 
-.link {
-  text-decoration: none;
-}
-
 .channel {
-  box-sizing: border-box;
-  height: 32px;
-  padding: 0 8px;
-  margin: 1px 8px;
-  border-radius: 4px;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  height: 32px;
+  margin: 1px 8px;
+  padding: 0 8px;
+  box-sizing: border-box;
   overflow: hidden;
   color: var(--channels-default);
+  border-radius: 4px;
+  align-items: center;
   cursor: pointer;
 }
 
@@ -61,27 +57,26 @@
 }
 
 .channelSelected {
-  box-sizing: border-box;
-  height: 32px;
-  padding: 0 8px;
-  margin: 1px 8px;
-  border-radius: 4px;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  height: 32px;
+  margin: 1px 8px;
+  padding: 0 8px;
+  box-sizing: border-box;
   overflow: hidden;
-  color: var(--channels-default);
-  cursor: pointer;
   background-color: var(--background-modifier-selected);
   color: var(--interactive-active);
+  border-radius: 4px;
+  align-items: center;
+  cursor: pointer;
 }
 
 .channelName {
+  flex: 1 1 auto;
+  overflow: hidden;
   font-size: 16px;
   line-height: 20px;
   font-weight: 500;
   text-overflow: ellipsis;
   white-space: nowrap;
-  overflow: hidden;
-  flex: 1 1 auto;
 }

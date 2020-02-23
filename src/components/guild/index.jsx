@@ -82,7 +82,7 @@ function Guild(props) {
         }}
       >
         <div className={styles.pillContainer}>
-          <span className={styles.pill}></span>
+          <span className={styles.pill} style={{ height: pillHeight }}></span>
         </div>
 
         <svg
@@ -94,11 +94,7 @@ function Guild(props) {
           <Link to="/home">
             <foreignObject mask={mask} width="48px" height="48px">
               <div className={iconStyle}>
-                <Home24Px
-                  width="24px"
-                  height="24px"
-                  className={styles.itemText}
-                ></Home24Px>
+                <Home24Px width="24px" height="24px"></Home24Px>
               </div>
             </foreignObject>
           </Link>
@@ -119,7 +115,7 @@ function Guild(props) {
         }}
       >
         <div className={styles.pillContainer}>
-          <span className={styles.pill}></span>
+          <span className={styles.pill} style={{ height: pillHeight }}></span>
         </div>
 
         <svg
@@ -130,11 +126,7 @@ function Guild(props) {
         >
           <foreignObject mask={mask} width="48px" height="48px">
             <div className={iconStyle} onClick={openAddModal}>
-              <Add24Px
-                width="24px"
-                height="24px"
-                className={styles.itemText}
-              ></Add24Px>
+              <Add24Px width="24px" height="24px"></Add24Px>
             </div>
           </foreignObject>
         </svg>
@@ -165,8 +157,9 @@ function Guild(props) {
         }}
       >
         <div className={styles.pillContainer}>
-          <span className={styles.pill}></span>
+          <span className={styles.pill} style={{ height: pillHeight }}></span>
         </div>
+
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 48 48"
@@ -176,11 +169,7 @@ function Guild(props) {
           <Link to="/explore">
             <foreignObject mask={mask} width="48px" height="48px">
               <div className={iconStyle}>
-                <Search24Px
-                  width="24px"
-                  height="24px"
-                  className={styles.itemText}
-                ></Search24Px>
+                <Search24Px width="24px" height="24px"></Search24Px>
               </div>
             </foreignObject>
           </Link>
@@ -228,11 +217,10 @@ function Guild(props) {
                 <img
                   className={styles.icon}
                   src={ossURL + props.guild.avatar}
-                  alt="头像"
+                  alt="avatar"
                 ></img>
               ) : (
                 <div className={styles.guildName}>
-                  {" "}
                   {props.guild.name.substr(0, 3)}
                 </div>
               )}

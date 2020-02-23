@@ -29,7 +29,9 @@ const mapDispatchToProps = dispatch => ({
 function UserSetting(props) {
   const [showModal, setShowModal] = useState(false);
   const [icon, setIcon] = useState("");
-  const [hintStyle, setHintstyle] = useState(styles.noIconHint);
+  const [hintStyle, setHintstyle] = useState(
+    commonStyles.uploadIcon_noIconHint
+  );
   const [iconStyle, setIconStyle] = useState({
     backgroundImage: "url(" + ossURL + props.info.avatar + ")"
   });
@@ -91,38 +93,36 @@ function UserSetting(props) {
       <ReactModal
         isOpen={showModal}
         onRequestClose={closeModal}
-        className={styles.modal}
-        overlayClassName={styles.overlay}
+        className={commonStyles.setting_modal}
+        overlayClassName={commonStyles.setting_overlay}
       >
-        <div className={styles.sidebar}>
-          <div className={styles.sidebarNav}>
-            <div className={styles.category}>
-              <div className={commonStyles.text2}>用户设置</div>
-            </div>
+        <div className={commonStyles.setting_sidebar}>
+          <div className={commonStyles.setting_sidebarNav}>
+            <h4>用户设置</h4>
           </div>
         </div>
 
-        <div className={styles.content}>
-          <div className={styles.contentMain}>
-            <div className={commonStyles.text1}>我的账号</div>
+        <div className={commonStyles.setting_content}>
+          <div className={commonStyles.setting_contentMain}>
+            <h3>我的账号</h3>
 
             <div className={styles.userInfo}>
-              <div className={styles.avatarContainer}>
+              <div className={commonStyles.uploadIcon_iconContainer}>
                 <div
-                  className={styles.avatar}
+                  className={commonStyles.uploadIcon_icon}
                   style={iconStyle}
                   onMouseOver={e => {
-                    setHintstyle(styles.iconHint);
+                    setHintstyle(commonStyles.uploadIcon_iconHint);
                   }}
                   onMouseOut={e => {
-                    setHintstyle(styles.noIconHint);
+                    setHintstyle(commonStyles.uploadIcon_noIconHint);
                   }}
                 >
                   <div className={hintStyle}>
                     更改<br></br>头像
                   </div>
                   <input
-                    className={styles.iconInput}
+                    className={commonStyles.uploadIcon_iconInput}
                     type="file"
                     accept=".jpg,.jpeg,.png,.gif"
                     ref={fileInput}
@@ -133,12 +133,12 @@ function UserSetting(props) {
                 </div>
 
                 {icon === "" ? (
-                  <div className={styles.size}>
+                  <div className={commonStyles.uploadIcon_size}>
                     <strong>最小尺寸：128x128</strong>
                   </div>
                 ) : (
                   <button
-                    className={styles.removeButton}
+                    className={commonStyles.uploadIcon_removeButton}
                     onClick={e => {
                       setIcon("remove");
                       setIconStyle({});
@@ -150,20 +150,23 @@ function UserSetting(props) {
               </div>
               <div className={styles.userInfo1}>
                 <div className={styles.userInfo2}>
-                  <div className={styles.text2}>用户名称</div>
+                  <h4>用户名称</h4>
                   <input
-                    className={styles.input1}
+                    className={commonStyles.input_normal}
                     value={username}
                     onChange={e => setUsername(e.target.value)}
                   ></input>
                 </div>
 
                 <div className={styles.userInfo2}>
-                  <div className={styles.text2}>当前密码</div>
-                  <input className={styles.input1}></input>
+                  <h4>当前密码</h4>
+                  <input className={commonStyles.input_normal}></input>
                 </div>
                 <div className={styles.buttonContainer}>
-                  <button className={styles.button1} onClick={updateUser}>
+                  <button
+                    className={commonStyles.button_common_M}
+                    onClick={updateUser}
+                  >
                     更新信息
                   </button>
                 </div>
@@ -171,14 +174,14 @@ function UserSetting(props) {
             </div>
           </div>
 
-          <div className={styles.contentClose}>
+          <div className={commonStyles.setting_contentClose}>
             <div
-              className={styles.closeIcon}
+              className={commonStyles.setting_closeIcon}
               onClick={e => setShowModal(false)}
             >
-              <Close24Px className={styles.icon2}></Close24Px>
+              <Close24Px className={commonStyles.setting_icon}></Close24Px>
             </div>
-            <div className={styles.text2}>关闭</div>
+            <div>关闭</div>
           </div>
         </div>
       </ReactModal>

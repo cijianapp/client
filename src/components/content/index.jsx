@@ -35,10 +35,12 @@ function Content(props) {
       .then(response => {
         let postElements = [
           <div key="info" className={styles.info}>
-            <h5 className={styles.h5}>社区详情</h5>
-            <Link to={"submit"} className={commonStyles.link1}>
-              <div className={commonStyles.button1}>发 布 新 帖</div>
-            </Link>
+            <div className={styles.infoContainer}>
+              <h4>社区详情</h4>
+              <Link to={"submit"} className={commonStyles.link_hidden}>
+                <div className={commonStyles.button_common_M}>发 布 新 帖</div>
+              </Link>
+            </div>
           </div>
         ];
 
@@ -70,7 +72,7 @@ function Content(props) {
           <Masonry
             breakpointCols={breakpointColumnsObj}
             className={styles.masonryGrid}
-            columnClassName={styles.masonryColumn}
+            columnClassName=""
           >
             {posts}
           </Masonry>

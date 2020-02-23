@@ -206,14 +206,14 @@ function Submit(props) {
           </Slate>
           <div className={styles.footer}>
             <button
-              className={commonStyles.button1}
+              className={commonStyles.button_common_M}
               onClick={e => {
                 props.history.goBack();
               }}
             >
               返回
             </button>
-            <button className={commonStyles.button1} onClick={post}>
+            <button className={commonStyles.button_common_M} onClick={post}>
               发布
             </button>
           </div>

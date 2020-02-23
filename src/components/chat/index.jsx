@@ -78,7 +78,7 @@ function Chat(props) {
           <textarea
             value={value}
             onChange={e => setValue(e.target.value)}
-            className={commonStyles.input3}
+            className={commonStyles.input_textarea}
             placeholder={"请输入消息"}
             onKeyDown={e => onEnterPress(e)}
           ></textarea>

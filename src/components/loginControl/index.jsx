@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./styles.module.css";
+import commonStyles from "../../utils/styles.module.css";
 import ReactModal from "react-modal";
 
 import { LOGIN, NO_LOGIN, SET_TOKEN } from "../../redux/actions";
@@ -195,48 +196,44 @@ function LoginControl(props) {
       <ReactModal
         isOpen={showLoginModal}
         onRequestClose={closeLoginModal}
-        className={styles.modalLogin}
+        className={styles.modal}
         overlayClassName={styles.overlay}
       >
         <div className={styles.form}>
-          <div className={styles.title}>欢迎回来！</div>
-          <div className={styles.lead}>此间千面，全都是你！</div>
-          <form className={styles.inputs} onSubmit={login}>
-            <h5 className={styles.bold}>手机号</h5>
-            <div className={styles.inputContainer}>
-              <input
-                className={styles.input}
-                name="username"
-                type="tel"
-                autoFocus={true}
-                value={tel}
-                onChange={e => {
-                  setTel(e.target.value);
-                }}
-              ></input>
-            </div>
-            <h5 className={styles.bold}>密码</h5>
-            <div className={styles.inputContainer}>
-              <input
-                className={styles.input}
-                type="password"
-                value={password}
-                onChange={e => {
-                  setPassword(e.target.value);
-                }}
-              ></input>
-            </div>
-            <h5 className={styles.link}>忘记密码?</h5>
+          <div className={styles.title}>欢迎回来</div>
+          <div className={styles.lead}>此间千面，全都是你</div>
+          <form className={styles.formContainer} onSubmit={login}>
+            <h4>手机号</h4>
+            <input
+              className={commonStyles.input_normal}
+              name="username"
+              type="tel"
+              autoFocus={true}
+              value={tel}
+              onChange={e => {
+                setTel(e.target.value);
+              }}
+            ></input>
+            <h4>密码</h4>
+            <input
+              className={commonStyles.input_normal}
+              type="password"
+              value={password}
+              onChange={e => {
+                setPassword(e.target.value);
+              }}
+            ></input>
+            <div className={commonStyles.link_normal}>忘记密码?</div>
 
-            <button className={styles.loginBtn} type="submit">
+            <button className={commonStyles.button_common_XL} type="submit">
               登入
             </button>
 
-            <div className={styles.registBtn}>
-              <h5>需要新的账号？</h5>
-              <h5 className={styles.link} onClick={toRegister}>
+            <div className={styles.buttonNav}>
+              <h4>需要新的账号？</h4>
+              <h4 className={commonStyles.link_normal} onClick={toRegister}>
                 点击注册
-              </h5>
+              </h4>
             </div>
           </form>
         </div>
@@ -245,13 +242,13 @@ function LoginControl(props) {
       <ReactModal
         isOpen={showRegisterModal}
         onRequestClose={closeRegisterModal}
-        className={styles.modalRegister}
+        className={styles.modal}
         overlayClassName={styles.overlay}
       >
         <div className={styles.form}>
           <div className={styles.title}>注册成为新用户吧！</div>
-          <form className={styles.inputs} onSubmit={register}>
-            <h5 className={telAlertColor}>
+          <form className={styles.formContainer} onSubmit={register}>
+            <h4 className={telAlertColor}>
               手机号
               <span className={telAlert1}>
                 ---
@@ -261,23 +258,22 @@ function LoginControl(props) {
                 ---
                 <span>该手机号已被注册</span>
               </span>
-            </h5>
-            <div className={styles.inputContainer}>
+            </h4>
+            <input
+              className={commonStyles.input_normal}
+              name="username"
+              type="tel"
+              autoFocus={true}
+              value={tel}
+              onChange={e => {
+                setTel(e.target.value);
+              }}
+            ></input>
+            <h4>验证码</h4>
+
+            <div className={styles.verifyContainer}>
               <input
-                className={styles.input}
-                name="username"
-                type="tel"
-                autoFocus={true}
-                value={tel}
-                onChange={e => {
-                  setTel(e.target.value);
-                }}
-              ></input>
-            </div>
-            <h5 className={styles.bold}>验证码</h5>
-            <div className={styles.inputContainer}>
-              <input
-                className={styles.input}
+                className={commonStyles.input_normal}
                 placeholder="请输入4位验证码"
               ></input>
               <div className={styles.verifyCode} onClick={verify}>
@@ -285,51 +281,47 @@ function LoginControl(props) {
               </div>
             </div>
 
-            <h5 className={styles.bold}>用户名</h5>
-            <div className={styles.inputContainer}>
-              <input
-                className={styles.input}
-                name="name"
-                type="text"
-                autoFocus={true}
-                value={username}
-                autoComplete="off"
-                onChange={e => {
-                  setUsernamme(e.target.value);
-                }}
-              ></input>
-            </div>
+            <h4>用户名</h4>
+            <input
+              className={commonStyles.input_normal}
+              name="name"
+              type="text"
+              autoFocus={true}
+              value={username}
+              autoComplete="off"
+              onChange={e => {
+                setUsernamme(e.target.value);
+              }}
+            ></input>
 
             <div className={styles.alert}>
-              <h5 className={passwordAlertColor}>
+              <h4 className={passwordAlertColor}>
                 密码
                 <span className={passwordAlert}>
                   ---
                   <span>密码必须在6位以上</span>
                 </span>
-              </h5>
+              </h4>
             </div>
 
-            <div className={styles.inputContainer}>
-              <input
-                className={styles.input}
-                type="password"
-                value={password}
-                onChange={e => {
-                  setPassword(e.target.value);
-                }}
-              ></input>
-            </div>
+            <input
+              className={commonStyles.input_normal}
+              type="password"
+              value={password}
+              onChange={e => {
+                setPassword(e.target.value);
+              }}
+            ></input>
 
-            <button className={styles.loginBtn} type="submit">
+            <button className={commonStyles.button_common_XL} type="submit">
               注册
             </button>
 
-            <div className={styles.registBtn}>
-              <h5>已经拥有账号了？</h5>
-              <h5 className={styles.link} onClick={toLogin}>
+            <div className={styles.buttonNav}>
+              <h4>已经拥有账号了？</h4>
+              <h4 className={commonStyles.link_normal} onClick={toLogin}>
                 返回登陆
-              </h5>
+              </h4>
             </div>
           </form>
         </div>

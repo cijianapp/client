@@ -1,84 +1,317 @@
-.button1 {
-  color: var(--text-strong);
-  background-color: var(--button-primary);
-  height: 32px;
-  min-width: 96px;
-  min-height: 32px;
-  position: relative;
+.button_common_XL {
   display: flex;
+  height: 40px;
+  width: 100%;
+  margin-top: 20px;
+  padding: 2px 16px;
+  background-color: var(--button-primary);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
   justify-content: center;
   align-items: center;
-  box-sizing: border-box;
-  border: none;
-  border-radius: 3px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
-  line-height: 16px;
-  padding: 2px 16px;
+  line-height: 22px;
   cursor: pointer;
-  margin: 8px;
 }
 
-.button1:hover {
+.button_common_XL:hover {
   background-color: var(--button-primary-hover);
 }
 
-.link1 {
+.button_common_L {
+  display: flex;
+  height: 38px;
+  width: 100%;
+  padding: 2px 32px;
+  background-color: var(--button-primary);
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+  cursor: pointer;
+}
+
+.button_common_L:hover {
+  background-color: var(--button-primary-hover);
+}
+
+.button_common_M {
+  display: flex;
+  height: 32px;
+  padding: 2px 24px;
+  background-color: var(--button-primary);
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  cursor: pointer;
+}
+
+.button_common_M:hover {
+  background-color: var(--button-primary-hover);
+}
+
+.button_green_L {
+  display: flex;
+  height: 38px;
+  width: 100%;
+  padding: 2px 32px;
+  background-color: var(--button-secondary);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+  cursor: pointer;
+}
+
+.button_green_L:hover {
+  background-color: var(--button-secondary-hover);
+}
+
+.button_green_M {
+  display: flex;
+  height: 32px;
+  padding: 2px 24px;
+  background-color: var(--button-secondary);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+  cursor: pointer;
+}
+
+.button_green_M:hover {
+  background-color: var(--button-secondary-hover);
+}
+
+.input_normal {
+  height: 40px;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: var(--text-input-bg);
+  color: var(--text-normal);
+  border: 1px solid var(--text-input-border);
+  border-radius: 4px;
+}
+
+.input_normal:hover {
+  border: 1px solid var(--text-input-border-hover);
+}
+
+.input_textarea {
+  min-height: 40px;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: var(--text-input-bg);
+  color: var(--text-normal);
+  border: 1px solid var(--text-input-border);
+  border-radius: 4px;
+}
+
+.input_textarea:hover {
+  border: 1px solid var(--text-input-border-hover);
+}
+
+.link_normal {
+  color: var(--link);
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.link_normal:hover {
+  text-decoration: underline;
+}
+
+.link_hidden {
   text-decoration: none;
 }
 
-.text1 {
-  font-size: 18px;
-  line-height: 22px;
-  font-weight: 600;
-  color: var(--header-primary);
-  margin-bottom: 20px;
-  cursor: default;
+.setting_modal {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: row;
 }
 
-.text2 {
+.setting_overlay {
+  opacity: 1;
+}
+
+.setting_sidebar {
+  display: flex;
+  flex: 1 0 220px;
+  background: var(--background-secondary);
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.setting_sidebarNav {
+  width: 220px;
+  padding: 60px 6px 60px 20px;
+}
+
+.setting_content {
+  display: flex;
+  flex: 1 1 760px;
+  background: var(--background-primary);
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.setting_contentMain {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  max-width: 720px;
+  min-width: 460px;
+  padding: 60px 40px 80px;
+}
+
+.setting_guildInfo {
+  display: flex;
+  flex-direction: row;
+  padding: 20px 0;
+  margin-bottom: 12px;
+  border-bottom: 1px solid;
+  border-color: rgba(114, 118, 125, 0.3);
+}
+
+.setting_contentClose {
+  display: flex;
+  flex-direction: column;
+  padding: 60px 40px 80px;
+  align-items: center;
+}
+
+.setting_closeIcon {
+  display: flex;
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  justify-content: center;
+  align-items: center;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 50%;
+  border-color: #72767d;
+  cursor: pointer;
+}
+
+.setting_closeIcon:hover {
+  background-color: rgba(114, 118, 125, 0.3);
+}
+
+.setting_icon {
+  width: 24px;
+  height: 24px;
+  fill: var(--interactive-normal);
+}
+
+.uploadIcon_iconContainer {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  margin: 0 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.uploadIcon_icon {
+  position: relative;
+  width: 138px;
+  height: 138px;
+  background-color: #7289da;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 5px solid #ebebeb;
+  border-radius: 50%;
+}
+
+.uploadIcon_iconHint {
+  position: absolute;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: transparent;
+  font-weight: 600;
+  line-height: 1;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.uploadIcon_noIconHint {
+  display: none;
+}
+
+.uploadIcon_iconInput {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.uploadIcon_size {
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #87909c;
+}
+
+.uploadIcon_guildName {
+  display: flex;
+  width: 138px;
+  height: 138px;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 600;
+  align-items: center;
+  justify-content: center;
+}
+
+.uploadIcon_removeButton {
+  margin-top: 10px;
+  background: none;
+  color: #87909c;
+  border: none;
   font-size: 14px;
-  line-height: 16px;
-  font-weight: 600;
-  color: var(--channels-default);
-  margin-bottom: 8px;
-  cursor: default;
+  font-weight: 700;
+  cursor: pointer;
 }
 
-.input1 {
-  height: 40px;
-  padding: 10px;
-  font-size: 16px;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  width: 100%;
-  border-radius: 3px;
-  color: var(--text-normal);
-  background-color: var(--text-input-bg);
-  border: 1px solid var(--text-input-border);
-}
-
-.input2 {
-  min-height: 300px;
-  padding: 10px;
-  font-size: 16px;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  width: 100%;
-  border-radius: 3px;
-  color: var(--text-normal);
-  background-color: var(--text-input-bg);
-  border: 1px solid var(--text-input-border);
-}
-
-.input3 {
-  padding: 10px;
-  font-size: 16px;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  width: 100%;
-  border-radius: 3px;
-  color: var(--text-normal);
-  background-color: var(--text-input-bg);
-  border: 1px solid var(--text-input-border);
+.uploadIcon_removeButton:hover {
+  background: rgb(240, 240, 240, 1);
 }

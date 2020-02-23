@@ -1,59 +1,86 @@
 .itemWrapper {
-  width: 72px;
-  height: 48px;
-  margin: 5px;
   display: flex;
   flex-direction: row;
+  height: 48px;
+  width: 72px;
+  margin: 5px;
+}
+
+.pillContainer {
+  position: relative;
+  display: flex;
+  height: 48px;
+  width: 8px;
+  margin-right: 4px;
+  align-items: center;
+}
+
+.pill {
+  position: absolute;
+  left: -4px;
+  width: 8px;
+  height: 0px;
+  background-color: var(--logo-primary);
+  border-radius: 4px;
 }
 
 .circleIconButton {
+  display: flex;
   width: 48px;
   height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background: var(--background-secondary);
-  cursor: pointer;
-}
-
-.circleIconButtonSelected {
-  width: 48px;
-  height: 48px;
-  display: flex;
+  color: var(--logo-primary);
+  fill: var(--logo-primary);
   align-items: center;
   justify-content: center;
-  background: var(--button-primary);
   cursor: pointer;
 }
 
 .circleIconButton:hover {
   background: var(--button-primary);
+  color: #fff;
+  fill: #fff;
 }
 
-.itemText {
-  fill: var(--logo-primary);
-}
-
-.overlay {
-  position: fixed;
-  background: var(--modal-background);
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  overflow: hidden;
+.circleIconButtonSelected {
+  display: flex;
+  width: 48px;
+  height: 48px;
+  background: var(--button-primary);
+  color: #fff;
+  fill: #fff;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
 .modalAdd {
-  width: 540px;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   height: 420px;
-  max-height: 100%;
+  width: 540px;
   background: #fff;
   border-radius: 5px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  overflow: hidden;
+  background: var(--modal-background);
+}
+
+.toolTips {
+  background-color: #000 !important;
+}
+
+.toolTips::after {
+  border-right-color: #000 !important;
 }
 
 .icon {
@@ -66,36 +93,9 @@
   display: flex;
   width: 42px;
   height: 42px;
-  color: var(--text-normal);
   font-weight: 600;
   font-size: 14px;
   line-height: 1;
   align-items: center;
   justify-content: center;
-}
-
-.toolTips {
-  background-color: #000 !important;
-}
-
-.toolTips::after {
-  border-right-color: #000 !important;
-}
-
-.pillContainer {
-  width: 8px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  margin-right: 4px;
-  position: relative;
-}
-
-.pill {
-  position: absolute;
-  left: -4px;
-  width: 8px;
-  height: 0px;
-  background-color: var(--header-primary);
-  border-radius: 4px;
 }

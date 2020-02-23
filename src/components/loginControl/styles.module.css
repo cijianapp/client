@@ -1,75 +1,59 @@
 .loginButton {
-  border: 2px solid var(--border-primary);
+  padding: 5px 15px;
   color: var(--text-normal);
+  border: 2px solid var(--border-primary);
   border-radius: 20px;
-  padding: 5px 15px 6px 15px;
   font-weight: 400;
-  font-style: inherit;
   cursor: pointer;
 }
 
 .loginButton:hover {
-  border: 2px solid var(--border-secondary);
   color: var(--text-strong);
+  border: 2px solid var(--border-secondary);
+}
+
+.modal {
+  position: fixed;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  height: auto;
+  width: 400px;
+  background: var(--background-primary);
 }
 
 .overlay {
   position: fixed;
-  background: var(--modal-background);
   top: 0px;
   bottom: 0px;
   left: 0px;
   right: 0px;
-  overflow: hidden;
-}
-
-.modalLogin {
-  max-width: 400px;
-  width: 100%;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 480px;
-  max-height: 100%;
-  background: var(--background-primary);
-}
-
-.modalRegister {
-  max-width: 400px;
-  width: 100%;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 530px;
-  max-height: 100%;
-  background: var(--background-primary);
+  background: var(--modal-background);
 }
 
 .form {
-  padding: 30px;
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
+  padding: 30px 30px 40px;
   align-items: center;
 }
 
 .title {
+  color: var(--header-primary);
   padding-top: 20px;
   font-weight: 500;
-  font-size: 28px;
-  color: var(--header-primary);
+  font-size: 24px;
 }
 
 .lead {
-  padding-top: 5px;
-  font-weight: 300;
-  font-size: 20px;
   color: var(--header-secondary);
+  padding-top: 5px;
+  font-size: 20px;
+  font-weight: 500;
 }
 
-.inputs {
+.formContainer {
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
@@ -79,18 +63,9 @@
   padding-right: 20px;
 }
 
-h5 {
-  color: var(--text-muted);
-  margin: 0;
-  font-size: 14px;
-  line-height: 18px;
-  padding-bottom: 5px;
-  padding-top: 15px;
-  font-weight: 400;
-}
-
-.bold {
-  font-weight: 600;
+.buttonNav {
+  display: flex;
+  flex-direction: row;
 }
 
 .alert {
@@ -99,8 +74,8 @@ h5 {
 }
 
 .alertContent {
-  font-weight: 400;
   padding-left: 5px;
+  font-weight: 400;
   font-style: italic;
   font-size: 14px;
 }
@@ -109,35 +84,13 @@ h5 {
   color: var(--alert-primary);
 }
 
-.span {
-  padding-left: 5px;
-  font-style: italic;
-  font-size: 14px;
-}
-
 .notShow {
   display: none;
 }
 
-.inputContainer {
-  display: flex;
-  height: 40px;
-  width: 100%;
+.verifyContainer {
   position: relative;
-}
-
-.input {
-  display: flex;
-  flex: 1 1 auto;
-  background: var(--text-input-bg);
-  border: 1px solid var(--text-input-border);
-  color: var(--text-normal);
-  padding: 5px;
-  border-radius: 4px;
-}
-
-.input:hover {
-  border: 1px solid var(--text-input-border-hover);
+  width: 100%;
 }
 
 .verifyCode {
@@ -148,7 +101,7 @@ h5 {
   align-items: center;
   justify-content: center;
   display: flex;
-  color: var(--text-normal);
+  color: #fff;
   padding-left: 20px;
   padding-right: 20px;
   background: var(--button-primary);
@@ -157,38 +110,4 @@ h5 {
 
 .verifyCode:hover {
   background: var(--button-primary-hover);
-}
-
-.link {
-  color: var(--link);
-  cursor: pointer;
-}
-
-.link:hover {
-  text-decoration: underline;
-}
-
-.loginBtn {
-  margin-top: 20px;
-  height: 40px;
-  width: 100%;
-  display: flex;
-  flex: 1 1 auto;
-  background: var(--button-primary);
-  color: var(--text-normal);
-  border-radius: 4px;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  border: none;
-  cursor: pointer;
-}
-
-.loginBtn:hover {
-  background: var(--button-primary-hover);
-}
-
-.registBtn {
-  display: flex;
-  flex-direction: row;
 }

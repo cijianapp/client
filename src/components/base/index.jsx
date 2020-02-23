@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import SideBar from "../sideBar";
 import Title from "../title";
 import Content from "../content";
-import Chat from "../chat"
+import Chat from "../chat";
 import PostDetail from "../postDetail";
 import Submit from "../submit";
 import Client from "../../client";

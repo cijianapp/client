@@ -18,7 +18,7 @@ function Guilds(props) {
   }
 
   return (
-    <div className={styles.guildsList}>
+    <div className={styles.guildList}>
       <Guild guild={{ _id: "home" }}></Guild>
       {guildList}
       <Guild guild={{ _id: "add" }}></Guild>

@@ -1,43 +1,43 @@
 .sideBar {
   display: flex;
-  width: 240px;
-  background: var(--background-secondary);
   flex: 0 0 auto;
   flex-direction: column;
+  width: 240px;
+  background: var(--background-secondary);
 }
 
 .guild {
-  height: 48px;
-  cursor: pointer;
-  box-shadow: var(--elevation-low);
   display: flex;
+  height: 48px;
   padding: 0 10px;
-  align-items: center;
   fill: var(--interactive-normal);
+  box-shadow: var(--elevation-low);
+  align-items: center;
+  cursor: pointer;
 }
 
 .guild:hover {
-  fill: var(--interactive-hover);
   background-color: var(--background-modifier-selected);
+  fill: var(--interactive-hover);
 }
 
 .guildName {
+  display: flex;
+  flex: 1 1 auto;
   color: var(--header-primary);
   font-size: 15px;
   font-weight: 600;
-  display: flex;
-  flex: 1 1 auto;
 }
 
 .iconContainer {
+  display: flex;
   width: 32px;
   height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 4px;
-  cursor: pointer;
   fill: var(--interactive-normal);
+  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
 .iconContainer:hover {
@@ -51,27 +51,56 @@
 }
 
 .guildMenu {
-  width: 220px;
-  padding: 4px 2px;
-  margin-top: 5px !important;
-  background: var(--background-primary) !important;
-  opacity: 1 !important;
   display: flex;
   flex-direction: column;
   z-index: 1 !important;
+  width: 220px;
+  margin-top: 5px !important;
+  padding: 4px 2px;
+  background: var(--background-primary) !important;
+  opacity: 1 !important;
+  box-shadow: var(--elevation-high);
 }
 
 .guildMenu::after {
   display: none;
 }
 
-.user {
-  height: 52px;
+.item {
   display: flex;
-  padding: 0 10px;
+  height: 28px;
+  padding: 4px 8px;
+  margin: 2px 4px;
+  color: var(--interactive-normal);
+  border-radius: 2px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  justify-content: space-between;
   align-items: center;
-  fill: var(--interactive-normal);
+  cursor: pointer;
+}
+
+.item:hover {
+  background-color: var(--background-modifier-hover);
+  color: var(--interactive-hover);
+}
+
+.itemLabel {
+  display: flex;
+  flex: 1 1 auto;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.user {
+  display: flex;
+  height: 52px;
+  padding: 0 10px;
   background: var(--panel-background);
+  fill: var(--interactive-normal);
+  align-items: center;
 }
 
 .userInfo {
@@ -81,51 +110,16 @@
 }
 
 .username {
+  margin-left: 10px;
+  color: var(--text-normal);
   font-size: 14px;
   font-weight: 600;
   line-height: 18px;
-  color: var(--text-normal);
-  margin-left: 10px;
   cursor: default;
 }
 
 .timeInfo {
+  color: var(--text-muted);
   font-size: 12px;
   font-weight: 500;
-  color: var(--text-muted);
-}
-
-.item {
-  padding: 4px 8px;
-  cursor: pointer;
-  min-height: 28px;
-  margin: 2px 4px;
-  font-size: 14px;
-  line-height: 18px;
-  font-weight: 500;
-  color: var(--interactive-normal);
-  border-radius: 2px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.itemLabel {
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  -webkit-box-flex: 1;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-}
-
-.item:hover {
-  background-color: var(--background-modifier-hover);
-  color: var(--interactive-hover);
 }

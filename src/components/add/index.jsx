@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import styles from "./styles.module.css";
+import commonStyles from "../../utils/styles.module.css";
 import axios from "axios";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
@@ -27,7 +28,9 @@ function Add(props) {
   const [joinLink, setJoinLink] = useState("");
   const [privacy, setPrivacy] = useState(false);
   const [icon, setIcon] = useState("");
-  const [hintStyle, setHintstyle] = useState(styles.noIconHint);
+  const [hintStyle, setHintstyle] = useState(
+    commonStyles.uploadIcon_noIconHint
+  );
   const [iconStyle, setIconStyle] = useState({ backgroundImage: "" });
   const [redirect, setRedirect] = useState("");
   const [nameAlert, setNameAlert] = useState(styles.notShow);
@@ -118,7 +121,7 @@ function Add(props) {
   if (destination === "add") {
     return (
       <div className={styles.slideBody}>
-        <div className={styles.title}>下一个社区是？</div>
+        <h2 className={styles.title_create}>下一个社区是？</h2>
         <div className={styles.actions}>
           <div className={styles.action} onClick={toCreate}>
             <div
@@ -131,7 +134,7 @@ function Add(props) {
             </div>
             <div className={styles.actionIconCreate}></div>
 
-            <button className={styles.actionButtonCreate}>创建新社区</button>
+            <button className={commonStyles.button_common_L}>创建新社区</button>
           </div>
 
           <div className={styles.action} onClick={toJoin}>
@@ -143,7 +146,7 @@ function Add(props) {
             </div>
             <div className={styles.actionIconJoin}></div>
 
-            <button className={styles.actionButtonJoin}>加入新社区</button>
+            <button className={commonStyles.button_green_L}>加入新社区</button>
           </div>
         </div>
       </div>
@@ -152,22 +155,22 @@ function Add(props) {
 
   if (destination === "create") {
     return (
-      <div className={styles.addBody}>
-        <div className={styles.title}>创建新的社区</div>
-        <p className={styles.p}>
+      <div className={styles.slideBody}>
+        <h2 className={styles.title_create}>创建新的社区</h2>
+        <div className={styles.lead}>
           好消息！您即将在<strong>此间</strong>创建新的社区,快来体验与朋友
           <strong>全新</strong>的交流方式!
-        </p>
+        </div>
         <form onSubmit={guildSubmit}>
           <div className={styles.createMain}>
-            <div className={styles.inputs}>
-              <div className={nameAlertColor}>
+            <div className={styles.inputContainer}>
+              <h4 className={nameAlertColor}>
                 社区名称
                 <span className={nameAlert}>
                   ---
                   <span>社区名不能为空</span>
                 </span>
-              </div>
+              </h4>
               <input
                 className={styles.input}
                 placeholder="输入社区名称"
@@ -176,7 +179,8 @@ function Add(props) {
                   setName(e.target.value);
                 }}
               ></input>
-              <div className={styles.label}>社区可见范围</div>
+
+              <h4>社区可见范围</h4>
               <div className={styles.privacy}>
                 {privacy ? (
                   <button
@@ -233,19 +237,22 @@ function Add(props) {
               </div>
             </div>
 
-            <div className={styles.iconContainer}>
+            <div className={commonStyles.uploadIcon_iconContainer}>
               <div
-                className={styles.icon}
+                className={commonStyles.uploadIcon_icon}
                 style={iconStyle}
                 onMouseOver={e => {
-                  setHintstyle(styles.iconHint);
+                  setHintstyle(commonStyles.uploadIcon_iconHint);
                 }}
                 onMouseOut={e => {
-                  setHintstyle(styles.noIconHint);
+                  setHintstyle(commonStyles.uploadIcon_noIconHint);
                 }}
               >
                 {icon === "" ? (
-                  <div className={styles.guildName}> {name.substr(0, 3)}</div>
+                  <div className={commonStyles.uploadIcon_guildName}>
+                    {" "}
+                    {name.substr(0, 3)}
+                  </div>
                 ) : (
                   <div></div>
                 )}
@@ -253,7 +260,7 @@ function Add(props) {
                   更改<br></br>图标
                 </div>
                 <input
-                  className={styles.iconInput}
+                  className={commonStyles.uploadIcon_iconInput}
                   type="file"
                   accept=".jpg,.jpeg,.png,.gif"
                   ref={fileInput}
@@ -264,12 +271,12 @@ function Add(props) {
               </div>
 
               {icon === "" ? (
-                <div className={styles.size}>
+                <div className={commonStyles.uploadIcon_size}>
                   <strong>最小尺寸：128x128</strong>
                 </div>
               ) : (
                 <button
-                  className={styles.removeButton}
+                  className={commonStyles.uploadIcon_removeButton}
                   onClick={e => {
                     setIcon("");
                     setIconStyle({});
@@ -281,17 +288,21 @@ function Add(props) {
             </div>
           </div>
           <div className={styles.footer}>
-            <button
-              className={styles.button}
-              onClick={() => {
-                setdestination("add");
-              }}
-            >
-              返回
-            </button>
-            <button className={styles.button} type="submit">
-              创建
-            </button>
+            <div className={styles.buttonContainer}>
+              <button
+                className={commonStyles.button_common_M}
+                onClick={() => {
+                  setdestination("add");
+                }}
+              >
+                返回
+              </button>
+            </div>
+            <div className={styles.buttonContainer}>
+              <button className={commonStyles.button_common_M} type="submit">
+                创建
+              </button>
+            </div>
           </div>
         </form>
       </div>
@@ -300,17 +311,17 @@ function Add(props) {
 
   if (destination === "join") {
     return (
-      <div className={styles.addBody}>
-        <div className={styles.title1}>加入新的社区</div>
-        <p className={styles.p}>
+      <div className={styles.slideBody}>
+        <h2 className={styles.title_join}>加入新的社区</h2>
+        <div className={styles.lead}>
           什么？准备好加入<strong>新社区</strong>
           了吗,赶快输入邀请链接。邀请大概长这样：
-        </p>
+        </div>
 
         <form onSubmit={joinSubmit}>
           <div className={styles.createMain}>
             <div className={styles.inviteContainer}>
-              <div className={styles.label}>邀请链接</div>
+              <h4>邀请链接</h4>
               <input
                 className={styles.input}
                 placeholder="输入邀请链接"
@@ -323,17 +334,22 @@ function Add(props) {
           </div>
 
           <div className={styles.footer}>
-            <button
-              className={styles.button1}
-              onClick={() => {
-                setdestination("add");
-              }}
-            >
-              返回
-            </button>
-            <button className={styles.button1} type="submit">
-              加入
-            </button>
+            <div className={styles.buttonContainer}>
+              {" "}
+              <button
+                className={commonStyles.button_green_M}
+                onClick={() => {
+                  setdestination("add");
+                }}
+              >
+                返回
+              </button>
+            </div>
+            <div className={styles.buttonContainer}>
+              <button className={commonStyles.button_green_M} type="submit">
+                加入
+              </button>
+            </div>
           </div>
         </form>
       </div>
