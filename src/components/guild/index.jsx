@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
 import ReactTooltip from "react-tooltip";
 
-import { Home24Px, Add24Px, Search24Px } from "../../icons";
+import { Home24Px, Add24Px, Search24Px, Logo, Logo1 } from "../../icons";
 import { ADD_CLOSED } from "../../redux/actions";
 import { ossURL } from "../../utils/http";
 
@@ -94,7 +94,7 @@ function Guild(props) {
           <Link to="/home">
             <foreignObject mask={mask} width="48px" height="48px">
               <div className={iconStyle}>
-                <Home24Px width="24px" height="24px"></Home24Px>
+                <Logo width="48px" height="48px"></Logo>
               </div>
             </foreignObject>
           </Link>
