@@ -20,8 +20,9 @@
 .header {
   display: flex;
   flex-direction: row;
+  margin-bottom: 10px;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .toolbar {
@@ -45,38 +46,6 @@
   display: none;
 }
 
-.iconContainer {
-  width: 30px;
-  height: 30px;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.icon {
-  width: 24px;
-  height: 24px;
-  fill: var(--text-muted);
-  cursor: pointer;
-}
-
-.iconContainer:hover {
-  background: rgb(220, 220, 220);
-}
-
-.iconInput {
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  cursor: pointer;
-}
-
 .postMain {
   width: 100%;
 }
@@ -94,4 +63,8 @@
 .imageContainer {
   display: flex;
   justify-content: center;
+}
+
+.buttonContainer {
+  margin-left: 20px;
 }

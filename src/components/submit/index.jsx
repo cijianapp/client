@@ -73,6 +73,28 @@ function Submit(props) {
   function post(e) {
     e.preventDefault();
 
+    if (title === "") {
+      alert("标题不可以为空");
+      return;
+    }
+
+    let valueIsNull = true;
+
+    value.forEach(element => {
+      if (element.type === "paragraph") {
+        if (element.children[0].text !== "") {
+          valueIsNull = false;
+        }
+      } else {
+        valueIsNull = false;
+      }
+    });
+
+    if (valueIsNull) {
+      alert("内容不可以为空");
+      return;
+    }
+
     const postParams = {
       title: title,
       guild: props.match.params.guildID,
@@ -126,15 +148,13 @@ function Submit(props) {
       <div className={styles.content}>
         <div className={styles.container}>
           <div className={styles.header}>
-            <div className={commonStyles.text1}>发表新帖</div>
-            <div className={commonStyles.text2}>
-              {Guild.name + "#" + Channel.name}
-            </div>
+            <h3>发表新帖</h3>
+            <h4>{Guild.name + "#" + Channel.name}</h4>
           </div>
 
           <input
             placeholder="请输入标题"
-            className={commonStyles.input1}
+            className={commonStyles.input_normal}
             value={title}
             onChange={e => {
               setTitle(e.target.value);
@@ -143,10 +163,9 @@ function Submit(props) {
 
           <div className={styles.toolbar}>
             <div className={styles.iconbar}>
-              <div className={styles.iconContainer}>
-                <Image24Px className={styles.icon}></Image24Px>
+              <div className={commonStyles.icon24_container}>
                 <input
-                  className={styles.iconInput}
+                  className={commonStyles.uploadIcon_iconInput}
                   type="file"
                   accept=".jpg,.jpeg,.png,.gif"
                   ref={fileInput}
@@ -154,10 +173,11 @@ function Submit(props) {
                     handleFile();
                   }}
                 ></input>
+                <Image24Px className={commonStyles.icon24_icon}></Image24Px>
               </div>
 
               <div
-                className={styles.iconContainer}
+                className={commonStyles.icon24_container}
                 onClick={e => {
                   if (showFilePond === styles.notFilePond)
                     setShowFilePond(styles.filePond);
@@ -166,7 +186,7 @@ function Submit(props) {
                   }
                 }}
               >
-                <Movie24Px className={styles.icon}></Movie24Px>
+                <Movie24Px className={commonStyles.icon24_icon}></Movie24Px>
               </div>
             </div>
 
@@ -199,7 +219,7 @@ function Submit(props) {
             onChange={value => setValue(value)}
           >
             <Editable
-              className={commonStyles.input2}
+              className={commonStyles.input_textarea_L}
               renderElement={props => <Element {...props} />}
               placeholder="说点感兴趣的事吧..."
             />
@@ -213,9 +233,13 @@ function Submit(props) {
             >
               返回
             </button>
-            <button className={commonStyles.button_common_M} onClick={post}>
-              发布
-            </button>
+
+            <div className={styles.buttonContainer}>
+              {" "}
+              <button className={commonStyles.button_common_M} onClick={post}>
+                发布
+              </button>
+            </div>
           </div>
         </div>
       </div>

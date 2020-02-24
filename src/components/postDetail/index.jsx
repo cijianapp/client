@@ -1,5 +1,6 @@
 import React, { useMemo, useCallback, useState } from "react";
 import styles from "./styles.module.css";
+import commonStyles from "../../utils/styles.module.css";
 import { connect } from "react-redux";
 import axios from "axios";
 import { baseURL } from "../../utils/http";
@@ -15,6 +16,7 @@ import { Slate, Editable, withReact } from "slate-react";
 import Vote from "../vote";
 
 import SvgComment from "../../icons/Comment";
+import Delete24Px from "../../icons/Delete24Px";
 
 const mapStateToProps = state => ({
   headerConfig: state.user.headerConfig
@@ -26,14 +28,14 @@ function PostDetail(props) {
 
   const [post, setPost] = useState({});
 
-  const postsConfig = {
+  const getConfig = {
     ...props.headerConfig,
     params: { post: props.match.params.postID }
   };
 
   if (props.match.params.postID !== postID) {
     axios
-      .get(baseURL + "api/post", postsConfig)
+      .get(baseURL + "api/post", getConfig)
       .then(response => {
         setValue(response.data.content);
         setPost(response.data);
@@ -92,6 +94,22 @@ function PostDetail(props) {
     }
   }, []);
 
+  function deletePost() {
+    const postParams = {
+      post: props.match.params.postID
+    };
+
+    axios
+      .post(baseURL + "api/deletepost", postParams, props.headerConfig)
+      .then(response => {
+        console.log(response.data);
+        props.history.goBack();
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
   return (
     <SimpleBarReact className={styles.bar}>
       <div className={styles.content}>
@@ -127,6 +145,11 @@ function PostDetail(props) {
               <SvgComment className={styles.vote}></SvgComment>
               <div className={styles.voteNumber}>0</div>
             </div>
+
+            <div className={commonStyles.icon_container} onClick={deletePost}>
+              <Delete24Px className={commonStyles.icon_icon}></Delete24Px>
+            </div>
+
             <Vote post={post}></Vote>
           </div>
         </div>
