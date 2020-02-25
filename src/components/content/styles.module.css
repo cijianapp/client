@@ -43,5 +43,13 @@
 .infoContainer {
   display: flex;
   flex-direction: column;
-  margin: 10px;
+  margin: 8px 16px;
+}
+
+.membercount {
+  margin: 8px 0;
+}
+
+.buttonContainer {
+  display: flex;
 }

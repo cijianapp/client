@@ -1,15 +1,28 @@
 import React from "react";
 import styles from "./styles.module.css";
+import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
 import Guild from "../guild";
 
 const mapStateToProps = state => ({
-  info: state.user.info
+  info: state.user.info,
+  explore_guild: state.user.explore_guild
 });
 
 function Guilds(props) {
-  const guildList = [];
+  let guildList = [];
+
+  if (props.explore_guild.hasOwnProperty("_id")) {
+    if (props.location.pathname.includes(props.explore_guild._id)) {
+      guildList.push(
+        <Guild
+          guild={props.explore_guild}
+          key={props.explore_guild._id}
+        ></Guild>
+      );
+    }
+  }
 
   if (Array.isArray(props.info.guild)) {
     props.info.guild.forEach(guild => {
@@ -27,4 +40,4 @@ function Guilds(props) {
   );
 }
 
-export default connect(mapStateToProps)(Guilds);
+export default withRouter(connect(mapStateToProps)(Guilds));

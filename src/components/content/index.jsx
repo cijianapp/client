@@ -14,10 +14,29 @@ import "simplebar/src/simplebar.css";
 import Masonry from "react-masonry-css";
 
 const mapStateToProps = state => ({
-  headerConfig: state.user.headerConfig
+  headerConfig: state.user.headerConfig,
+  info: state.user.info,
+  explore_guild: state.user.explore_guild
 });
 
 function Content(props) {
+  let guild = {};
+
+  let isExplore = false;
+
+  if (Array.isArray(props.info.guild)) {
+    props.info.guild.forEach(element => {
+      if (element._id === props.match.params.guildID) {
+        guild = element;
+      }
+    });
+
+    if (props.explore_guild._id === props.match.params.guildID) {
+      guild = props.explore_guild;
+      isExplore = true;
+    }
+  }
+
   const [posts, setPosts] = useState([]);
   const [channelID, setChannelID] = useState("");
 
@@ -37,9 +56,25 @@ function Content(props) {
           <div key="info" className={styles.info}>
             <div className={styles.infoContainer}>
               <h4>社区详情</h4>
-              <Link to={"submit"} className={commonStyles.link_hidden}>
-                <div className={commonStyles.button_common_M}>发 布 新 帖</div>
-              </Link>
+              <div className={commonStyles.text12_muted}>
+                {guild.description}
+              </div>
+              <div className={styles.membercount}>
+                <div className={commonStyles.text12_bold}>
+                  {guild.membercount} 位成员
+                </div>
+              </div>
+              {isExplore ? (
+                <button className={commonStyles.button_green_M}>
+                  加 入 社 区
+                </button>
+              ) : (
+                <Link to={"submit"} className={commonStyles.link_hidden}>
+                  <div className={commonStyles.button_common_M}>
+                    发 布 新 帖
+                  </div>
+                </Link>
+              )}
             </div>
           </div>
         ];

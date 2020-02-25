@@ -158,6 +158,22 @@
   text-decoration: none;
 }
 
+.text12_muted {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: justify;
+}
+
+.text12_bold {
+  color: var(--text-strong);
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 20px;
+  text-align: justify;
+}
+
 .setting_modal {
   position: absolute;
   top: 0;

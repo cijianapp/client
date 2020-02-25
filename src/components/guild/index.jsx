@@ -5,7 +5,8 @@ import { connect } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
 import ReactTooltip from "react-tooltip";
 
-import { Home24Px, Add24Px, Search24Px, Logo, Logo1 } from "../../icons";
+// import { Home24Px, Add24Px, Search24Px, Logo, Logo1 } from "../../icons";
+import { Add24Px, Search24Px, Logo } from "../../icons";
 import { ADD_CLOSED } from "../../redux/actions";
 import { ossURL } from "../../utils/http";
 

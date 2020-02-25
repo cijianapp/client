@@ -7,6 +7,8 @@ import { connect } from "react-redux";
 import { ossURL } from "../../utils/http";
 import { EXPLORE_GUILD } from "../../redux/actions";
 
+import { USER_INFO } from "../../redux/actions";
+
 const mapStateToProps = state => ({
   token: state.user.token,
   headerConfig: state.user.headerConfig,
@@ -16,6 +18,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   setExplore: guild => {
     dispatch({ type: EXPLORE_GUILD, value: guild });
+  },
+  refresh: () => {
+    dispatch({ type: USER_INFO, value: {} });
   }
 });
 
@@ -25,7 +30,18 @@ function GuildCard(props) {
       className={commonStyles.link_hidden}
       to={"/" + props.guild._id + "/" + props.guild.channel[0]._id + "/post"}
       onClick={e => {
-        props.setExplore(props.guild);
+        let isNewGuild = true;
+
+        if (Array.isArray(props.info.guild)) {
+          props.info.guild.forEach(element => {
+            if (element._id === props.guild._id) {
+              isNewGuild = false;
+            }
+          });
+        }
+
+        if (isNewGuild) props.setExplore(props.guild);
+        // props.refresh();
       }}
     >
       <div className={styles.card}>
