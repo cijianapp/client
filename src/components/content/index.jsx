@@ -4,19 +4,29 @@ import commonStyles from "../../utils/styles.module.css";
 import axios from "axios";
 import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
+import Masonry from "react-masonry-css";
 
 import { baseURL } from "../../utils/http";
+import { USER_INFO, EXPLORE_GUILD } from "../../redux/actions";
+
 import Post from "../post";
 
 import SimpleBarReact from "simplebar-react";
 import "simplebar/src/simplebar.css";
 
-import Masonry from "react-masonry-css";
-
 const mapStateToProps = state => ({
   headerConfig: state.user.headerConfig,
   info: state.user.info,
   explore_guild: state.user.explore_guild
+});
+
+const mapDispatchToProps = dispatch => ({
+  setExplore: guild => {
+    dispatch({ type: EXPLORE_GUILD, value: guild });
+  },
+  refresh: () => {
+    dispatch({ type: USER_INFO, value: {} });
+  }
 });
 
 function Content(props) {
@@ -30,11 +40,11 @@ function Content(props) {
         guild = element;
       }
     });
+  }
 
-    if (props.explore_guild._id === props.match.params.guildID) {
-      guild = props.explore_guild;
-      isExplore = true;
-    }
+  if (props.explore_guild._id === props.match.params.guildID) {
+    guild = props.explore_guild;
+    isExplore = true;
   }
 
   const [posts, setPosts] = useState([]);
@@ -47,6 +57,22 @@ function Content(props) {
       channel: props.match.params.channelID
     }
   };
+
+  function joinGuild(e) {
+    const joinParams = { guild: guild._id };
+
+    axios
+      .post(baseURL + "api/join", joinParams, props.headerConfig)
+      .then(function(response) {
+        if (response.data.code === 200) {
+          props.refresh();
+          props.setExplore({});
+        }
+      })
+      .catch(function(errors) {
+        console.log(errors);
+      });
+  }
 
   if (props.match.params.channelID !== channelID) {
     axios
@@ -65,7 +91,10 @@ function Content(props) {
                 </div>
               </div>
               {isExplore ? (
-                <button className={commonStyles.button_green_M}>
+                <button
+                  className={commonStyles.button_green_M}
+                  onClick={joinGuild}
+                >
                   加 入 社 区
                 </button>
               ) : (
@@ -117,4 +146,6 @@ function Content(props) {
   );
 }
 
-export default withRouter(connect(mapStateToProps)(Content));
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(Content)
+);

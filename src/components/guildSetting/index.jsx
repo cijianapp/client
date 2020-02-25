@@ -63,7 +63,7 @@ function GuildSetting(props) {
     });
     setGuildName(guild.name);
     setGuildDescription(guild.description);
-  }, [guild]);
+  }, [guild.avatar, guild.cover, guild.description, guild.name]);
 
   function handleFile(type) {
     try {

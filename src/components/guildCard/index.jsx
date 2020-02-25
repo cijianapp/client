@@ -7,8 +7,6 @@ import { connect } from "react-redux";
 import { ossURL } from "../../utils/http";
 import { EXPLORE_GUILD } from "../../redux/actions";
 
-import { USER_INFO } from "../../redux/actions";
-
 const mapStateToProps = state => ({
   token: state.user.token,
   headerConfig: state.user.headerConfig,
@@ -18,9 +16,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   setExplore: guild => {
     dispatch({ type: EXPLORE_GUILD, value: guild });
-  },
-  refresh: () => {
-    dispatch({ type: USER_INFO, value: {} });
   }
 });
 
@@ -41,7 +36,6 @@ function GuildCard(props) {
         }
 
         if (isNewGuild) props.setExplore(props.guild);
-        // props.refresh();
       }}
     >
       <div className={styles.card}>
