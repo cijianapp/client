@@ -9,6 +9,7 @@ import { USER_INFO } from "../../redux/actions";
 
 import SvgMask from "../svgMask";
 import Guilds from "../guilds";
+import Homepage from "../homepage";
 import Explore from "../explore";
 import Base from "../base";
 
@@ -51,7 +52,9 @@ function Home(props) {
             <Explore></Explore>
           </Route>
 
-          <Route exact path="/home"></Route>
+          <Route exact path="/home">
+            <Homepage></Homepage>
+          </Route>
 
           <Route path="/:guildID/:channelID">
             <Base></Base>

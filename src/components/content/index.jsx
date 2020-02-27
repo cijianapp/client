@@ -125,8 +125,8 @@ function Content(props) {
 
   const breakpointColumnsObj = {
     default: 3,
-    1400: 2,
-    1000: 1
+    1640: 2,
+    1240: 1
   };
 
   return (

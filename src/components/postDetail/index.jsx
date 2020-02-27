@@ -14,7 +14,7 @@ import { createEditor } from "slate";
 import { Slate, Editable, withReact } from "slate-react";
 
 import Vote from "../vote";
-
+import { timeDiff } from "../../utils/calc";
 import SvgComment from "../../icons/Comment";
 import Delete24Px from "../../icons/Delete24Px";
 
@@ -27,6 +27,7 @@ function PostDetail(props) {
   const [postID, setPostID] = useState("");
 
   const [post, setPost] = useState({});
+  let time = timeDiff(post.time);
 
   const getConfig = {
     ...props.headerConfig,
@@ -126,7 +127,7 @@ function PostDetail(props) {
             <div className={styles.userInfo}>
               <div className={styles.username}>{post.username}</div>
               <div className={styles.timeInfo}>
-                3 小时前
+                {time}
                 <span className={styles.guildInfo}>{post.channelname}</span>
               </div>
             </div>

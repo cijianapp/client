@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 import SvgComment from "../../icons/Comment";
 import { ossURL } from "../../utils/http";
+import { timeDiff } from "../../utils/calc";
 
 import Vote from "../vote";
 
@@ -13,6 +14,7 @@ function Post(props) {
   let imgURL = "";
   let videoURL = "";
   let avatarURL = "";
+  let time = timeDiff(props.post.time);
   if (props.post.useravatar !== "") {
     avatarURL = ossURL + props.post.useravatar;
   }
@@ -69,7 +71,7 @@ function Post(props) {
           <div className={styles.userInfo}>
             <div className={styles.username}>{props.post.username}</div>
             <div className={styles.timeInfo}>
-              3 小时前
+              {time}
               <span className={styles.guildInfo}>{props.post.channelname}</span>
             </div>
           </div>
