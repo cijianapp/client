@@ -4,10 +4,9 @@ import commonStyles from "../../utils/styles.module.css";
 import axios from "axios";
 import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
-import Masonry from "react-masonry-css";
 
 import { baseURL } from "../../utils/http";
-import { USER_INFO, EXPLORE_GUILD } from "../../redux/actions";
+import { USER_INFO, EXPLORE_GUILD, TO_LOGIN } from "../../redux/actions";
 
 import Post from "../post";
 
@@ -15,6 +14,7 @@ import SimpleBarReact from "simplebar-react";
 import "simplebar/src/simplebar.css";
 
 const mapStateToProps = state => ({
+  login: state.auth.login,
   headerConfig: state.user.headerConfig,
   info: state.user.info,
   explore_guild: state.user.explore_guild
@@ -26,6 +26,9 @@ const mapDispatchToProps = dispatch => ({
   },
   refresh: () => {
     dispatch({ type: USER_INFO, value: {} });
+  },
+  toLogin: ifLogin => {
+    dispatch({ type: TO_LOGIN, value: ifLogin });
   }
 });
 
@@ -59,26 +62,52 @@ function Content(props) {
   };
 
   function joinGuild(e) {
-    const joinParams = { guild: guild._id };
+    if (!props.login) {
+      props.toLogin(true);
+    } else {
+      const joinParams = { guild: guild._id };
 
-    axios
-      .post(baseURL + "api/join", joinParams, props.headerConfig)
-      .then(function(response) {
-        if (response.data.code === 200) {
-          props.refresh();
-          props.setExplore({});
-        }
-      })
-      .catch(function(errors) {
-        console.log(errors);
-      });
+      axios
+        .post(baseURL + "api/join", joinParams, props.headerConfig)
+        .then(function(response) {
+          if (response.data.code === 200) {
+            props.refresh();
+            props.setExplore({});
+          }
+        })
+        .catch(function(errors) {
+          console.log(errors);
+        });
+    }
   }
 
   if (props.match.params.channelID !== channelID) {
     axios
-      .get(baseURL + "api/posts", postsConfig)
+      .get(baseURL + "guest/posts", postsConfig)
       .then(response => {
-        let postElements = [
+        let postElements = [];
+
+        if (response.data !== null) {
+          response.data.forEach(element => {
+            postElements.push(<Post key={element._id} post={element}></Post>);
+          });
+        }
+
+        setPosts(postElements);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+
+    setChannelID(props.match.params.channelID);
+  }
+
+  return (
+    <SimpleBarReact className={styles.bar} forceVisible="y" autoHide={false}>
+      <div className={styles.content}>
+        <div className={styles.postsContainer}>{posts}</div>
+
+        <div className={styles.sidebarContainer}>
           <div key="info" className={styles.info}>
             <div className={styles.infoContainer}>
               <h4>社区详情</h4>
@@ -106,40 +135,6 @@ function Content(props) {
               )}
             </div>
           </div>
-        ];
-
-        if (response.data !== null) {
-          response.data.forEach(element => {
-            postElements.push(<Post key={element._id} post={element}></Post>);
-          });
-        }
-
-        setPosts(postElements);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-
-    setChannelID(props.match.params.channelID);
-  }
-
-  const breakpointColumnsObj = {
-    default: 3,
-    1640: 2,
-    1240: 1
-  };
-
-  return (
-    <SimpleBarReact className={styles.bar} forceVisible="y" autoHide={false}>
-      <div className={styles.content}>
-        <div className={styles.container}>
-          <Masonry
-            breakpointCols={breakpointColumnsObj}
-            className={styles.masonryGrid}
-            columnClassName=""
-          >
-            {posts}
-          </Masonry>
         </div>
       </div>
     </SimpleBarReact>

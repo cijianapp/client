@@ -1,6 +1,6 @@
-import { LOGIN, NO_LOGIN } from "../actions";
+import { LOGIN, NO_LOGIN, TO_LOGIN } from "../actions";
 
-const defaultState = { login: false };
+const defaultState = { login: false, openLoginControl: false };
 
 export default (state = defaultState, action) => {
   switch (action.type) {
@@ -9,6 +9,9 @@ export default (state = defaultState, action) => {
 
     case NO_LOGIN:
       return { ...state, login: false };
+
+    case TO_LOGIN:
+      return { ...state, openLoginControl: action.value };
 
     default:
       return { ...state };

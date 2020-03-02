@@ -36,7 +36,7 @@ function PostDetail(props) {
 
   if (props.match.params.postID !== postID) {
     axios
-      .get(baseURL + "api/post", getConfig)
+      .get(baseURL + "guest/post", getConfig)
       .then(response => {
         setValue(response.data.content);
         setPost(response.data);

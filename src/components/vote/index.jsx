@@ -6,9 +6,10 @@ import { connect } from "react-redux";
 import SvgUp from "../../icons/Up";
 import SvgDown from "../../icons/Down";
 import { baseURL } from "../../utils/http";
-import { VOTE_POST } from "../../redux/actions";
+import { VOTE_POST, TO_LOGIN } from "../../redux/actions";
 
 const mapStateToProps = state => ({
+  login: state.auth.login,
   headerConfig: state.user.headerConfig,
   info: state.user.info
 });
@@ -16,6 +17,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   voteSubmit: (post, vote) => {
     dispatch({ type: VOTE_POST, post: post, value: vote });
+  },
+  toLogin: ifLogin => {
+    dispatch({ type: TO_LOGIN, value: ifLogin });
   }
 });
 
@@ -25,16 +29,13 @@ function Vote(props) {
   let downStyle = [styles.downvote, styles.colorDefault].join(" ");
   let numberStyle = [styles.voteNumber, styles.colorDefault].join(" ");
 
-
-
-  if (Array.isArray( props.info.vote)){
+  if (Array.isArray(props.info.vote)) {
     props.info.vote.forEach(element => {
       if (element.post === props.post._id) {
         vote = element.vote;
       }
     });
   }
- 
 
   const [voteNumber, setVoteNumber] = useState(props.post.vote);
 
@@ -53,46 +54,49 @@ function Vote(props) {
   }
 
   function submit(e, voteString) {
-    if (voteString === "up") {
-      if (vote === "") {
-        props.voteSubmit(props.post._id, "up");
-        postVote("up");
-        setVoteNumber(voteNumber + 1);
+    if (!props.login) {
+      props.toLogin(true);
+    } else {
+      if (voteString === "up") {
+        if (vote === "") {
+          props.voteSubmit(props.post._id, "up");
+          postVote("up");
+          setVoteNumber(voteNumber + 1);
+        }
+
+        if (vote === "up") {
+          props.voteSubmit(props.post._id, "");
+          postVote("");
+          setVoteNumber(voteNumber - 1);
+        }
+
+        if (vote === "down") {
+          props.voteSubmit(props.post._id, "up");
+          postVote("up");
+          setVoteNumber(voteNumber + 2);
+        }
       }
 
-      if (vote === "up") {
-        props.voteSubmit(props.post._id, "");
-        postVote("");
-        setVoteNumber(voteNumber - 1);
-      }
+      if (voteString === "down") {
+        if (vote === "") {
+          props.voteSubmit(props.post._id, "down");
+          postVote("down");
+          setVoteNumber(voteNumber - 1);
+        }
 
-      if (vote === "down") {
-        props.voteSubmit(props.post._id, "up");
-        postVote("up");
-        setVoteNumber(voteNumber + 2);
+        if (vote === "up") {
+          props.voteSubmit(props.post._id, "down");
+          postVote("down");
+          setVoteNumber(voteNumber - 2);
+        }
+
+        if (vote === "down") {
+          props.voteSubmit(props.post._id, "");
+          postVote("down");
+          setVoteNumber(voteNumber + 1);
+        }
       }
     }
-
-    if (voteString === "down") {
-      if (vote === "") {
-        props.voteSubmit(props.post._id, "down");
-        postVote("down");
-        setVoteNumber(voteNumber - 1);
-      }
-
-      if (vote === "up") {
-        props.voteSubmit(props.post._id, "down");
-        postVote("down");
-        setVoteNumber(voteNumber - 2);
-      }
-
-      if (vote === "down") {
-        props.voteSubmit(props.post._id, "");
-        postVote("down");
-        setVoteNumber(voteNumber + 1);
-      }
-    }
-
     e.preventDefault();
   }
 

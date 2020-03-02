@@ -3,16 +3,16 @@ import styles from "./styles.module.css";
 import commonStyles from "../../utils/styles.module.css";
 import ReactModal from "react-modal";
 
-import { LOGIN, NO_LOGIN, SET_TOKEN } from "../../redux/actions";
+import { LOGIN, NO_LOGIN, SET_TOKEN, TO_LOGIN } from "../../redux/actions";
 import { connect } from "react-redux";
 import axios from "axios";
 import { baseURL } from "../../utils/http";
-import { Redirect } from "react-router-dom";
 
 import Client from "../../client";
 
 const mapStateToProps = state => ({
-  login: state.auth.login
+  login: state.auth.login,
+  openLoginControl: state.auth.openLoginControl
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -30,6 +30,11 @@ const mapDispatchToProps = dispatch => ({
 
           dispatch({
             type: LOGIN
+          });
+
+          dispatch({
+            type: TO_LOGIN,
+            value: false
           });
         }
       })
@@ -62,11 +67,14 @@ const mapDispatchToProps = dispatch => ({
 
   loginCompeleted: () => {
     dispatch({ type: NO_LOGIN });
+  },
+
+  toLogin: ifLogin => {
+    dispatch({ type: TO_LOGIN, value: ifLogin });
   }
 });
 
 function LoginControl(props) {
-  const [showLoginModal, setShowLoginModal] = useState(false);
   const [showRegisterModal, setShowRegisterModal] = useState(false);
 
   const [tel, setTel] = useState("");
@@ -85,13 +93,13 @@ function LoginControl(props) {
   ReactModal.setAppElement("#root");
 
   function openLoginModal() {
-    setShowLoginModal(true);
+    props.toLogin(true);
     document.body.style.overflow = "hidden";
     document.body.style.paddingRight = "17px";
   }
 
   function closeLoginModal() {
-    setShowLoginModal(false);
+    props.toLogin(false);
     document.body.style.overflow = "unset";
     document.body.style.paddingRight = "0px";
   }
@@ -184,17 +192,16 @@ function LoginControl(props) {
       });
   }
 
-  if (props.login === true) {
-    props.loginCompeleted();
-
-    return <Redirect push to="home"></Redirect>;
-  }
+  // if (props.login === true) {
+  //   props.loginCompeleted();
+  //   return <Redirect push to="/"></Redirect>;
+  // }
 
   return (
     <div className={styles.loginButton}>
       <div onClick={openLoginModal}>进入此间</div>
       <ReactModal
-        isOpen={showLoginModal}
+        isOpen={props.openLoginControl}
         onRequestClose={closeLoginModal}
         className={styles.modal}
         overlayClassName={styles.overlay}

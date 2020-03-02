@@ -4,28 +4,27 @@ import commonStyles from "../../utils/styles.module.css";
 import { Link } from "react-router-dom";
 
 import SvgComment from "../../icons/Comment";
-import { ossURL } from "../../utils/http";
 import { timeDiff } from "../../utils/calc";
 
 import Vote from "../vote";
+import Avatar from "../avatar";
 
 function Post(props) {
   let text = "";
   let imgURL = "";
   let videoURL = "";
-  let avatarURL = "";
   let time = timeDiff(props.post.time);
-  if (props.post.useravatar !== "") {
-    avatarURL = ossURL + props.post.useravatar;
-  }
 
   let postType = "normal";
 
   if (Array.isArray(props.post.content))
     props.post.content.forEach(node => {
       if (node.type === "paragraph") {
-        if (text === "") {
+        if (text === "" && node.children[0].hasOwnProperty("text")) {
           text = node.children[0].text;
+        }
+        if (imgURL === "" && node.children[0].type === "image") {
+          imgURL = node.children[0].url;
         }
       }
       if (node.type === "image") {
@@ -59,15 +58,14 @@ function Post(props) {
         {media}
 
         <div className={styles.textContainer}>
-          <h4 className={styles.title}>{props.post.title}</h4>
+          <h3>{props.post.title}</h3>
 
           <div className={styles.content}>{text}</div>
         </div>
 
         <div className={styles.infoWrapper}>
-          <div>
-            <img className={styles.avatar} alt="avatar" src={avatarURL}></img>
-          </div>
+          <Avatar url={props.post.useravatar}></Avatar>
+
           <div className={styles.userInfo}>
             <div className={styles.username}>{props.post.username}</div>
             <div className={styles.timeInfo}>

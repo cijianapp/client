@@ -59,6 +59,7 @@
     ]
   },
   "devDependencies": {
+    "autoresponsive-react": "^1.1.31",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0"
   }

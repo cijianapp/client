@@ -18,17 +18,19 @@ function Channels(props) {
 
   let guild = {};
 
+  if (props.explore_guild._id === props.match.params.guildID) {
+    guild = props.explore_guild;
+  }
+
   if (Array.isArray(props.info.guild)) {
     props.info.guild.forEach(element => {
       if (element._id === props.match.params.guildID) {
         guild = element;
       }
     });
+  }
 
-    if (props.explore_guild._id === props.match.params.guildID) {
-      guild = props.explore_guild;
-    }
-
+  if (Array.isArray(guild.channel)) {
     guild.channel.forEach(channel => {
       let channelStyle = styles.channel;
       if (channel._id === props.match.params.channelID) {

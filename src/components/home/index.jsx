@@ -2,7 +2,8 @@ import React from "react";
 import styles from "./styles.module.css";
 import axios from "axios";
 import { connect } from "react-redux";
-import { Switch, Route, Redirect } from "react-router";
+import { Switch, Route } from "react-router";
+import { withRouter } from "react-router-dom";
 
 import { baseURL } from "../../utils/http";
 import { USER_INFO } from "../../redux/actions";
@@ -12,8 +13,10 @@ import Guilds from "../guilds";
 import Homepage from "../homepage";
 import Explore from "../explore";
 import Base from "../base";
+import LoginControl from "../loginControl";
 
 const mapStateToProps = state => ({
+  login: state.auth.login,
   token: state.user.token,
   headerConfig: state.user.headerConfig,
   info: state.user.info
@@ -26,22 +29,22 @@ const mapDispatchToProps = dispatch => ({
 });
 
 function Home(props) {
-  if (!props.info.hasOwnProperty("username")) {
-    axios
-      .get(baseURL + "api/info", props.headerConfig)
-      .then(response => {
-        props.setUserInfo(response.data);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }
-  if (props.token === null) {
-    return <Redirect push to="/"></Redirect>;
+  if (props.login) {
+    if (!props.info.hasOwnProperty("username")) {
+      axios
+        .get(baseURL + "api/info", props.headerConfig)
+        .then(response => {
+          props.setUserInfo(response.data);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
   }
 
   return (
     <div>
+      <LoginControl></LoginControl>
       <SvgMask></SvgMask>
       <div className={styles.guilds}>
         <Guilds></Guilds>
@@ -52,12 +55,12 @@ function Home(props) {
             <Explore></Explore>
           </Route>
 
-          <Route exact path="/home">
-            <Homepage></Homepage>
-          </Route>
-
           <Route path="/:guildID/:channelID">
             <Base></Base>
+          </Route>
+
+          <Route exact path="/">
+            <Homepage></Homepage>
           </Route>
         </Switch>
       </div>
@@ -65,4 +68,4 @@ function Home(props) {
   );
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Home));

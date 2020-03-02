@@ -1,5 +1,6 @@
 export const LOGIN = "LOGIN";
 export const NO_LOGIN = "NO_LOGIN";
+export const TO_LOGIN = "TO_LOGIN";
 export const SET_TOKEN = "SET_TOKEN";
 export const ADD_CLOSE = "ADD_CLOSE";
 export const ADD_CLOSED = "ADD_CLOSED";

@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import Avatar from "../avatar";
 import UserSetting from "../userSetting";
 import HomeContent from "../homeContent";
+import Header from "../header";
 
 const mapStateToProps = state => ({
   info: state.user.info
@@ -25,9 +26,12 @@ function Homepage(props) {
         </div>
       </div>
 
-      <HomeContent></HomeContent>
-      {/* 
       <div className={styles.main}>
+        <Header></Header>
+        <HomeContent></HomeContent>
+      </div>
+
+      {/* <div className={styles.main}>
         <div className={styles.container}>
           <div className={styles.content}></div>
 

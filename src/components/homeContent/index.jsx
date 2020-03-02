@@ -2,16 +2,18 @@ import React, { useState, useEffect } from "react";
 import styles from "./styles.module.css";
 import axios from "axios";
 import { connect } from "react-redux";
-import Masonry from "react-masonry-css";
 
 import { baseURL } from "../../utils/http";
 import { USER_INFO, EXPLORE_GUILD } from "../../redux/actions";
+
 import Post from "../post";
+import GuildMiniCard from "../guildMiniCard";
 
 import SimpleBarReact from "simplebar-react";
 import "simplebar/src/simplebar.css";
 
 const mapStateToProps = state => ({
+  login: state.auth.login,
   headerConfig: state.user.headerConfig,
   info: state.user.info,
   explore_guild: state.user.explore_guild
@@ -28,48 +30,76 @@ const mapDispatchToProps = dispatch => ({
 
 function HomeContent(props) {
   const [posts, setPosts] = useState([]);
+  const [guilds, setGuilds] = useState([]);
 
   useEffect(() => {
     const source = axios.CancelToken.source();
 
-    axios
-      .get(baseURL + "api/homeposts", props.headerConfig)
-      .then(response => {
-        if (response.data !== null) {
-          let postList = [];
+    if (props.login) {
+      axios
+        .get(baseURL + "api/homeposts", {
+          ...props.headerConfig,
+          cancelToken: source.token
+        })
+        .then(response => {
+          if (response.data !== null) {
+            let postList = [];
+            response.data.forEach(element => {
+              postList.push(<Post key={element._id} post={element}></Post>);
+            });
+            setPosts(postList);
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    } else {
+      axios
+        .get(baseURL + "guest/homeposts", {
+          cancelToken: source.token
+        })
+        .then(response => {
+          if (response.data !== null) {
+            let postList = [];
+            response.data.forEach(element => {
+              postList.push(<Post key={element._id} post={element}></Post>);
+            });
+            setPosts(postList);
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
+
+      axios
+        .get(baseURL + "guest/explore", {
+          cancelToken: source.token
+        })
+        .then(response => {
+          let guildCardList = [];
           response.data.forEach(element => {
-            postList.push(<Post key={element._id} post={element}></Post>);
+            guildCardList.push(
+              <GuildMiniCard guild={element} key={element._id}></GuildMiniCard>
+            );
           });
-          setPosts(postList);
-        }
-      })
-      .catch(err => {
-        console.log(err);
-      });
+
+          setGuilds(guildCardList);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
 
     return () => {
       source.cancel();
     };
-  }, [props.headerConfig]);
-
-  const breakpointColumnsObj = {
-    default: 3,
-    1640: 2,
-    1240: 1
-  };
+  }, [props.login, props.headerConfig]);
 
   return (
     <SimpleBarReact className={styles.bar} forceVisible="y" autoHide={false}>
       <div className={styles.content}>
-        <div className={styles.container}>
-          <Masonry
-            breakpointCols={breakpointColumnsObj}
-            className={styles.masonryGrid}
-            columnClassName=""
-          >
-            {posts}
-          </Masonry>
-        </div>
+        <div className={styles.postsContainer}>{posts}</div>
+        <div className={styles.sidebarContainer}>{guilds}</div>
       </div>
     </SimpleBarReact>
   );

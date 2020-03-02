@@ -38,7 +38,7 @@ h2 {
 h3 {
   margin-block-start: 12px;
   margin-block-end: 6px;
-  color: var(--header-primary);
+  color: var(--text-normal);
 }
 
 h4 {

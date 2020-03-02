@@ -6,9 +6,10 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 
 import { baseURL } from "../../utils/http";
-import { ADD_CLOSE, USER_INFO } from "../../redux/actions";
+import { ADD_CLOSE, USER_INFO, TO_LOGIN } from "../../redux/actions";
 
 const mapStateToProps = state => ({
+  login: state.auth.login,
   token: state.user.token,
   headerConfig: state.user.headerConfig
 });
@@ -19,6 +20,9 @@ const mapDispatchToProps = dispatch => ({
   },
   refresh: () => {
     dispatch({ type: USER_INFO, value: {} });
+  },
+  toLogin: ifLogin => {
+    dispatch({ type: TO_LOGIN, value: ifLogin });
   }
 });
 
@@ -39,11 +43,19 @@ function Add(props) {
   const fileInput = useRef();
 
   function toCreate() {
-    setdestination("create");
+    if (!props.login) {
+      props.toLogin(true);
+    } else {
+      setdestination("create");
+    }
   }
 
   function toJoin() {
-    setdestination("join");
+    if (!props.login) {
+      props.toLogin(true);
+    } else {
+      setdestination("join");
+    }
   }
 
   function handleFile() {
