@@ -10,14 +10,15 @@
 }
 
 .container {
-  margin: 10px;
-  padding: 32px 48px;
   display: flex;
-  max-width: 720px;
   flex: 1 1 auto;
   flex-direction: column;
+  margin: 15px;
+  padding: 32px 48px;
+  max-width: 720px;
   background: var(--card-background);
   box-shadow: 0 0 0 1px var(--shadow-primary);
+  border-radius: 5px;
 }
 
 .title {

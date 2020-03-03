@@ -1,7 +1,7 @@
 .title {
   display: flex;
-  height: 48px;
   flex: 0 0 auto;
+  height: 48px;
   align-items: center;
   color: var(--header-primary);
   z-index: 10;
@@ -12,6 +12,9 @@
 .name {
   display: flex;
   flex: 1 1 auto;
+  font-size: x-large;
+  font-weight: bold;
+  color: #f2f2f3;
 }
 
 .iconContainer {

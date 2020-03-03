@@ -10,23 +10,9 @@ const mapStateToProps = state => ({
 });
 
 function Header(props) {
-  let name = "频道名";
-
-  if (Array.isArray(props.info.guild)) {
-    props.info.guild.forEach(guild => {
-      if (guild._id === props.match.params.guildID) {
-        guild.channel.forEach(channel => {
-          if (channel._id === props.match.params.channelID) {
-            name = channel.name;
-          }
-        });
-      }
-    });
-  }
-
   return (
     <div className={styles.title}>
-      <div className={styles.name}>{name}</div>
+      <div className={styles.name}>此 间</div>
       <LoginControl></LoginControl>
     </div>
   );

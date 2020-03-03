@@ -192,14 +192,25 @@ function LoginControl(props) {
       });
   }
 
-  // if (props.login === true) {
-  //   props.loginCompeleted();
-  //   return <Redirect push to="/"></Redirect>;
-  // }
+  if (props.login) {
+    return null;
+  }
 
   return (
-    <div className={styles.loginButton}>
-      <div onClick={openLoginModal}>进入此间</div>
+    <div className={styles.container}>
+      <div className={styles.buttonContainer}>
+        <button
+          className={commonStyles.button_green_S}
+          onClick={openRegisterModal}
+        >
+          注册
+        </button>
+      </div>
+
+      <button className={commonStyles.button_common_S} onClick={openLoginModal}>
+        登录
+      </button>
+
       <ReactModal
         isOpen={props.openLoginControl}
         onRequestClose={closeLoginModal}

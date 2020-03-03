@@ -61,6 +61,26 @@
   background-color: var(--button-primary-hover);
 }
 
+.button_common_S {
+  display: flex;
+  height: 28px;
+  padding: 2px 12px;
+  background-color: var(--button-primary);
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 16px;
+  cursor: pointer;
+}
+
+.button_common_S:hover {
+  background-color: var(--button-primary-hover);
+}
+
 .button_green_L {
   display: flex;
   height: 38px;
@@ -99,6 +119,26 @@
 }
 
 .button_green_M:hover {
+  background-color: var(--button-secondary-hover);
+}
+
+.button_green_S {
+  display: flex;
+  height: 28px;
+  padding: 2px 12px;
+  background-color: var(--button-secondary);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 22px;
+  cursor: pointer;
+}
+
+.button_green_S:hover {
   background-color: var(--button-secondary-hover);
 }
 
@@ -160,6 +200,14 @@
 
 .text12_muted {
   color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: justify;
+}
+
+.text12_normal {
+  color: var(--text-normal);
   font-size: 12px;
   font-weight: 500;
   line-height: 20px;
@@ -357,7 +405,7 @@
 }
 
 .icon_container:hover {
-  background-color: var(--background-modifier-selected);
+  /* background-color: var(--background-modifier-selected); */
   color: var(--interactive-hover);
   fill: var(--interactive-hover);
 }

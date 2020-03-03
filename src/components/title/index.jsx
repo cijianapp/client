@@ -3,7 +3,8 @@ import styles from "./styles.module.css";
 import { withRouter } from "react-router";
 import { connect } from "react-redux";
 
-import UserFriendsSolid from "../../icons/UserFriendsSolid";
+// import UserFriendsSolid from "../../icons/UserFriendsSolid";
+import LoginControl from "../loginControl";
 
 const mapStateToProps = state => ({
   info: state.user.info
@@ -27,11 +28,13 @@ function Title(props) {
   return (
     <div className={styles.title}>
       <div className={styles.name}>{name}</div>
-      <div>
+      {/* <div>
         <div className={styles.iconContainer}>
           <UserFriendsSolid className={styles.icon}></UserFriendsSolid>
         </div>
-      </div>
+      </div> */}
+
+      <LoginControl></LoginControl>
     </div>
   );
 }

@@ -181,7 +181,7 @@ function UserSetting(props) {
             >
               <Close24Px className={commonStyles.setting_icon}></Close24Px>
             </div>
-            <div>关闭</div>
+            <div className={commonStyles.text12_normal}>关闭</div>
           </div>
         </div>
       </ReactModal>

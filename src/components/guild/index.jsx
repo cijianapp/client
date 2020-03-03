@@ -29,7 +29,10 @@ function Guild(props) {
   const [pillHeight, setPillHeight] = useState("0px");
 
   function maskSelected() {
-    if (props.location.pathname.includes(props.guild._id)) {
+    if (
+      props.location.pathname.includes(props.guild._id) ||
+      (props.location.pathname === "/" && props.guild._id === "home")
+    ) {
     } else {
       setMask("url(#svg-mask-guilds-selected)");
       setPillHeight("20px");
@@ -37,7 +40,10 @@ function Guild(props) {
   }
 
   function maskUnSelected() {
-    if (props.location.pathname.includes(props.guild._id)) {
+    if (
+      props.location.pathname.includes(props.guild._id) ||
+      (props.location.pathname === "/" && props.guild._id === "home")
+    ) {
     } else {
       setPillHeight("0px");
 
@@ -50,7 +56,10 @@ function Guild(props) {
     if (props.addClose) {
       setShowAddModal(false);
     }
-    if (props.location.pathname.includes(props.guild._id)) {
+    if (
+      props.location.pathname.includes(props.guild._id) ||
+      (props.location.pathname === "/" && props.guild._id === "home")
+    ) {
       setMask("url(#svg-mask-guilds-selected)");
       setPillHeight("40px");
       setIconStyle(styles.circleIconButtonSelected);

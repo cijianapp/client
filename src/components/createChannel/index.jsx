@@ -57,9 +57,9 @@ function CreateChannel(props) {
   }
 
   return (
-    <div className={styles.iconContainer} data-tip="创建频道">
+    <div className={commonStyles.icon_container} data-tip="创建频道">
       <Add24Px
-        className={styles.icon}
+        className={commonStyles.icon_icon}
         onClick={e => setShowModal(true)}
       ></Add24Px>
       <ReactTooltip place="top" effect="solid" className={styles.toolTips} />
@@ -103,7 +103,7 @@ function CreateChannel(props) {
             >
               <Close24Px className={commonStyles.setting_icon}></Close24Px>
             </div>
-            <div>关闭</div>
+            <div className={commonStyles.text12_normal}>关闭</div>
           </div>
         </div>
       </ReactModal>

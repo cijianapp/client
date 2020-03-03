@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./styles.module.css";
+import commonStyles from "../../utils/styles.module.css";
 import axios from "axios";
 import { connect } from "react-redux";
 
@@ -11,6 +12,7 @@ import GuildMiniCard from "../guildMiniCard";
 
 import SimpleBarReact from "simplebar-react";
 import "simplebar/src/simplebar.css";
+import { Link } from "react-router-dom";
 
 const mapStateToProps = state => ({
   login: state.auth.login,
@@ -70,25 +72,27 @@ function HomeContent(props) {
         .catch(err => {
           console.log(err);
         });
-
-      axios
-        .get(baseURL + "guest/explore", {
-          cancelToken: source.token
-        })
-        .then(response => {
-          let guildCardList = [];
-          response.data.forEach(element => {
-            guildCardList.push(
-              <GuildMiniCard guild={element} key={element._id}></GuildMiniCard>
-            );
-          });
-
-          setGuilds(guildCardList);
-        })
-        .catch(err => {
-          console.log(err);
-        });
     }
+
+    axios
+      .get(baseURL + "guest/explore", {
+        cancelToken: source.token
+      })
+      .then(response => {
+        let guildCardList = [];
+        response.data.forEach(element => {
+          guildCardList.push(
+            <GuildMiniCard guild={element} key={element._id}></GuildMiniCard>
+          );
+        });
+
+        guildCardList.push();
+
+        setGuilds(guildCardList);
+      })
+      .catch(err => {
+        console.log(err);
+      });
 
     return () => {
       source.cancel();
@@ -99,7 +103,15 @@ function HomeContent(props) {
     <SimpleBarReact className={styles.bar} forceVisible="y" autoHide={false}>
       <div className={styles.content}>
         <div className={styles.postsContainer}>{posts}</div>
-        <div className={styles.sidebarContainer}>{guilds}</div>
+        <div className={styles.sidebarContainer}>
+          <div className={styles.tag}>此间热门社区</div>
+          {guilds}
+          <div className={styles.viewMore}>
+            <Link to="/explore" className={commonStyles.link_hidden}>
+              <div className={commonStyles.link_normal}>发现更多</div>
+            </Link>
+          </div>
+        </div>
       </div>
     </SimpleBarReact>
   );

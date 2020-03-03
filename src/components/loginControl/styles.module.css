@@ -1,15 +1,10 @@
-.loginButton {
-  padding: 5px 15px;
-  color: var(--text-normal);
-  border: 2px solid var(--border-primary);
-  border-radius: 20px;
-  font-weight: 400;
-  cursor: pointer;
+.container {
+  display: flex;
+  flex-direction: row;
 }
 
-.loginButton:hover {
-  color: var(--text-strong);
-  border: 2px solid var(--border-secondary);
+.buttonContainer {
+  margin-right: 10px;
 }
 
 .modal {

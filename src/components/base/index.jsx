@@ -9,7 +9,7 @@ import Content from "../content";
 import Chat from "../chat";
 import PostDetail from "../postDetail";
 import Submit from "../submit";
-import Client from "../../client";
+// import Client from "../../client";
 import Axios from "axios";
 
 import { baseURL } from "../../utils/http";
@@ -28,15 +28,15 @@ const mapDispatchToProps = dispatch => ({
 });
 
 function Base(props) {
-  function testa() {
-    // client1.channels.get("664322733420576811").send("Your message");
-    Client.sendMessage("message", { content: "hello", channel: "a" });
-  }
+  // function testa() {
+  //   // client1.channels.get("664322733420576811").send("Your message");
+  //   Client.sendMessage("message", { content: "hello", channel: "a" });
+  // }
 
-  function testb() {
-    // client1.channels.get("664322733420576811").send("Your message");
-    Client.sendMessage("message", { content: "bye", channel: "b" });
-  }
+  // function testb() {
+  //   // client1.channels.get("664322733420576811").send("Your message");
+  //   Client.sendMessage("message", { content: "bye", channel: "b" });
+  // }
 
   if (Array.isArray(props.info.guild)) {
     let newGuild = true;
@@ -110,10 +110,10 @@ function Base(props) {
             </Switch>
           </div>
 
-          <div className={styles.members}>
+          {/* <div className={styles.members}>
             <button onClick={testa}>测试a</button>
             <button onClick={testb}>测试b</button>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
